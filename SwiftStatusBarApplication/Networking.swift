@@ -120,5 +120,22 @@ final class Networking {
                 callback(json, error)
         }
     }
+    
+    /**
+    Get access toke for a user
+    
+    :param: email       The users email address
+    :param: password    The users password
+    :param: id          The users id as returned by singup
+    
+    :see: createUser
+    */
+    func getToken(email: String!, password: String!, userId: String!, callback: APICallback) {
+        Alamofire
+            .request(.POST, "\(Config.baseURL)/users/\(userId)", parameters: ["email":email, "password":password])
+            .responseJSON { (request, response, jsonData, error) -> Void in
+                let json = JSON(jsonData!)
+                callback(json, error)
+        }
     }
 }
