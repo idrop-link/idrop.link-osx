@@ -10,8 +10,72 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// MARK: - AuthRouter enum
 /**
-    This class provides an interface to the idrop.link backend API.
+Router for authentification based paths
+*/
+enum AuthRouter: URLRequestConvertible {
+    static let baseUrlString = Config.baseURL
+    static var authToken: String?
+    
+    case CreateUser([String: AnyObject])
+    case DeleteUser(String)
+    case GetUser(String)
+    case UpdateUser(String, [String: AnyObject])
+    
+    // MARK: Methods
+    var method: Alamofire.Method {
+        switch self {
+        case .CreateUser:
+            return .POST
+        case .DeleteUser:
+            return .DELETE
+        case .GetUser:
+            return .GET
+        case .UpdateUser:
+            return .PUT
+        }
+    }
+    
+    // MARK: Paths
+    var path: String {
+        switch self {
+        case .CreateUser:
+            return "/users"
+        case .DeleteUser(let userId):
+            return "/users/\(userId)"
+        case .GetUser(let userId):
+            return "/users/\(userId)"
+        case .UpdateUser(let userId, _):
+            return "/users/\(userId)"
+        }
+    }
+    
+    // MARK: URLRequestConvertible
+    var URLRequest: NSURLRequest {
+        let URL:NSURL! = NSURL(string: AuthRouter.baseUrlString)
+        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        mutableURLRequest.HTTPMethod = method.rawValue
+        
+        // set custom header
+        if let token = AuthRouter.authToken {
+            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        }
+        
+        switch self {
+        case .CreateUser(let parameters):
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+        case .UpdateUser(_, let parameters):
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+        default:
+            return mutableURLRequest
+        }
+    }
+}
+
+// MARK: - Networking Class
+/**
+This class provides an interface to the idrop.link backend API.
 */
 final class Networking {
     
