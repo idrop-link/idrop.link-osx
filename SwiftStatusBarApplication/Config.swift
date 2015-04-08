@@ -9,5 +9,5 @@
 import Foundation
 
 struct Config {
-    static let baseURL = "http://api.idrop.link"
+    static let baseURL = "https://api.idrop.link/v1"
 }
