@@ -6,6 +6,9 @@ AppDelegate.swift
 	func applicationDidFinishLaunching(aNotification: NSNotification?)
 	func applicationWillTerminate(aNotification: NSNotification?)
 	override func awakeFromNib()
+Config.swift
+	struct Config
+	static let baseURL = "http://api.idrop.link"
 IconView.swift
 	class IconView : NSView
 	private(set) var image: NSImage
