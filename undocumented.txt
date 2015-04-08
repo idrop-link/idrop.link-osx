@@ -1,0 +1,21 @@
+AppDelegate.swift
+	class AppDelegate: NSObject, NSApplicationDelegate
+	@IBOutlet var window: NSWindow?
+	@IBOutlet var popover : NSPopover?
+	override init()
+	func applicationDidFinishLaunching(aNotification: NSNotification?)
+	func applicationWillTerminate(aNotification: NSNotification?)
+	override func awakeFromNib()
+Config.swift
+	struct Config
+	static let baseURL = "http://api.idrop.link"
+IconView.swift
+	class IconView : NSView
+	private(set) var image: NSImage
+	var onMouseDown: () -> ()
+	var isSelected: Bool
+	init(imageName: String, item: NSStatusItem)
+	required init?(coder: NSCoder)
+	override func drawRect(dirtyRect: NSRect)
+	override func mouseDown(theEvent: NSEvent)
+	override func mouseUp(theEvent: NSEvent)
