@@ -10,6 +10,9 @@ The project versioning tries to adhere to the standards of [semantic versioning]
 
 Milestones are vaguely defined minor or major version bumps that are being released and merged from the `development` base branch to the `master` branch.
 
+### Documentation
+Every API like function, class or other objects have to be documented. For more details on documentation in Swift see [NSHipster](http://nshipster.com/swift-documentation/). We generate the docset with [Jazzy](https://github.com/realm/jazzy) and deploy it in the root directory of the `gh-pages` branch.
+
 ## License
 Note: This project used the [Swift Status Bar App](https://github.com/supertommy/swift-status-bar-app-osx) as a scaffold.
 The MIT License (MIT)
