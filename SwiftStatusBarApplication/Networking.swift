@@ -80,19 +80,19 @@ This class provides an interface to the idrop.link backend API.
 final class Networking {
     
     /**
-        Custom callback type alias
+    Custom callback type alias
     */
     typealias APICallback = ((JSON?, NSError?) -> ())
     
     /**
-        Creates a User with the given credentials
-
-        @param email    The email address the user wants to use
-        @param password The users password to identify
-        @param callback Function to call with result or error when finished
+    Creates a User with the given credentials
     
-        @warning The email can only be used once, hence it has to be
-                 unique.
+    :param: email    The email address the user wants to use
+    :param: password The users password to identify
+    :param: callback Function to call with result or error when finished
+    
+    :warning: The email can only be used once, hence it has to be
+    unique.
     */
     func createUser(email: String!, password: String!, callback: APICallback) {
         Alamofire
@@ -100,23 +100,25 @@ final class Networking {
             .responseJSON { (request, response, jsonData, error) -> Void in
                 let json = JSON(jsonData!)
                 callback(json, error)
-            }
+        }
     }
-
-    /**
-        Lookup a User by their ID
     
-        @param id   The ID as returned by createUser or signIn
-        
-        @see createUser
-        @see signIn
+    /**
+    Lookup a User by their ID
+    
+    :param: id      The ID as returned by createUser or signIn
+    :param: token   A valid access token
+    
+    :see: createUser
+    :see: getToken
     */
-    func getUser(id: String!, callback: APICallback) {
+    func getUser(id: String!, token: String!, callback: APICallback) {
         Alamofire
             .request(.GET, "\(Config.baseURL)/users/\(id)")
             .responseJSON{ (request, response, jsonData, error ) -> Void in
                 let json = JSON(jsonData!)
                 callback(json, error)
-            }
+        }
+    }
     }
 }
