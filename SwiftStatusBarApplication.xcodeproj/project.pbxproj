@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65D81B1B1AD52B15002B60F1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81B1A1AD52B15002B60F1 /* Config.swift */; };
 		65DED9641943997E0059A266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DED9631943997E0059A266 /* AppDelegate.swift */; };
 		65DED9661943997E0059A266 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65DED9651943997E0059A266 /* Images.xcassets */; };
 		65DED9691943997E0059A266 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DED9671943997E0059A266 /* MainMenu.xib */; };
 		65DED9751943997E0059A266 /* SwiftStatusBarApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DED9741943997E0059A266 /* SwiftStatusBarApplicationTests.swift */; };
 		65DED97F194399AB0059A266 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DED97E194399AB0059A266 /* IconView.swift */; };
 		65DED98419439B020059A266 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DED98219439B020059A266 /* icon@2x.png */; };
+		65EE31461AD521F3001AEBD9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EE31451AD521F3001AEBD9 /* Networking.swift */; };
 		B2F973590934E6B06A6B6469 /* Pods_SwiftStatusBarApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D61F2D21AA383D86C61344C /* Pods_SwiftStatusBarApplication.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,7 @@
 /* Begin PBXFileReference section */
 		2EBE5503C379D3D40AB16F71 /* Pods-SwiftStatusBarApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStatusBarApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication.release.xcconfig"; sourceTree = "<group>"; };
 		5D61F2D21AA383D86C61344C /* Pods_SwiftStatusBarApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftStatusBarApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65D81B1A1AD52B15002B60F1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		65DED95C1943997E0059A266 /* SwiftStatusBarApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStatusBarApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DED9601943997E0059A266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65DED9631943997E0059A266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		65DED9741943997E0059A266 /* SwiftStatusBarApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStatusBarApplicationTests.swift; sourceTree = "<group>"; };
 		65DED97E194399AB0059A266 /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		65DED98219439B020059A266 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		65EE31451AD521F3001AEBD9 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		963D0813A4ED1E68A7EBD3B6 /* Pods-SwiftStatusBarApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStatusBarApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				65DED98019439B020059A266 /* Resources */,
+				65EE31451AD521F3001AEBD9 /* Networking.swift */,
+				65D81B1A1AD52B15002B60F1 /* Config.swift */,
 				65DED9631943997E0059A266 /* AppDelegate.swift */,
 				65DED97E194399AB0059A266 /* IconView.swift */,
 				65DED9651943997E0059A266 /* Images.xcassets */,
