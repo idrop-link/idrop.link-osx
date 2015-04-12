@@ -58,8 +58,11 @@ enum AuthRouter: URLRequestConvertible {
         mutableURLRequest.HTTPMethod = method.rawValue
         
         // set custom header
+        // for unauthenticated requests the token should be nil anyway
         if let token = AuthRouter.authToken {
-            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            if (tokenizedRequest) {
+                mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            }
         }
         
         switch self {
