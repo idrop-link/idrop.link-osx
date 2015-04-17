@@ -684,7 +684,7 @@
         </customView>
         <menu id="QKl-2u-n0Q">
             <items>
-                <menuItem title="Preferences" keyEquivalent="p" id="Fhd-9x-Trc"/>
+                <menuItem title="Preferences" keyEquivalent="," id="Fhd-9x-Trc"/>
                 <menuItem title="Login" id="xoV-OR-5mB">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
