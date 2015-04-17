@@ -19,5 +19,6 @@ struct Config {
                   have to edit this path to match your base link of your 
                   backend copy.
     */
-    static let baseURL = "https://api.idrop.link/v1"
+    // static let baseUrl = "https://api.idrop.link/v1"
+    static let baseUrl = "http://localhost:7667"
 }
