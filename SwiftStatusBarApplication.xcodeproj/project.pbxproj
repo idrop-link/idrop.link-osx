@@ -38,6 +38,7 @@
 		5D61F2D21AA383D86C61344C /* Pods_SwiftStatusBarApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftStatusBarApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6548C81B1AE1923A0027021A /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		6548C81F1AE1946A0027021A /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		656FD1201AE146AB00B3284E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		659443521AE13042007FF573 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		659443541AE13060007FF573 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		65D81B1A1AD52B15002B60F1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				65DED98019439B020059A266 /* Resources */,
+				656FD1201AE146AB00B3284E /* User.swift */,
 				65EE31451AD521F3001AEBD9 /* Networking.swift */,
 				659443521AE13042007FF573 /* Keychain.swift */,
 				65D81B1A1AD52B15002B60F1 /* Config.swift */,
@@ -318,6 +320,7 @@
 			files = (
 				65DED9641943997E0059A266 /* AppDelegate.swift in Sources */,
 				65D81B1B1AD52B15002B60F1 /* Config.swift in Sources */,
+				656FD1211AE146AB00B3284E /* User.swift in Sources */,
 				65EE31461AD521F3001AEBD9 /* Networking.swift in Sources */,
 				6548C8201AE1946A0027021A /* PreferencesWindowController.swift in Sources */,
 				65DED97F194399AB0059A266 /* IconView.swift in Sources */,
