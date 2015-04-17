@@ -14,16 +14,19 @@ import SwiftyJSON
 /**
 Router for authentification based paths
 */
-enum AuthRouter: URLRequestConvertible {
-    static let baseUrlString = Config.baseURL
+enum Router: URLRequestConvertible {
+    static let baseUrlString = Config.baseUrl
     static var authToken: String?
     
-    case CreateUser([String: AnyObject])
+    case CreateUser(String, String)
     case DeleteUser(String)
     case GetUser(String)
     case UpdateUser(String, [String: AnyObject])
     
     // MARK: Methods
+    /**
+    HTTP method for different kind of requests
+    */
     var method: Alamofire.Method {
         switch self {
         case .CreateUser:
@@ -38,6 +41,9 @@ enum AuthRouter: URLRequestConvertible {
     }
     
     // MARK: Paths
+    /**
+    Defines the API routes to call for a specific request
+    */
     var path: String {
         switch self {
         case .CreateUser:
@@ -51,23 +57,35 @@ enum AuthRouter: URLRequestConvertible {
         }
     }
     
+    /**
+    Defines wether or not the request needs a token for the request
+    */
+    var tokenizedRequest: Bool {
+        switch self {
+        case .CreateUser:
+            return false
+        case .DeleteUser, .GetUser, .UpdateUser:
+            return true
+        }
+    }
+    
     // MARK: URLRequestConvertible
     var URLRequest: NSURLRequest {
-        let URL:NSURL! = NSURL(string: AuthRouter.baseUrlString)
+        let URL:NSURL! = NSURL(string: Router.baseUrlString)
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
         
         // set custom header
         // for unauthenticated requests the token should be nil anyway
-        if let token = AuthRouter.authToken {
+        if let token = Router.authToken {
             if (tokenizedRequest) {
                 mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
             }
         }
         
         switch self {
-        case .CreateUser(let parameters):
-            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+        case .CreateUser(let email, let password):
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: [email: email, password: password]).0
         case .UpdateUser(_, let parameters):
             return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
         default:
@@ -97,9 +115,9 @@ final class Networking {
     :warning: The email can only be used once, hence it has to be
     unique.
     */
-    func createUser(email: String!, password: String!, callback: APICallback) {
+    class func createUser(email: String, password: String, callback: APICallback) {
         Alamofire
-            .request(.POST, "\(Config.baseURL)/users", parameters: ["email":email, "password":password])
+            .request(Router.CreateUser(email, password))
             .responseJSON { (request, response, jsonData, error) -> Void in
                 let json = JSON(jsonData!)
                 callback(json, error)
@@ -115,9 +133,9 @@ final class Networking {
     :see: createUser
     :see: getToken
     */
-    func getUser(id: String!, token: String!, callback: APICallback) {
+    class func getUser(id: String!, token: String!, callback: APICallback) {
         Alamofire
-            .request(.GET, "\(Config.baseURL)/users/\(id)")
+            .request(Router.GetUser(id))
             .responseJSON{ (request, response, jsonData, error ) -> Void in
                 let json = JSON(jsonData!)
                 callback(json, error)
@@ -133,12 +151,12 @@ final class Networking {
     
     :see: createUser
     */
-    func getToken(email: String!, password: String!, userId: String!, callback: APICallback) {
-        Alamofire
-            .request(.POST, "\(Config.baseURL)/users/\(userId)", parameters: ["email":email, "password":password])
-            .responseJSON { (request, response, jsonData, error) -> Void in
-                let json = JSON(jsonData!)
-                callback(json, error)
-        }
+    class func getToken(email: String!, password: String!, userId: String!, callback: APICallback) {
+//        Alamofire
+//            .request(Router.GetAuthToken(email, password))
+//            .responseJSON { (request, response, jsonData, error) -> Void in
+//                let json = JSON(jsonData!)
+//                callback(json, error)
+//        }
     }
 }
