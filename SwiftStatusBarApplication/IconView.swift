@@ -11,29 +11,29 @@ import Cocoa
 
 class IconView : NSView
 {
+    @IBOutlet var mainMenu: NSMenu?
+    
     private(set) var image: NSImage
     private let item: NSStatusItem
     
     var onMouseDown: () -> ()
+    var onRightMouseDown: () -> ()
     
-    var isSelected: Bool
-    {
-        didSet
-        {
-            //redraw if isSelected changes for bg highlight
-            if (isSelected != oldValue)
-            {
+    var isSelected: Bool {
+        didSet {
+            // redraw if isSelected changes for bg highlight
+            if (isSelected != oldValue) {
                 self.needsDisplay = true
             }
         }
     }
     
-    init(imageName: String, item: NSStatusItem)
-    {
+    init(imageName: String, item: NSStatusItem) {
         self.image = NSImage(named: imageName)!
         self.item = item
         self.isSelected = false
         self.onMouseDown = {}
+        self.onRightMouseDown = {}
         
         let thickness = NSStatusBar.systemStatusBar().thickness
         let rect = CGRectMake(0, 0, thickness, thickness)
@@ -46,8 +46,7 @@ class IconView : NSView
     }
     
     
-    override func drawRect(dirtyRect: NSRect)
-    {
+    override func drawRect(dirtyRect: NSRect) {
         self.item.drawStatusBarBackgroundInRect(dirtyRect, withHighlight: self.isSelected)
         
         let size = self.image.size
@@ -56,13 +55,16 @@ class IconView : NSView
         self.image.drawInRect(rect)
     }
     
-    override func mouseDown(theEvent: NSEvent)
-    {
+    override func mouseDown(theEvent: NSEvent) {
         self.isSelected = !self.isSelected;
         self.onMouseDown();
     }
     
-    override func mouseUp(theEvent: NSEvent)
-    {
+    override func mouseUp(theEvent: NSEvent) {
+    }
+    
+    override func rightMouseDown(theEvent: NSEvent) {
+        self.isSelected = !self.isSelected;
+        self.onRightMouseDown();
     }
 }
