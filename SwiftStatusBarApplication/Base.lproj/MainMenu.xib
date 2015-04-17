@@ -682,9 +682,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <point key="canvasLocation" x="262" y="316"/>
         </customView>
-        <menu id="QKl-2u-n0Q">
+        <menu autoenablesItems="NO" id="QKl-2u-n0Q">
             <items>
-                <menuItem title="Preferences" keyEquivalent="," id="Fhd-9x-Trc"/>
+                <menuItem title="Preferences" keyEquivalent="," id="Fhd-9x-Trc">
+                    <connections>
+                        <action selector="showPreferencesWindow:" target="Voe-Tx-rLC" id="EJJ-42-cya"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Login" id="xoV-OR-5mB">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>

@@ -68,5 +68,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func quitApplication(sender: AnyObject) {
         NSApplication.sharedApplication().terminate(self)
     }
+
+    @IBAction func showPreferencesWindow(sender: AnyObject) {
+         NSBundle.mainBundle().loadNibNamed("Preferences", owner: self, topLevelObjects: nil)
+    }
 }
 
