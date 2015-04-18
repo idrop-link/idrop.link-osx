@@ -18,18 +18,29 @@ public class User {
     
     :returns: user  id as returned by the api
     */
-    public func createUser(email: String, password: String) -> Bool {
-        Networking.createUser(email, password: password, callback: {(json, error) in
-            if (error == nil) {
-                // TODO: "return" nil
+    public func createUser(email: String, password: String, callback: (Bool, String) -> ()) {
+        Networking.createUser(email, password: password, callback: { (returnedJson, error) in
+            if (error != nil) {
                 print("error on createUser")
+                if let json = returnedJson {
+                    callback(false, json["message"].string!)
+                } else {
+                    callback(false, "no message returned")
+                }
             } else {
-                print(json)
+                if let json = returnedJson {
+                    self.email = email
+                    self.password = password
+                    self.userId = json["_id"].string
+                    
+                    if let id = self.userId {
+                        callback(true, id)
+                    } else {
+                        callback(false, "no id returned")
+                    }
+                }
             }
         })
-        
-        // TODO
-        return true;
     }
     
     public init() {
