@@ -691,6 +691,9 @@
                 </menuItem>
                 <menuItem title="Login" id="xoV-OR-5mB">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showLoginSignupWindow:" target="Voe-Tx-rLC" id="6ac-Yn-klB"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="aeh-kO-q8n"/>
                 <menuItem title="Quit" keyEquivalent="q" id="5PD-PJ-BG7">

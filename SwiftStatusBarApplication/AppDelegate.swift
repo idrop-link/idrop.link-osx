@@ -14,6 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
     
+    var preferencesWindowController = PreferencesWindowController()
+    var loginSignupWindowController = LoginSignupWindowController()
+    
     let icon: IconView;
     let item: NSStatusItem
     
@@ -70,7 +73,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func showPreferencesWindow(sender: AnyObject) {
-         NSBundle.mainBundle().loadNibNamed("Preferences", owner: self, topLevelObjects: nil)
+         NSBundle.mainBundle().loadNibNamed("Preferences", owner: preferencesWindowController, topLevelObjects: nil)
+    }
+    
+    @IBAction func showLoginSignupWindow(sender: AnyObject) {
+        NSBundle.mainBundle().loadNibNamed("LoginSignup", owner: loginSignupWindowController, topLevelObjects: nil)
     }
 }
 
