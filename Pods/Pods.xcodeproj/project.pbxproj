@@ -7,293 +7,339 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07D7AB7C171D845047864EE0 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E44B411FE17DA3F126486545 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D3103F9B15CD935FD62F2EA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32744184D8F09E36B2C7DD4 /* Cocoa.framework */; };
-		32692B4B52144B38B328A176 /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B179E1E27B387205E05375 /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BD7A6F92E35755CA32FA649 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32744184D8F09E36B2C7DD4 /* Cocoa.framework */; };
-		73D31C20945F4F9112B86BDA /* Pods-SwiftStatusBarApplication-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD949213496F950C28C658D /* Pods-SwiftStatusBarApplication-dummy.m */; };
-		837E16788B04F347E9DD6FC1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9C37E2893F262266D1F63 /* SwiftyJSON.swift */; };
-		A1A832995624CEAEC38A6B76 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B424C2C8B2CE3B0939AA67D5 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m */; };
-		CC765BD701A2E54CE107748C /* Pods-SwiftStatusBarApplication-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E18594D8D4D49FD8324F624 /* Pods-SwiftStatusBarApplication-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E34B1E01728EF0FA6459D616 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC6F75913B8F2CA03D74FC /* Alamofire.swift */; };
-		E816616634FE06EF2207478A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32744184D8F09E36B2C7DD4 /* Cocoa.framework */; };
-		E9C9E8A9178E3466AA967DF7 /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B6049F84D55CE031DEA5BB /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m */; };
+		03025641317E1E96150F554A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661DE1B8615533BC9A22675F /* SwiftyJSON.swift */; };
+		20A89CAB39874D683F90F1DE /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 79616F6189EEDC5B2D84BBEC /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		251BEA036C28A09F2E3C3DB8 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86D1A56E713454F23176E7E /* Keychain.swift */; };
+		47251FC2126832915ED719D6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2EBC733C5ED6F82B38DA68 /* Cocoa.framework */; };
+		53362370853E761CE79D6141 /* Pods-SwiftStatusBarApplication-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8712062DBD3E434795853557 /* Pods-SwiftStatusBarApplication-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54C9D0D340368864676E3A84 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2EBC733C5ED6F82B38DA68 /* Cocoa.framework */; };
+		5C6BBA5C8596F469F5DA710F /* Pods-SwiftStatusBarApplication-KeychainAccess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E72EBC60D82748437A35B8 /* Pods-SwiftStatusBarApplication-KeychainAccess-dummy.m */; };
+		5F5038D198BC24196CBA9C7C /* Pods-SwiftStatusBarApplication-KeychainAccess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F994E52503E18FBE842B2F2 /* Pods-SwiftStatusBarApplication-KeychainAccess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		97EE13918B4E95729313196E /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFCA6E45F704A9E184F4B07 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m */; };
+		A14606FC5B5A1FFE4FB33320 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B799631EEC93A3EF760AAF3 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B77FC89DEED63BE7E3E79393 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2EBC733C5ED6F82B38DA68 /* Cocoa.framework */; };
+		CF807D57B6421D1A76077DC6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2EBC733C5ED6F82B38DA68 /* Cocoa.framework */; };
+		EC1B3E839A795B3F2D7E3F6B /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100A294DD291A49C7E25766 /* Alamofire.swift */; };
+		F5A53C984B0E8890547C6869 /* Pods-SwiftStatusBarApplication-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62A6936C90CCD7524F4BD82A /* Pods-SwiftStatusBarApplication-dummy.m */; };
+		FD4E24E2D0BC558EFB827F99 /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3BE323B4F58041D979A4A4 /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		57C20DCC39E059E1938730A7 /* PBXContainerItemProxy */ = {
+		4BFEB5489996D1DF66AD5DBD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A4697F5A8F135FD444415AB /* Project object */;
+			containerPortal = 55A84E6A0A3CD90068037D7A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 352144519B907DF96115E337;
-			remoteInfo = "Pods-SwiftStatusBarApplication-SwiftyJSON";
-		};
-		80A03E5648E873929FD3BBB6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1A4697F5A8F135FD444415AB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0D029B61C6E8FAE352772F3E;
+			remoteGlobalIDString = A253C429E51D37B127B112E3;
 			remoteInfo = "Pods-SwiftStatusBarApplication-Alamofire";
+		};
+		5DF15E6A02DC297262F5E3FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55A84E6A0A3CD90068037D7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3169E829F6D413417217898;
+			remoteInfo = "Pods-SwiftStatusBarApplication-KeychainAccess";
+		};
+		CDAE988481B344831C298D45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55A84E6A0A3CD90068037D7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 936CC1A1F988C26E2C9FD9A6;
+			remoteInfo = "Pods-SwiftStatusBarApplication-SwiftyJSON";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		005B865436C0FA314AE80B56 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E18594D8D4D49FD8324F624 /* Pods-SwiftStatusBarApplication-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-umbrella.h"; sourceTree = "<group>"; };
-		177365E47D8506AB15B2FACD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B870CD9B45A5ADB28FE207 /* Pods-SwiftStatusBarApplication-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-environment.h"; sourceTree = "<group>"; };
-		26BC6264CF6CD467A89BAF1F /* Pods-SwiftStatusBarApplication-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftStatusBarApplication-resources.sh"; sourceTree = "<group>"; };
-		299647F1D317910A56718800 /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig"; sourceTree = "<group>"; };
-		3DC31402FF716E1C1BE93E68 /* Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		4C55D5DC9821CBF4AB17A9C7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		573C4B4076431CE087CEAA60 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60494D33E1EF676BEF50D165 /* Pods-SwiftStatusBarApplication.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftStatusBarApplication.modulemap"; sourceTree = "<group>"; };
-		6CD949213496F950C28C658D /* Pods-SwiftStatusBarApplication-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftStatusBarApplication-dummy.m"; sourceTree = "<group>"; };
-		6CDC6F75913B8F2CA03D74FC /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		89BD54D4C066D65CB11E6A9D /* Pods-SwiftStatusBarApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication.debug.xcconfig"; sourceTree = "<group>"; };
-		8A54E2DEB50DD559147B0E36 /* Pods_SwiftStatusBarApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftStatusBarApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F5727DBE342713085A1ED55 /* Pods-SwiftStatusBarApplication-Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		A15FBA74DC04B884251B9BC6 /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig"; sourceTree = "<group>"; };
-		A16DD6904963909353CCD672 /* Pods-SwiftStatusBarApplication-Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-Alamofire.xcconfig"; sourceTree = "<group>"; };
-		A93F973176742E18A1105020 /* Pods-SwiftStatusBarApplication-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftStatusBarApplication-acknowledgements.plist"; sourceTree = "<group>"; };
-		B424C2C8B2CE3B0939AA67D5 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftStatusBarApplication-Alamofire-dummy.m"; sourceTree = "<group>"; };
-		B9B6049F84D55CE031DEA5BB /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		BA72402C6FD32D454AC86826 /* Pods-SwiftStatusBarApplication-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftStatusBarApplication-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BDEAE6E6B4340A84A3BBB169 /* Pods-SwiftStatusBarApplication-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftStatusBarApplication-frameworks.sh"; sourceTree = "<group>"; };
-		C2B179E1E27B387205E05375 /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		C55F9BB2F8657648FA1F8597 /* Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap"; sourceTree = "<group>"; };
-		CFE9C37E2893F262266D1F63 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
-		D523F8140950075A47E0787E /* Pods-SwiftStatusBarApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication.release.xcconfig"; sourceTree = "<group>"; };
-		E44B411FE17DA3F126486545 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
-		E869F9008ABABD7C602EC154 /* Pods-SwiftStatusBarApplication-Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftStatusBarApplication-Alamofire.modulemap"; sourceTree = "<group>"; };
-		E9D30AE7F4C71219915BDF82 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F32744184D8F09E36B2C7DD4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		F48F22C6F07363E9E5C3BF43 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		FF21C1C5C277AA6CB1234B18 /* Pods-SwiftStatusBarApplication-SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-SwiftyJSON.xcconfig"; sourceTree = "<group>"; };
+		0B2EBC733C5ED6F82B38DA68 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		0EEE22D5208E5E44ECC54FFD /* Pods-SwiftStatusBarApplication-KeychainAccess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-KeychainAccess.xcconfig"; sourceTree = "<group>"; };
+		169BDFC1EADAA9154A8BC87E /* Pods-SwiftStatusBarApplication-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftStatusBarApplication-acknowledgements.plist"; sourceTree = "<group>"; };
+		1A563686E96DC4C214CD3E8C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		214DFF231EDFB57B54EADD33 /* Pods-SwiftStatusBarApplication-SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-SwiftyJSON.xcconfig"; sourceTree = "<group>"; };
+		243C32052CAB880067F37A39 /* Pods-SwiftStatusBarApplication-Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftStatusBarApplication-Alamofire.modulemap"; sourceTree = "<group>"; };
+		2FF54ED10A4665FB17FDDBC4 /* Pods-SwiftStatusBarApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication.release.xcconfig"; sourceTree = "<group>"; };
+		3B799631EEC93A3EF760AAF3 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		3DF1A77C00E967179213DB60 /* Pods-SwiftStatusBarApplication.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftStatusBarApplication.modulemap"; sourceTree = "<group>"; };
+		3F994E52503E18FBE842B2F2 /* Pods-SwiftStatusBarApplication-KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
+		45E72EBC60D82748437A35B8 /* Pods-SwiftStatusBarApplication-KeychainAccess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftStatusBarApplication-KeychainAccess-dummy.m"; sourceTree = "<group>"; };
+		5D28E2E01736D90C8A243B99 /* Pods-SwiftStatusBarApplication-KeychainAccess-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-KeychainAccess-Private.xcconfig"; sourceTree = "<group>"; };
+		62A6936C90CCD7524F4BD82A /* Pods-SwiftStatusBarApplication-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftStatusBarApplication-dummy.m"; sourceTree = "<group>"; };
+		64C3159F3BE444654C5ABCBC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		661DE1B8615533BC9A22675F /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		6B80791EA022A3604174C5DD /* Pods-SwiftStatusBarApplication-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-environment.h"; sourceTree = "<group>"; };
+		6E4ADEB8D08FC3E44BA9A49F /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig"; sourceTree = "<group>"; };
+		79616F6189EEDC5B2D84BBEC /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		7C986E97AB45FCAC9A8C5403 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		814FED433FA9597557FB1A6D /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81FFEBC30D89997A881B4F69 /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83BF16591455B54B4F6BDD06 /* Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		8712062DBD3E434795853557 /* Pods-SwiftStatusBarApplication-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-umbrella.h"; sourceTree = "<group>"; };
+		8DECB5DA4DCBC1B30960F96D /* Pods_SwiftStatusBarApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftStatusBarApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F3BE323B4F58041D979A4A4 /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		91FE5BC646C798C2F1293F9B /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig"; sourceTree = "<group>"; };
+		97A2A17CB55EFFDFA969C810 /* Pods-SwiftStatusBarApplication-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftStatusBarApplication-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A100A294DD291A49C7E25766 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		A6D55F2A881EC098A8B85522 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A86D1A56E713454F23176E7E /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
+		AF52D927E767B25EA9CF70E0 /* Pods-SwiftStatusBarApplication-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftStatusBarApplication-resources.sh"; sourceTree = "<group>"; };
+		B714B7F696A231A0ECA34CF9 /* Pods-SwiftStatusBarApplication-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftStatusBarApplication-frameworks.sh"; sourceTree = "<group>"; };
+		BA8AE5687F02C669B8576262 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEDD7DD63F4AF24F49E771EF /* Pods-SwiftStatusBarApplication-KeychainAccess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-KeychainAccess-prefix.pch"; sourceTree = "<group>"; };
+		BFFCA6E45F704A9E184F4B07 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftStatusBarApplication-Alamofire-dummy.m"; sourceTree = "<group>"; };
+		C8498B1E9F3947712FD53730 /* Pods-SwiftStatusBarApplication-Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication-Alamofire.xcconfig"; sourceTree = "<group>"; };
+		D392A6F80D7935C96E68E6BB /* Pods-SwiftStatusBarApplication-Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftStatusBarApplication-Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		EB609EDFD7D0A16595F8E0CD /* Pods-SwiftStatusBarApplication-KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftStatusBarApplication-KeychainAccess.modulemap"; sourceTree = "<group>"; };
+		F519419414139CC2AAC7C324 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F540D918A3FD5056D11FBF09 /* Pods-SwiftStatusBarApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftStatusBarApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		FC4128FAA197923EC891B348 /* Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3399556C2DE49D86713B3468 /* Frameworks */ = {
+		1D4060F7E74DFED634C836C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD7A6F92E35755CA32FA649 /* Cocoa.framework in Frameworks */,
+				B77FC89DEED63BE7E3E79393 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D355C200C3686D60174902FC /* Frameworks */ = {
+		BC5CF0BB13B096878572DDA0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D3103F9B15CD935FD62F2EA /* Cocoa.framework in Frameworks */,
+				CF807D57B6421D1A76077DC6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC9EDD2DED2A37314C3437CD /* Frameworks */ = {
+		CEDC8B09DA019BDD619F21B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E816616634FE06EF2207478A /* Cocoa.framework in Frameworks */,
+				54C9D0D340368864676E3A84 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79AB85CD5E4B9924EB3A8F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47251FC2126832915ED719D6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		138B4A7402779BCA123867E3 /* SwiftyJSON */ = {
+		03F41B51DC99934B740FB19E /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
-				CFE9C37E2893F262266D1F63 /* SwiftyJSON.swift */,
-				FD155BEB2761073A5869312D /* Support Files */,
+				661DE1B8615533BC9A22675F /* SwiftyJSON.swift */,
+				38091627EEFCA56D5582B5E8 /* Support Files */,
 			);
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
-		44C7D22BDA7FAD7383B957A7 /* OS X */ = {
+		38091627EEFCA56D5582B5E8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F32744184D8F09E36B2C7DD4 /* Cocoa.framework */,
-			);
-			name = "OS X";
-			sourceTree = "<group>";
-		};
-		56E0E58157327BAE4317DBE1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				44C7D22BDA7FAD7383B957A7 /* OS X */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		56E9FB25328F81230EFA05C5 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CEEC38A2C0BE34DFA5159074 /* Pods-SwiftStatusBarApplication */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		574EE5A7E819818BC03461B0 = {
-			isa = PBXGroup;
-			children = (
-				F48F22C6F07363E9E5C3BF43 /* Podfile */,
-				56E0E58157327BAE4317DBE1 /* Frameworks */,
-				936D8E9E2DD1CF29DB45FD18 /* Pods */,
-				74C64163387B15027AC6D424 /* Products */,
-				56E9FB25328F81230EFA05C5 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		6C7F61D47C757564EE3E2F84 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4C55D5DC9821CBF4AB17A9C7 /* Info.plist */,
-				E869F9008ABABD7C602EC154 /* Pods-SwiftStatusBarApplication-Alamofire.modulemap */,
-				A16DD6904963909353CCD672 /* Pods-SwiftStatusBarApplication-Alamofire.xcconfig */,
-				A15FBA74DC04B884251B9BC6 /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */,
-				B424C2C8B2CE3B0939AA67D5 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m */,
-				8F5727DBE342713085A1ED55 /* Pods-SwiftStatusBarApplication-Alamofire-prefix.pch */,
-				C2B179E1E27B387205E05375 /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-SwiftStatusBarApplication-Alamofire";
-			sourceTree = "<group>";
-		};
-		74C64163387B15027AC6D424 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				177365E47D8506AB15B2FACD /* Alamofire.framework */,
-				8A54E2DEB50DD559147B0E36 /* Pods_SwiftStatusBarApplication.framework */,
-				573C4B4076431CE087CEAA60 /* SwiftyJSON.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		784B2E5ADE402BEF638748CD /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				6CDC6F75913B8F2CA03D74FC /* Alamofire.swift */,
-				6C7F61D47C757564EE3E2F84 /* Support Files */,
-			);
-			path = Alamofire;
-			sourceTree = "<group>";
-		};
-		936D8E9E2DD1CF29DB45FD18 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				784B2E5ADE402BEF638748CD /* Alamofire */,
-				138B4A7402779BCA123867E3 /* SwiftyJSON */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		CEEC38A2C0BE34DFA5159074 /* Pods-SwiftStatusBarApplication */ = {
-			isa = PBXGroup;
-			children = (
-				005B865436C0FA314AE80B56 /* Info.plist */,
-				60494D33E1EF676BEF50D165 /* Pods-SwiftStatusBarApplication.modulemap */,
-				BA72402C6FD32D454AC86826 /* Pods-SwiftStatusBarApplication-acknowledgements.markdown */,
-				A93F973176742E18A1105020 /* Pods-SwiftStatusBarApplication-acknowledgements.plist */,
-				6CD949213496F950C28C658D /* Pods-SwiftStatusBarApplication-dummy.m */,
-				19B870CD9B45A5ADB28FE207 /* Pods-SwiftStatusBarApplication-environment.h */,
-				BDEAE6E6B4340A84A3BBB169 /* Pods-SwiftStatusBarApplication-frameworks.sh */,
-				26BC6264CF6CD467A89BAF1F /* Pods-SwiftStatusBarApplication-resources.sh */,
-				0E18594D8D4D49FD8324F624 /* Pods-SwiftStatusBarApplication-umbrella.h */,
-				89BD54D4C066D65CB11E6A9D /* Pods-SwiftStatusBarApplication.debug.xcconfig */,
-				D523F8140950075A47E0787E /* Pods-SwiftStatusBarApplication.release.xcconfig */,
-			);
-			name = "Pods-SwiftStatusBarApplication";
-			path = "Target Support Files/Pods-SwiftStatusBarApplication";
-			sourceTree = "<group>";
-		};
-		FD155BEB2761073A5869312D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E9D30AE7F4C71219915BDF82 /* Info.plist */,
-				C55F9BB2F8657648FA1F8597 /* Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap */,
-				FF21C1C5C277AA6CB1234B18 /* Pods-SwiftStatusBarApplication-SwiftyJSON.xcconfig */,
-				299647F1D317910A56718800 /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */,
-				B9B6049F84D55CE031DEA5BB /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m */,
-				3DC31402FF716E1C1BE93E68 /* Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch */,
-				E44B411FE17DA3F126486545 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h */,
+				F519419414139CC2AAC7C324 /* Info.plist */,
+				FC4128FAA197923EC891B348 /* Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap */,
+				214DFF231EDFB57B54EADD33 /* Pods-SwiftStatusBarApplication-SwiftyJSON.xcconfig */,
+				6E4ADEB8D08FC3E44BA9A49F /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */,
+				8F3BE323B4F58041D979A4A4 /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m */,
+				83BF16591455B54B4F6BDD06 /* Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch */,
+				3B799631EEC93A3EF760AAF3 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-SwiftStatusBarApplication-SwiftyJSON";
 			sourceTree = "<group>";
 		};
+		4D5BDF08F411D23401567AF4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				64C3159F3BE444654C5ABCBC /* Info.plist */,
+				EB609EDFD7D0A16595F8E0CD /* Pods-SwiftStatusBarApplication-KeychainAccess.modulemap */,
+				0EEE22D5208E5E44ECC54FFD /* Pods-SwiftStatusBarApplication-KeychainAccess.xcconfig */,
+				5D28E2E01736D90C8A243B99 /* Pods-SwiftStatusBarApplication-KeychainAccess-Private.xcconfig */,
+				45E72EBC60D82748437A35B8 /* Pods-SwiftStatusBarApplication-KeychainAccess-dummy.m */,
+				BEDD7DD63F4AF24F49E771EF /* Pods-SwiftStatusBarApplication-KeychainAccess-prefix.pch */,
+				3F994E52503E18FBE842B2F2 /* Pods-SwiftStatusBarApplication-KeychainAccess-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-SwiftStatusBarApplication-KeychainAccess";
+			sourceTree = "<group>";
+		};
+		5AB1E75C5542A354E7F52331 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA8AE5687F02C669B8576262 /* Info.plist */,
+				243C32052CAB880067F37A39 /* Pods-SwiftStatusBarApplication-Alamofire.modulemap */,
+				C8498B1E9F3947712FD53730 /* Pods-SwiftStatusBarApplication-Alamofire.xcconfig */,
+				91FE5BC646C798C2F1293F9B /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */,
+				BFFCA6E45F704A9E184F4B07 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m */,
+				D392A6F80D7935C96E68E6BB /* Pods-SwiftStatusBarApplication-Alamofire-prefix.pch */,
+				79616F6189EEDC5B2D84BBEC /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-SwiftStatusBarApplication-Alamofire";
+			sourceTree = "<group>";
+		};
+		611F645D070509D222BB5E6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				814FED433FA9597557FB1A6D /* Alamofire.framework */,
+				81FFEBC30D89997A881B4F69 /* KeychainAccess.framework */,
+				8DECB5DA4DCBC1B30960F96D /* Pods_SwiftStatusBarApplication.framework */,
+				A6D55F2A881EC098A8B85522 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9189C0F2B9E0F5E2A372449E /* Pods-SwiftStatusBarApplication */ = {
+			isa = PBXGroup;
+			children = (
+				1A563686E96DC4C214CD3E8C /* Info.plist */,
+				3DF1A77C00E967179213DB60 /* Pods-SwiftStatusBarApplication.modulemap */,
+				97A2A17CB55EFFDFA969C810 /* Pods-SwiftStatusBarApplication-acknowledgements.markdown */,
+				169BDFC1EADAA9154A8BC87E /* Pods-SwiftStatusBarApplication-acknowledgements.plist */,
+				62A6936C90CCD7524F4BD82A /* Pods-SwiftStatusBarApplication-dummy.m */,
+				6B80791EA022A3604174C5DD /* Pods-SwiftStatusBarApplication-environment.h */,
+				B714B7F696A231A0ECA34CF9 /* Pods-SwiftStatusBarApplication-frameworks.sh */,
+				AF52D927E767B25EA9CF70E0 /* Pods-SwiftStatusBarApplication-resources.sh */,
+				8712062DBD3E434795853557 /* Pods-SwiftStatusBarApplication-umbrella.h */,
+				F540D918A3FD5056D11FBF09 /* Pods-SwiftStatusBarApplication.debug.xcconfig */,
+				2FF54ED10A4665FB17FDDBC4 /* Pods-SwiftStatusBarApplication.release.xcconfig */,
+			);
+			name = "Pods-SwiftStatusBarApplication";
+			path = "Target Support Files/Pods-SwiftStatusBarApplication";
+			sourceTree = "<group>";
+		};
+		91B83115D421761E490E6AF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD3D66AA6886FCFBBC6B2DA2 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EA6A2CC1411DF62ADF5DE68 = {
+			isa = PBXGroup;
+			children = (
+				7C986E97AB45FCAC9A8C5403 /* Podfile */,
+				91B83115D421761E490E6AF5 /* Frameworks */,
+				B8D1D1C5CA1CFE845BAC3A61 /* Pods */,
+				611F645D070509D222BB5E6B /* Products */,
+				E48D7BDFE1FB94A778257D58 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A9E4640A08A2FDA6D0C36DB9 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				A100A294DD291A49C7E25766 /* Alamofire.swift */,
+				5AB1E75C5542A354E7F52331 /* Support Files */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		B8D1D1C5CA1CFE845BAC3A61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9E4640A08A2FDA6D0C36DB9 /* Alamofire */,
+				F6B7E2F98C2D8D996FA20C8E /* KeychainAccess */,
+				03F41B51DC99934B740FB19E /* SwiftyJSON */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E48D7BDFE1FB94A778257D58 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9189C0F2B9E0F5E2A372449E /* Pods-SwiftStatusBarApplication */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F6B7E2F98C2D8D996FA20C8E /* KeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				A86D1A56E713454F23176E7E /* Keychain.swift */,
+				4D5BDF08F411D23401567AF4 /* Support Files */,
+			);
+			path = KeychainAccess;
+			sourceTree = "<group>";
+		};
+		FD3D66AA6886FCFBBC6B2DA2 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				0B2EBC733C5ED6F82B38DA68 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		806245EB59EFCF40F33E7FD5 /* Headers */ = {
+		0FA4D1A8F36033A3F1F7482F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC765BD701A2E54CE107748C /* Pods-SwiftStatusBarApplication-umbrella.h in Headers */,
+				53362370853E761CE79D6141 /* Pods-SwiftStatusBarApplication-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D175B9A95FD4EB75C20B913E /* Headers */ = {
+		3FB19EAB1B48D4DC89C0407F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32692B4B52144B38B328A176 /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h in Headers */,
+				5F5038D198BC24196CBA9C7C /* Pods-SwiftStatusBarApplication-KeychainAccess-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EDBFAA1B1CF1B3B2F88583CF /* Headers */ = {
+		6ECE921669AFDEEF24BB7372 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07D7AB7C171D845047864EE0 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h in Headers */,
+				A14606FC5B5A1FFE4FB33320 /* Pods-SwiftStatusBarApplication-SwiftyJSON-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		855A8C4708B145082F7A0EB6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20A89CAB39874D683F90F1DE /* Pods-SwiftStatusBarApplication-Alamofire-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		057FD93993F9602755CD15F8 /* Pods-SwiftStatusBarApplication */ = {
+		826C8C38560228315F5473BF /* Pods-SwiftStatusBarApplication */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 069F61EC1FCA9C8CB2111B93 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication" */;
+			buildConfigurationList = A37FB84DEDF213F1B9AEDB12 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication" */;
 			buildPhases = (
-				56727039389F2505CF7E026D /* Sources */,
-				FC9EDD2DED2A37314C3437CD /* Frameworks */,
-				806245EB59EFCF40F33E7FD5 /* Headers */,
+				227C96C7E1ABBF3E3C3953D3 /* Sources */,
+				BC5CF0BB13B096878572DDA0 /* Frameworks */,
+				0FA4D1A8F36033A3F1F7482F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				89FE02E8F8D0FC0253582FC7 /* PBXTargetDependency */,
-				39420773A0B12EE7622A8BEC /* PBXTargetDependency */,
+				50EF74D31ABBC277C134F6F6 /* PBXTargetDependency */,
+				E4EF8B0C6714FBC3AB95F872 /* PBXTargetDependency */,
+				BEDE7FD14520E17A04F2A940 /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftStatusBarApplication";
 			productName = "Pods-SwiftStatusBarApplication";
-			productReference = 8A54E2DEB50DD559147B0E36 /* Pods_SwiftStatusBarApplication.framework */;
+			productReference = 8DECB5DA4DCBC1B30960F96D /* Pods_SwiftStatusBarApplication.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		0D029B61C6E8FAE352772F3E /* Pods-SwiftStatusBarApplication-Alamofire */ = {
+		936CC1A1F988C26E2C9FD9A6 /* Pods-SwiftStatusBarApplication-SwiftyJSON */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB7539153CAD04A93B3804FA /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-Alamofire" */;
+			buildConfigurationList = 19D813EBEC43AEF68FCE7E82 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-SwiftyJSON" */;
 			buildPhases = (
-				765A9CAEBCF949074F38D37A /* Sources */,
-				3399556C2DE49D86713B3468 /* Frameworks */,
-				D175B9A95FD4EB75C20B913E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-SwiftStatusBarApplication-Alamofire";
-			productName = "Pods-SwiftStatusBarApplication-Alamofire";
-			productReference = 177365E47D8506AB15B2FACD /* Alamofire.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		352144519B907DF96115E337 /* Pods-SwiftStatusBarApplication-SwiftyJSON */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8817714EB65CD953C7575433 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-SwiftyJSON" */;
-			buildPhases = (
-				82B0C9F1ED30520184A92903 /* Sources */,
-				D355C200C3686D60174902FC /* Frameworks */,
-				EDBFAA1B1CF1B3B2F88583CF /* Headers */,
+				17A6D0D7F2BA549A4875EAF8 /* Sources */,
+				D79AB85CD5E4B9924EB3A8F6 /* Frameworks */,
+				6ECE921669AFDEEF24BB7372 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -301,84 +347,134 @@
 			);
 			name = "Pods-SwiftStatusBarApplication-SwiftyJSON";
 			productName = "Pods-SwiftStatusBarApplication-SwiftyJSON";
-			productReference = 573C4B4076431CE087CEAA60 /* SwiftyJSON.framework */;
+			productReference = A6D55F2A881EC098A8B85522 /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A253C429E51D37B127B112E3 /* Pods-SwiftStatusBarApplication-Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7298840B3DA8C5EBC618EBBF /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-Alamofire" */;
+			buildPhases = (
+				822C24F4C27F12AC62F4B095 /* Sources */,
+				CEDC8B09DA019BDD619F21B8 /* Frameworks */,
+				855A8C4708B145082F7A0EB6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SwiftStatusBarApplication-Alamofire";
+			productName = "Pods-SwiftStatusBarApplication-Alamofire";
+			productReference = 814FED433FA9597557FB1A6D /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F3169E829F6D413417217898 /* Pods-SwiftStatusBarApplication-KeychainAccess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 866B912C7894A3AD039F3C57 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-KeychainAccess" */;
+			buildPhases = (
+				0A857A49FDF97F423BE12268 /* Sources */,
+				1D4060F7E74DFED634C836C1 /* Frameworks */,
+				3FB19EAB1B48D4DC89C0407F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SwiftStatusBarApplication-KeychainAccess";
+			productName = "Pods-SwiftStatusBarApplication-KeychainAccess";
+			productReference = 81FFEBC30D89997A881B4F69 /* KeychainAccess.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1A4697F5A8F135FD444415AB /* Project object */ = {
+		55A84E6A0A3CD90068037D7A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 2F8C98BC0C2A9B0ECCB72E83 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 6149D77CCC52E82C118BE718 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 574EE5A7E819818BC03461B0;
-			productRefGroup = 74C64163387B15027AC6D424 /* Products */;
+			mainGroup = 9EA6A2CC1411DF62ADF5DE68;
+			productRefGroup = 611F645D070509D222BB5E6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				057FD93993F9602755CD15F8 /* Pods-SwiftStatusBarApplication */,
-				0D029B61C6E8FAE352772F3E /* Pods-SwiftStatusBarApplication-Alamofire */,
-				352144519B907DF96115E337 /* Pods-SwiftStatusBarApplication-SwiftyJSON */,
+				826C8C38560228315F5473BF /* Pods-SwiftStatusBarApplication */,
+				A253C429E51D37B127B112E3 /* Pods-SwiftStatusBarApplication-Alamofire */,
+				F3169E829F6D413417217898 /* Pods-SwiftStatusBarApplication-KeychainAccess */,
+				936CC1A1F988C26E2C9FD9A6 /* Pods-SwiftStatusBarApplication-SwiftyJSON */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		56727039389F2505CF7E026D /* Sources */ = {
+		0A857A49FDF97F423BE12268 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73D31C20945F4F9112B86BDA /* Pods-SwiftStatusBarApplication-dummy.m in Sources */,
+				251BEA036C28A09F2E3C3DB8 /* Keychain.swift in Sources */,
+				5C6BBA5C8596F469F5DA710F /* Pods-SwiftStatusBarApplication-KeychainAccess-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		765A9CAEBCF949074F38D37A /* Sources */ = {
+		17A6D0D7F2BA549A4875EAF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E34B1E01728EF0FA6459D616 /* Alamofire.swift in Sources */,
-				A1A832995624CEAEC38A6B76 /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m in Sources */,
+				FD4E24E2D0BC558EFB827F99 /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m in Sources */,
+				03025641317E1E96150F554A /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82B0C9F1ED30520184A92903 /* Sources */ = {
+		227C96C7E1ABBF3E3C3953D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C9E8A9178E3466AA967DF7 /* Pods-SwiftStatusBarApplication-SwiftyJSON-dummy.m in Sources */,
-				837E16788B04F347E9DD6FC1 /* SwiftyJSON.swift in Sources */,
+				F5A53C984B0E8890547C6869 /* Pods-SwiftStatusBarApplication-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		822C24F4C27F12AC62F4B095 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC1B3E839A795B3F2D7E3F6B /* Alamofire.swift in Sources */,
+				97EE13918B4E95729313196E /* Pods-SwiftStatusBarApplication-Alamofire-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		39420773A0B12EE7622A8BEC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-SwiftStatusBarApplication-SwiftyJSON";
-			target = 352144519B907DF96115E337 /* Pods-SwiftStatusBarApplication-SwiftyJSON */;
-			targetProxy = 57C20DCC39E059E1938730A7 /* PBXContainerItemProxy */;
-		};
-		89FE02E8F8D0FC0253582FC7 /* PBXTargetDependency */ = {
+		50EF74D31ABBC277C134F6F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-SwiftStatusBarApplication-Alamofire";
-			target = 0D029B61C6E8FAE352772F3E /* Pods-SwiftStatusBarApplication-Alamofire */;
-			targetProxy = 80A03E5648E873929FD3BBB6 /* PBXContainerItemProxy */;
+			target = A253C429E51D37B127B112E3 /* Pods-SwiftStatusBarApplication-Alamofire */;
+			targetProxy = 4BFEB5489996D1DF66AD5DBD /* PBXContainerItemProxy */;
+		};
+		BEDE7FD14520E17A04F2A940 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SwiftStatusBarApplication-SwiftyJSON";
+			target = 936CC1A1F988C26E2C9FD9A6 /* Pods-SwiftStatusBarApplication-SwiftyJSON */;
+			targetProxy = CDAE988481B344831C298D45 /* PBXContainerItemProxy */;
+		};
+		E4EF8B0C6714FBC3AB95F872 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SwiftStatusBarApplication-KeychainAccess";
+			target = F3169E829F6D413417217898 /* Pods-SwiftStatusBarApplication-KeychainAccess */;
+			targetProxy = 5DF15E6A02DC297262F5E3FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0079A8FABC03EBA73DCF18F8 /* Debug */ = {
+		0B8E7DA4BCFCF4E6B4510D83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A15FBA74DC04B884251B9BC6 /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */;
+			baseConfigurationReference = 91FE5BC646C798C2F1293F9B /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -404,99 +500,7 @@
 			};
 			name = Debug;
 		};
-		10F517DC0289AB68B35308EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A15FBA74DC04B884251B9BC6 /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftStatusBarApplication-Alamofire/Pods-SwiftStatusBarApplication-Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-Alamofire/Pods-SwiftStatusBarApplication-Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		2779FE060FADF1CF03538E79 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D523F8140950075A47E0787E /* Pods-SwiftStatusBarApplication.release.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_SwiftStatusBarApplication;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		32925D2CF293800AC41CBE64 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		5CB42401B9067EB81E0CFBE3 /* Debug */ = {
+		1D00B2AF88AF875E8D9748AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -535,9 +539,157 @@
 			};
 			name = Debug;
 		};
-		8AB1FAB8F0F2715FB8934CC2 /* Debug */ = {
+		2E9256D45DC28DB1602ADACC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89BD54D4C066D65CB11E6A9D /* Pods-SwiftStatusBarApplication.debug.xcconfig */;
+			baseConfigurationReference = 6E4ADEB8D08FC3E44BA9A49F /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftStatusBarApplication-SwiftyJSON/Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-SwiftyJSON/Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3511137F348FA867B0B1EAD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D28E2E01736D90C8A243B99 /* Pods-SwiftStatusBarApplication-KeychainAccess-Private.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftStatusBarApplication-KeychainAccess/Pods-SwiftStatusBarApplication-KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-KeychainAccess/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-KeychainAccess/Pods-SwiftStatusBarApplication-KeychainAccess.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		39B4670E4CCD9FCD3C527FFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FF54ED10A4665FB17FDDBC4 /* Pods-SwiftStatusBarApplication.release.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_SwiftStatusBarApplication;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9370F1A31C8CD555EA8DC6E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91FE5BC646C798C2F1293F9B /* Pods-SwiftStatusBarApplication-Alamofire-Private.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftStatusBarApplication-Alamofire/Pods-SwiftStatusBarApplication-Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-Alamofire/Pods-SwiftStatusBarApplication-Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		938D267A13F5453447A140EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A699772C19BA9108E90D0433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F540D918A3FD5056D11FBF09 /* Pods-SwiftStatusBarApplication.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -565,37 +717,9 @@
 			};
 			name = Debug;
 		};
-		CD5BE4FCAADA7A139D985078 /* Release */ = {
+		AD09851BDA4942E107F823BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 299647F1D317910A56718800 /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftStatusBarApplication-SwiftyJSON/Pods-SwiftStatusBarApplication-SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-SwiftyJSON/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-SwiftyJSON/Pods-SwiftStatusBarApplication-SwiftyJSON.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F2024E1788330A34D260E862 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 299647F1D317910A56718800 /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */;
+			baseConfigurationReference = 6E4ADEB8D08FC3E44BA9A49F /* Pods-SwiftStatusBarApplication-SwiftyJSON-Private.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -621,46 +745,83 @@
 			};
 			name = Debug;
 		};
+		ED263E28F54170426B679C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D28E2E01736D90C8A243B99 /* Pods-SwiftStatusBarApplication-KeychainAccess-Private.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SwiftStatusBarApplication-KeychainAccess/Pods-SwiftStatusBarApplication-KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-KeychainAccess/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftStatusBarApplication-KeychainAccess/Pods-SwiftStatusBarApplication-KeychainAccess.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		069F61EC1FCA9C8CB2111B93 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication" */ = {
+		19D813EBEC43AEF68FCE7E82 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8AB1FAB8F0F2715FB8934CC2 /* Debug */,
-				2779FE060FADF1CF03538E79 /* Release */,
+				AD09851BDA4942E107F823BF /* Debug */,
+				2E9256D45DC28DB1602ADACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F8C98BC0C2A9B0ECCB72E83 /* Build configuration list for PBXProject "Pods" */ = {
+		6149D77CCC52E82C118BE718 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5CB42401B9067EB81E0CFBE3 /* Debug */,
-				32925D2CF293800AC41CBE64 /* Release */,
+				1D00B2AF88AF875E8D9748AF /* Debug */,
+				938D267A13F5453447A140EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8817714EB65CD953C7575433 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-SwiftyJSON" */ = {
+		7298840B3DA8C5EBC618EBBF /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F2024E1788330A34D260E862 /* Debug */,
-				CD5BE4FCAADA7A139D985078 /* Release */,
+				0B8E7DA4BCFCF4E6B4510D83 /* Debug */,
+				9370F1A31C8CD555EA8DC6E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB7539153CAD04A93B3804FA /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-Alamofire" */ = {
+		866B912C7894A3AD039F3C57 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication-KeychainAccess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0079A8FABC03EBA73DCF18F8 /* Debug */,
-				10F517DC0289AB68B35308EE /* Release */,
+				3511137F348FA867B0B1EAD4 /* Debug */,
+				ED263E28F54170426B679C8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A37FB84DEDF213F1B9AEDB12 /* Build configuration list for PBXNativeTarget "Pods-SwiftStatusBarApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A699772C19BA9108E90D0433 /* Debug */,
+				39B4670E4CCD9FCD3C527FFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1A4697F5A8F135FD444415AB /* Project object */;
+	rootObject = 55A84E6A0A3CD90068037D7A /* Project object */;
 }

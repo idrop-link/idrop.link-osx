@@ -4,6 +4,7 @@ use_frameworks!
 target 'SwiftStatusBarApplication' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => 'xcode6.3'
     pod 'Alamofire', '~> 1.1'
+    pod 'KeychainAccess'
 end
 
 target 'SwiftStatusBarApplicationTests' do

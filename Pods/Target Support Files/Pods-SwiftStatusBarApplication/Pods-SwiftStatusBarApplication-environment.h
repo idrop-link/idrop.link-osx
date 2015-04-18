@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 0
 
+// KeychainAccess
+#define COCOAPODS_POD_AVAILABLE_KeychainAccess
+#define COCOAPODS_VERSION_MAJOR_KeychainAccess 1
+#define COCOAPODS_VERSION_MINOR_KeychainAccess 2
+#define COCOAPODS_VERSION_PATCH_KeychainAccess 0
+
 // SwiftyJSON
 #define COCOAPODS_POD_AVAILABLE_SwiftyJSON
 #define COCOAPODS_VERSION_MAJOR_SwiftyJSON 2
