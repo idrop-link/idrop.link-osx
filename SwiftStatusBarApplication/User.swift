@@ -9,9 +9,9 @@
 import Foundation
 
 public class User {
-    var email: String
-    var password: String
-    var userId: String
+    var email: String?
+    var password: String?
+    var userId: String?
 
     /**
     Create new user
@@ -33,6 +33,9 @@ public class User {
     }
     
     public init() {
+        self.email = nil
+        self.password = nil
+        self.userId = nil
     }
     
     /**
