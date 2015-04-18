@@ -71,13 +71,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func quitApplication(sender: AnyObject) {
         NSApplication.sharedApplication().terminate(self)
     }
-
+    
     @IBAction func showPreferencesWindow(sender: AnyObject) {
-         NSBundle.mainBundle().loadNibNamed("Preferences", owner: preferencesWindowController, topLevelObjects: nil)
+        NSBundle.mainBundle().loadNibNamed("Preferences",
+            owner: preferencesWindowController, topLevelObjects: nil)
     }
     
     @IBAction func showLoginSignupWindow(sender: AnyObject) {
-        NSBundle.mainBundle().loadNibNamed("LoginSignup", owner: loginSignupWindowController, topLevelObjects: nil)
+        NSBundle.mainBundle().loadNibNamed("LoginSignup",
+            owner: loginSignupWindowController, topLevelObjects: nil)
     }
 }
 
