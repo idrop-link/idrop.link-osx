@@ -20,5 +20,5 @@ struct Config {
                   backend copy.
     */
     // static let baseUrl = "https://api.idrop.link/v1"
-    static let baseUrl = "http://localhost:7667"
+    static let baseUrl = "http://localhost:7667/api/v1"
 }
