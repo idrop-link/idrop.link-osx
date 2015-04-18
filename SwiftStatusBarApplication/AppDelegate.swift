@@ -14,6 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
     
+    var user: User
+    
     var preferencesWindowController: PreferencesWindowController
     var loginSignupWindowController: LoginSignupWindowController
     
@@ -29,9 +31,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.icon = IconView(imageName: "icon", item: item);
         item.view = icon;
         
+        // TODO: check keychain for existing user
+        self.user = User()
+        
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()
         self.loginSignupWindowController = LoginSignupWindowController()
+        self.loginSignupWindowController.user = self.user
+        
         super.init();
     }
     
