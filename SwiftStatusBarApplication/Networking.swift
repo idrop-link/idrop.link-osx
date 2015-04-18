@@ -85,7 +85,7 @@ enum Router: URLRequestConvertible {
         
         switch self {
         case .CreateUser(let email, let password):
-            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: [email: email, password: password]).0
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
         case .UpdateUser(_, let parameters):
             return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
         default:
@@ -119,8 +119,12 @@ final class Networking {
         Alamofire
             .request(Router.CreateUser(email, password))
             .responseJSON { (request, response, jsonData, error) -> Void in
-                let json = JSON(jsonData!)
-                callback(json, error)
+                if let data: AnyObject = jsonData {
+                    let json = JSON(data)
+                    callback(json, error)
+                } else {
+                    callback(nil, error)
+                }
         }
     }
     
