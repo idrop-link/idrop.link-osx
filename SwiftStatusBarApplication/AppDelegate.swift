@@ -14,8 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
     
-    var preferencesWindowController = PreferencesWindowController()
-    var loginSignupWindowController = LoginSignupWindowController()
+    var preferencesWindowController: PreferencesWindowController
+    var loginSignupWindowController: LoginSignupWindowController
     
     let icon: IconView;
     let item: NSStatusItem
@@ -29,6 +29,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.icon = IconView(imageName: "icon", item: item);
         item.view = icon;
         
+        // initialize window controller
+        self.preferencesWindowController = PreferencesWindowController()
+        self.loginSignupWindowController = LoginSignupWindowController()
         super.init();
     }
     
