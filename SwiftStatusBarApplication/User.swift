@@ -36,7 +36,11 @@ public class User {
                     if let id = self.userId {
                         callback(true, id)
                     } else {
-                        callback(false, "no id returned")
+                        if let json = returnedJson {
+                            callback(false, json["message"].string!)
+                        } else {
+                            callback(false, "no message or id returned")
+                        }
                     }
                 }
             }
