@@ -44,12 +44,12 @@
 		656FD1201AE146AB00B3284E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		659443541AE13060007FF573 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		65D81B1A1AD52B15002B60F1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		65DED95C1943997E0059A266 /* SwiftStatusBarApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStatusBarApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65DED95C1943997E0059A266 /* idrop.link.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idrop.link.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DED9601943997E0059A266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65DED9631943997E0059A266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65DED9651943997E0059A266 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		65DED9681943997E0059A266 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		65DED96E1943997E0059A266 /* SwiftStatusBarApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftStatusBarApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65DED96E1943997E0059A266 /* idrop.linkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = idrop.linkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DED9731943997E0059A266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65DED9741943997E0059A266 /* SwiftStatusBarApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStatusBarApplicationTests.swift; sourceTree = "<group>"; };
 		65DED97E194399AB0059A266 /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 		65DED95D1943997E0059A266 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65DED95C1943997E0059A266 /* SwiftStatusBarApplication.app */,
-				65DED96E1943997E0059A266 /* SwiftStatusBarApplicationTests.xctest */,
+				65DED95C1943997E0059A266 /* idrop.link.app */,
+				65DED96E1943997E0059A266 /* idrop.linkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,9 +172,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		65DED95B1943997E0059A266 /* SwiftStatusBarApplication */ = {
+		65DED95B1943997E0059A266 /* idrop.link */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65DED9781943997E0059A266 /* Build configuration list for PBXNativeTarget "SwiftStatusBarApplication" */;
+			buildConfigurationList = 65DED9781943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.link" */;
 			buildPhases = (
 				A24C16E3CD3FE50BFABFE1AA /* Check Pods Manifest.lock */,
 				65DED9581943997E0059A266 /* Sources */,
@@ -187,14 +187,14 @@
 			);
 			dependencies = (
 			);
-			name = SwiftStatusBarApplication;
+			name = idrop.link;
 			productName = SwiftStatusBarApplication;
-			productReference = 65DED95C1943997E0059A266 /* SwiftStatusBarApplication.app */;
+			productReference = 65DED95C1943997E0059A266 /* idrop.link.app */;
 			productType = "com.apple.product-type.application";
 		};
-		65DED96D1943997E0059A266 /* SwiftStatusBarApplicationTests */ = {
+		65DED96D1943997E0059A266 /* idrop.linkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65DED97B1943997E0059A266 /* Build configuration list for PBXNativeTarget "SwiftStatusBarApplicationTests" */;
+			buildConfigurationList = 65DED97B1943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.linkTests" */;
 			buildPhases = (
 				65DED96A1943997E0059A266 /* Sources */,
 				65DED96B1943997E0059A266 /* Frameworks */,
@@ -205,9 +205,9 @@
 			dependencies = (
 				65DED9701943997E0059A266 /* PBXTargetDependency */,
 			);
-			name = SwiftStatusBarApplicationTests;
+			name = idrop.linkTests;
 			productName = SwiftStatusBarApplicationTests;
-			productReference = 65DED96E1943997E0059A266 /* SwiftStatusBarApplicationTests.xctest */;
+			productReference = 65DED96E1943997E0059A266 /* idrop.linkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -228,7 +228,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 65DED9571943997E0059A266 /* Build configuration list for PBXProject "SwiftStatusBarApplication" */;
+			buildConfigurationList = 65DED9571943997E0059A266 /* Build configuration list for PBXProject "idrop.link" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -241,8 +241,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65DED95B1943997E0059A266 /* SwiftStatusBarApplication */,
-				65DED96D1943997E0059A266 /* SwiftStatusBarApplicationTests */,
+				65DED95B1943997E0059A266 /* idrop.link */,
+				65DED96D1943997E0059A266 /* idrop.linkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -345,7 +345,7 @@
 /* Begin PBXTargetDependency section */
 		65DED9701943997E0059A266 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 65DED95B1943997E0059A266 /* SwiftStatusBarApplication */;
+			target = 65DED95B1943997E0059A266 /* idrop.link */;
 			targetProxy = 65DED96F1943997E0059A266 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -448,7 +448,7 @@
 				INFOPLIST_FILE = SwiftStatusBarApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = idrop.link;
 			};
 			name = Debug;
 		};
@@ -461,7 +461,7 @@
 				INFOPLIST_FILE = SwiftStatusBarApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = idrop.link;
 			};
 			name = Release;
 		};
@@ -481,7 +481,7 @@
 				INFOPLIST_FILE = SwiftStatusBarApplicationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = idrop.linkTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -498,7 +498,7 @@
 				INFOPLIST_FILE = SwiftStatusBarApplicationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = idrop.linkTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -506,7 +506,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		65DED9571943997E0059A266 /* Build configuration list for PBXProject "SwiftStatusBarApplication" */ = {
+		65DED9571943997E0059A266 /* Build configuration list for PBXProject "idrop.link" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65DED9761943997E0059A266 /* Debug */,
@@ -515,7 +515,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65DED9781943997E0059A266 /* Build configuration list for PBXNativeTarget "SwiftStatusBarApplication" */ = {
+		65DED9781943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.link" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65DED9791943997E0059A266 /* Debug */,
@@ -524,7 +524,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65DED97B1943997E0059A266 /* Build configuration list for PBXNativeTarget "SwiftStatusBarApplicationTests" */ = {
+		65DED97B1943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.linkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65DED97C1943997E0059A266 /* Debug */,
