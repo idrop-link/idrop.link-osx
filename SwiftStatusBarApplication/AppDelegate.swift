@@ -31,8 +31,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.icon = IconView(imageName: "icon", item: item);
         item.view = icon;
         
-        // TODO: check keychain for existing user
         self.user = User()
+        self.user.tryKeychainDataFetch() // try to get data out of keychain if any
         
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()

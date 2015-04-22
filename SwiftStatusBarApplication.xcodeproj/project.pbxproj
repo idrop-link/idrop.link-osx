@@ -12,7 +12,6 @@
 		6548C81C1AE1923A0027021A /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6548C81B1AE1923A0027021A /* Preferences.xib */; };
 		6548C8201AE1946A0027021A /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548C81F1AE1946A0027021A /* PreferencesWindowController.swift */; };
 		656FD1211AE146AB00B3284E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FD1201AE146AB00B3284E /* User.swift */; };
-		659443531AE13042007FF573 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659443521AE13042007FF573 /* Keychain.swift */; };
 		659443551AE13060007FF573 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659443541AE13060007FF573 /* Security.framework */; };
 		65D81B1B1AD52B15002B60F1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81B1A1AD52B15002B60F1 /* Config.swift */; };
 		65DED9641943997E0059A266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DED9631943997E0059A266 /* AppDelegate.swift */; };
@@ -43,7 +42,6 @@
 		6548C81B1AE1923A0027021A /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		6548C81F1AE1946A0027021A /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		656FD1201AE146AB00B3284E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		659443521AE13042007FF573 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		659443541AE13060007FF573 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		65D81B1A1AD52B15002B60F1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		65DED95C1943997E0059A266 /* SwiftStatusBarApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStatusBarApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +115,6 @@
 				65DED98019439B020059A266 /* Resources */,
 				656FD1201AE146AB00B3284E /* User.swift */,
 				65EE31451AD521F3001AEBD9 /* Networking.swift */,
-				659443521AE13042007FF573 /* Keychain.swift */,
 				65D81B1A1AD52B15002B60F1 /* Config.swift */,
 				65DED9631943997E0059A266 /* AppDelegate.swift */,
 				65DED97E194399AB0059A266 /* IconView.swift */,
@@ -332,7 +329,6 @@
 				6548C8201AE1946A0027021A /* PreferencesWindowController.swift in Sources */,
 				6507AEF81AE25EA100CC3E32 /* LoginSignupWindowController.swift in Sources */,
 				65DED97F194399AB0059A266 /* IconView.swift in Sources */,
-				659443531AE13042007FF573 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

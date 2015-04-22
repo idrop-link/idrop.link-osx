@@ -21,4 +21,9 @@ struct Config {
     */
     // static let baseUrl = "https://api.idrop.link/v1"
     static let baseUrl = "http://localhost:7667/api/v1"
+    
+    static let keychainServiceEntity = "de.andinfinity.idrop.link"
+    static let keychainUserIdKey = "idrop-link-user-id"
+    static let keychainUserEmailKey = "idrop-link-user-email"
+    static let keychainUserPasswordKey = "idrop-link-user-password"
 }
