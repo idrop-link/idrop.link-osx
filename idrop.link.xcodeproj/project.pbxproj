@@ -217,7 +217,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = "Tommy Leung";
+				ORGANIZATIONNAME = idrop.link;
 				TargetAttributes = {
 					65DED95B1943997E0059A266 = {
 						CreatedOnToolsVersion = 6.0;
