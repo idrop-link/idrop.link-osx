@@ -3,7 +3,7 @@
 //  SwiftStatusBarApplication
 //
 //  Created by Christian Schulze on 08/04/15.
-//  Copyright (c) 2015 Tommy Leung. All rights reserved.
+//  Copyright (c) 2015 Christian Schulze. All rights reserved.
 //
 
 import Foundation
