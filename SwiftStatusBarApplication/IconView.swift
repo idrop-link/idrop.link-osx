@@ -28,6 +28,7 @@ class IconView : NSView
         }
     }
     
+    // MARK: - init
     init(imageName: String, item: NSStatusItem) {
         self.image = NSImage(named: imageName)!
         self.item = item
@@ -55,16 +56,17 @@ class IconView : NSView
         self.image.drawInRect(rect)
     }
     
+    // MARK: - click handler
     override func mouseDown(theEvent: NSEvent) {
-        self.isSelected = !self.isSelected;
-        self.onMouseDown();
+        self.isSelected = !self.isSelected
+        self.onMouseDown()
     }
     
     override func mouseUp(theEvent: NSEvent) {
     }
     
     override func rightMouseDown(theEvent: NSEvent) {
-        self.isSelected = !self.isSelected;
-        self.onRightMouseDown();
+        self.isSelected = !self.isSelected
+        self.onRightMouseDown()
     }
 }

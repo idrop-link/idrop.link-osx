@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var preferencesWindowController: PreferencesWindowController
     var loginSignupWindowController: LoginSignupWindowController
     
-    let icon: IconView;
+    let icon: IconView
     let item: NSStatusItem
     
     override init() {
