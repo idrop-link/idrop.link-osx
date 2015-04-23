@@ -1,6 +1,6 @@
 //
 //  PreferencesWindowController.swift
-//  SwiftStatusBarApplication
+//  idrop.link
 //
 //  Created by Christian Schulze on 17/04/15.
 //  Copyright (c) 2015 Christian Schulze. All rights reserved.

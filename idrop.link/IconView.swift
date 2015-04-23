@@ -1,6 +1,6 @@
 //
 //  IconView.swift
-//  SwiftStatusBarApplication
+//  idrop.link
 //
 //  Created by Tommy Leung on 6/7/14.
 //  Copyright (c) 2014 Christian Schulze, Tommy Leung. All rights reserved.

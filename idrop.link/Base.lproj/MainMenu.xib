@@ -11,7 +11,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwiftStatusBarApplication" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="idrop_link">
             <connections>
                 <outlet property="menu" destination="QKl-2u-n0Q" id="TPs-Nl-xfS"/>
                 <outlet property="popover" destination="79J-8G-uar" id="csQ-r6-VX8"/>

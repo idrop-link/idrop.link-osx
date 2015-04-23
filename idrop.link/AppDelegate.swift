@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  SwiftStatusBarApplication
+//  idrop.link
 //
-//  Created by Tommy Leung on 6/7/14.
+//  Created by Christian Schulze on 23/04/15.
 //  Copyright (c) 2014 Christian Schulze, Tommy Leung. All rights reserved.
 //
 
