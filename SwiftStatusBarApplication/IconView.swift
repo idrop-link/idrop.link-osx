@@ -9,8 +9,7 @@
 import Foundation
 import Cocoa
 
-class IconView : NSView
-{
+class IconView : NSView, NSDraggingDestination {
     @IBOutlet var mainMenu: NSMenu?
     
     private(set) var image: NSImage
@@ -40,6 +39,9 @@ class IconView : NSView
         let rect = CGRectMake(0, 0, thickness, thickness)
         
         super.init(frame: rect)
+        
+        // register for drag n drop
+        registerForDraggedTypes([NSURLPboardType])
     }
 
     required init?(coder: NSCoder) {
@@ -68,5 +70,24 @@ class IconView : NSView
     override func rightMouseDown(theEvent: NSEvent) {
         self.isSelected = !self.isSelected
         self.onRightMouseDown()
+    }
+    
+    // MARK: - drag and drop
+    override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
+        return NSDragOperation.Copy
+    }
+    
+    override func performDragOperation(sender: NSDraggingInfo) -> Bool {
+        var pboard = sender.draggingPasteboard()
+        
+        if pboard != nil {
+            if contains(pboard.types as! [NSString],NSFilenamesPboardType) {
+                var files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
+                println(files)
+            }
+            return true
+        }
+        
+        return false
     }
 }
