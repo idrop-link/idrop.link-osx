@@ -1,24 +1,5 @@
-AppDelegate.swift
-	class AppDelegate: NSObject, NSApplicationDelegate
-	@IBOutlet var window: NSWindow?
-	@IBOutlet var popover : NSPopover?
-	override init()
-	func applicationDidFinishLaunching(aNotification: NSNotification?)
-	func applicationWillTerminate(aNotification: NSNotification?)
-	override func awakeFromNib()
-Networking.swift
-	static let baseUrlString = Config.baseURL
-	static var authToken: String?
-	var method: Alamofire.Method
-	var path: String
-	var URLRequest: NSURLRequest
-IconView.swift
-	class IconView : NSView
-	private(set) var image: NSImage
-	var onMouseDown: () -> ()
-	var isSelected: Bool
-	init(imageName: String, item: NSStatusItem)
-	required init?(coder: NSCoder)
-	override func drawRect(dirtyRect: NSRect)
-	override func mouseDown(theEvent: NSEvent)
-	override func mouseUp(theEvent: NSEvent)
+User.swift
+	public class User
+	public func setCredentials(email: String?, password: String?, id: String?)
+	public func tryKeychainDataSet() -> Bool
+	public init()
