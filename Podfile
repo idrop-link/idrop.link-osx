@@ -1,13 +1,14 @@
 platform :osx, '10.10'
 use_frameworks!
 
-target 'SwiftStatusBarApplication' do
+target 'idrop.link' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => 'xcode6.3'
     pod 'Alamofire', '~> 1.1'
     pod 'KeychainAccess'
+    pod 'JSONWebToken'
 end
 
-target 'SwiftStatusBarApplicationTests' do
+target 'idrop.linkTests' do
 
 end
 

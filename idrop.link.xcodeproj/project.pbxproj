@@ -7,68 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6507AEF81AE25EA100CC3E32 /* LoginSignupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507AEF71AE25EA100CC3E32 /* LoginSignupWindowController.swift */; };
-		6507AEFA1AE25EA900CC3E32 /* LoginSignup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6507AEF91AE25EA900CC3E32 /* LoginSignup.xib */; };
-		6548C81C1AE1923A0027021A /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6548C81B1AE1923A0027021A /* Preferences.xib */; };
-		6548C8201AE1946A0027021A /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548C81F1AE1946A0027021A /* PreferencesWindowController.swift */; };
-		656FD1211AE146AB00B3284E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656FD1201AE146AB00B3284E /* User.swift */; };
-		659443551AE13060007FF573 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659443541AE13060007FF573 /* Security.framework */; };
-		65D81B1B1AD52B15002B60F1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D81B1A1AD52B15002B60F1 /* Config.swift */; };
-		65DED9641943997E0059A266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DED9631943997E0059A266 /* AppDelegate.swift */; };
-		65DED9661943997E0059A266 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65DED9651943997E0059A266 /* Images.xcassets */; };
-		65DED9691943997E0059A266 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DED9671943997E0059A266 /* MainMenu.xib */; };
-		65DED9751943997E0059A266 /* SwiftStatusBarApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DED9741943997E0059A266 /* SwiftStatusBarApplicationTests.swift */; };
-		65DED97F194399AB0059A266 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DED97E194399AB0059A266 /* IconView.swift */; };
-		65DED98419439B020059A266 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DED98219439B020059A266 /* icon@2x.png */; };
-		65EE31461AD521F3001AEBD9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EE31451AD521F3001AEBD9 /* Networking.swift */; };
-		B2F973590934E6B06A6B6469 /* Pods_SwiftStatusBarApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D61F2D21AA383D86C61344C /* Pods_SwiftStatusBarApplication.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		650D6BDF1AE9813900F5EF87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6BDE1AE9813900F5EF87 /* AppDelegate.swift */; };
+		650D6BE41AE9813900F5EF87 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650D6BE21AE9813900F5EF87 /* MainMenu.xib */; };
+		650D6BF01AE9813900F5EF87 /* idrop_linkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6BEF1AE9813900F5EF87 /* idrop_linkTests.swift */; };
+		650D6C081AE9818100F5EF87 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650D6BFA1AE9818100F5EF87 /* MainMenu.xib */; };
+		650D6C091AE9818100F5EF87 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6BFC1AE9818100F5EF87 /* Config.swift */; };
+		650D6C0A1AE9818100F5EF87 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6BFD1AE9818100F5EF87 /* IconView.swift */; };
+		650D6C0C1AE9818100F5EF87 /* LoginSignup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650D6BFF1AE9818100F5EF87 /* LoginSignup.xib */; };
+		650D6C0D1AE9818100F5EF87 /* LoginSignupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6C001AE9818100F5EF87 /* LoginSignupWindowController.swift */; };
+		650D6C0E1AE9818100F5EF87 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6C011AE9818100F5EF87 /* Networking.swift */; };
+		650D6C0F1AE9818100F5EF87 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650D6C021AE9818100F5EF87 /* Preferences.xib */; };
+		650D6C101AE9818100F5EF87 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6C031AE9818100F5EF87 /* PreferencesWindowController.swift */; };
+		650D6C111AE9818100F5EF87 /* icon.pxm in Resources */ = {isa = PBXBuildFile; fileRef = 650D6C051AE9818100F5EF87 /* icon.pxm */; };
+		650D6C121AE9818100F5EF87 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 650D6C061AE9818100F5EF87 /* icon@2x.png */; };
+		650D6C131AE9818100F5EF87 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6C071AE9818100F5EF87 /* User.swift */; };
+		650D6C151AE981AE00F5EF87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650D6C141AE981AE00F5EF87 /* Images.xcassets */; };
+		9E62A87EBC7C66DB46EB117A /* Pods_idrop_link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		65DED96F1943997E0059A266 /* PBXContainerItemProxy */ = {
+		650D6BEA1AE9813900F5EF87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 65DED9541943997E0059A266 /* Project object */;
+			containerPortal = 650D6BD11AE9813800F5EF87 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 65DED95B1943997E0059A266;
-			remoteInfo = SwiftStatusBarApplication;
+			remoteGlobalIDString = 650D6BD81AE9813800F5EF87;
+			remoteInfo = idrop.link;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2EBE5503C379D3D40AB16F71 /* Pods-SwiftStatusBarApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStatusBarApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication.release.xcconfig"; sourceTree = "<group>"; };
-		5D61F2D21AA383D86C61344C /* Pods_SwiftStatusBarApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftStatusBarApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6507AEF71AE25EA100CC3E32 /* LoginSignupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignupWindowController.swift; sourceTree = "<group>"; };
-		6507AEF91AE25EA900CC3E32 /* LoginSignup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginSignup.xib; sourceTree = "<group>"; };
-		6548C81B1AE1923A0027021A /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
-		6548C81F1AE1946A0027021A /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		656FD1201AE146AB00B3284E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		659443541AE13060007FF573 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		65D81B1A1AD52B15002B60F1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		65DED95C1943997E0059A266 /* idrop.link.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idrop.link.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		65DED9601943997E0059A266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65DED9631943997E0059A266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		65DED9651943997E0059A266 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		65DED9681943997E0059A266 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		65DED96E1943997E0059A266 /* idrop.linkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = idrop.linkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		65DED9731943997E0059A266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65DED9741943997E0059A266 /* SwiftStatusBarApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStatusBarApplicationTests.swift; sourceTree = "<group>"; };
-		65DED97E194399AB0059A266 /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
-		65DED98219439B020059A266 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		65EE31451AD521F3001AEBD9 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		963D0813A4ED1E68A7EBD3B6 /* Pods-SwiftStatusBarApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStatusBarApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		13C3BF687D8538907481C822 /* Pods-idrop.link.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.link.release.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link.release.xcconfig"; sourceTree = "<group>"; };
+		3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_idrop_link.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		650D6BD91AE9813800F5EF87 /* idrop.link.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idrop.link.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		650D6BDD1AE9813900F5EF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650D6BDE1AE9813900F5EF87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		650D6BE31AE9813900F5EF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		650D6BE91AE9813900F5EF87 /* idrop.linkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = idrop.linkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		650D6BEE1AE9813900F5EF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650D6BEF1AE9813900F5EF87 /* idrop_linkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idrop_linkTests.swift; sourceTree = "<group>"; };
+		650D6BFB1AE9818100F5EF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MainMenu.xib; sourceTree = "<group>"; };
+		650D6BFC1AE9818100F5EF87 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		650D6BFD1AE9818100F5EF87 /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		650D6BFF1AE9818100F5EF87 /* LoginSignup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginSignup.xib; sourceTree = "<group>"; };
+		650D6C001AE9818100F5EF87 /* LoginSignupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignupWindowController.swift; sourceTree = "<group>"; };
+		650D6C011AE9818100F5EF87 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		650D6C021AE9818100F5EF87 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		650D6C031AE9818100F5EF87 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		650D6C051AE9818100F5EF87 /* icon.pxm */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon.pxm; sourceTree = "<group>"; };
+		650D6C061AE9818100F5EF87 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		650D6C071AE9818100F5EF87 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		650D6C141AE981AE00F5EF87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AD8B9A7AF207F1BDF00D5E64 /* Pods-idrop.link.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.link.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		65DED9591943997E0059A266 /* Frameworks */ = {
+		650D6BD61AE9813800F5EF87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				659443551AE13060007FF573 /* Security.framework in Frameworks */,
-				B2F973590934E6B06A6B6469 /* Pods_SwiftStatusBarApplication.framework in Frameworks */,
+				9E62A87EBC7C66DB46EB117A /* Pods_idrop_link.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65DED96B1943997E0059A266 /* Frameworks */ = {
+		650D6BE61AE9813900F5EF87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,157 +79,166 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F914F1A51DC3229D00CC0CB /* Frameworks */ = {
+		0A54DFCB78B9AE1AB34EFF43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				659443541AE13060007FF573 /* Security.framework */,
-				5D61F2D21AA383D86C61344C /* Pods_SwiftStatusBarApplication.framework */,
+				3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		65DED9531943997E0059A266 = {
+		57D4BC40B4C9863EBE8A0EF3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				65DED95E1943997E0059A266 /* SwiftStatusBarApplication */,
-				65DED9711943997E0059A266 /* SwiftStatusBarApplicationTests */,
-				65DED95D1943997E0059A266 /* Products */,
-				EB6A8E4EEC370D0FA8E3E039 /* Pods */,
-				5F914F1A51DC3229D00CC0CB /* Frameworks */,
+				AD8B9A7AF207F1BDF00D5E64 /* Pods-idrop.link.debug.xcconfig */,
+				13C3BF687D8538907481C822 /* Pods-idrop.link.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		650D6BD01AE9813800F5EF87 = {
+			isa = PBXGroup;
+			children = (
+				650D6BDB1AE9813900F5EF87 /* idrop.link */,
+				650D6BEC1AE9813900F5EF87 /* idrop.linkTests */,
+				650D6BDA1AE9813900F5EF87 /* Products */,
+				57D4BC40B4C9863EBE8A0EF3 /* Pods */,
+				0A54DFCB78B9AE1AB34EFF43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		65DED95D1943997E0059A266 /* Products */ = {
+		650D6BDA1AE9813900F5EF87 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65DED95C1943997E0059A266 /* idrop.link.app */,
-				65DED96E1943997E0059A266 /* idrop.linkTests.xctest */,
+				650D6BD91AE9813800F5EF87 /* idrop.link.app */,
+				650D6BE91AE9813900F5EF87 /* idrop.linkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		65DED95E1943997E0059A266 /* SwiftStatusBarApplication */ = {
+		650D6BDB1AE9813900F5EF87 /* idrop.link */ = {
 			isa = PBXGroup;
 			children = (
-				6507AEF91AE25EA900CC3E32 /* LoginSignup.xib */,
-				6507AEF71AE25EA100CC3E32 /* LoginSignupWindowController.swift */,
-				65DED98019439B020059A266 /* Resources */,
-				656FD1201AE146AB00B3284E /* User.swift */,
-				65EE31451AD521F3001AEBD9 /* Networking.swift */,
-				65D81B1A1AD52B15002B60F1 /* Config.swift */,
-				65DED9631943997E0059A266 /* AppDelegate.swift */,
-				65DED97E194399AB0059A266 /* IconView.swift */,
-				65DED9651943997E0059A266 /* Images.xcassets */,
-				65DED9671943997E0059A266 /* MainMenu.xib */,
-				6548C81B1AE1923A0027021A /* Preferences.xib */,
-				6548C81F1AE1946A0027021A /* PreferencesWindowController.swift */,
-				65DED95F1943997E0059A266 /* Supporting Files */,
+				650D6C141AE981AE00F5EF87 /* Images.xcassets */,
+				650D6BF91AE9818100F5EF87 /* Base.lproj */,
+				650D6BFC1AE9818100F5EF87 /* Config.swift */,
+				650D6BFD1AE9818100F5EF87 /* IconView.swift */,
+				650D6BFF1AE9818100F5EF87 /* LoginSignup.xib */,
+				650D6C001AE9818100F5EF87 /* LoginSignupWindowController.swift */,
+				650D6C011AE9818100F5EF87 /* Networking.swift */,
+				650D6C021AE9818100F5EF87 /* Preferences.xib */,
+				650D6C031AE9818100F5EF87 /* PreferencesWindowController.swift */,
+				650D6C041AE9818100F5EF87 /* Resources */,
+				650D6C071AE9818100F5EF87 /* User.swift */,
+				650D6BDE1AE9813900F5EF87 /* AppDelegate.swift */,
+				650D6BE21AE9813900F5EF87 /* MainMenu.xib */,
+				650D6BDC1AE9813900F5EF87 /* Supporting Files */,
 			);
-			path = SwiftStatusBarApplication;
+			path = idrop.link;
 			sourceTree = "<group>";
 		};
-		65DED95F1943997E0059A266 /* Supporting Files */ = {
+		650D6BDC1AE9813900F5EF87 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				65DED9601943997E0059A266 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		65DED9711943997E0059A266 /* SwiftStatusBarApplicationTests */ = {
-			isa = PBXGroup;
-			children = (
-				65DED9741943997E0059A266 /* SwiftStatusBarApplicationTests.swift */,
-				65DED9721943997E0059A266 /* Supporting Files */,
-			);
-			path = SwiftStatusBarApplicationTests;
-			sourceTree = "<group>";
-		};
-		65DED9721943997E0059A266 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				65DED9731943997E0059A266 /* Info.plist */,
+				650D6BDD1AE9813900F5EF87 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		65DED98019439B020059A266 /* Resources */ = {
+		650D6BEC1AE9813900F5EF87 /* idrop.linkTests */ = {
 			isa = PBXGroup;
 			children = (
-				65DED98219439B020059A266 /* icon@2x.png */,
+				650D6BEF1AE9813900F5EF87 /* idrop_linkTests.swift */,
+				650D6BED1AE9813900F5EF87 /* Supporting Files */,
+			);
+			path = idrop.linkTests;
+			sourceTree = "<group>";
+		};
+		650D6BED1AE9813900F5EF87 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				650D6BEE1AE9813900F5EF87 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		650D6BF91AE9818100F5EF87 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				650D6BFA1AE9818100F5EF87 /* MainMenu.xib */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		650D6C041AE9818100F5EF87 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				650D6C051AE9818100F5EF87 /* icon.pxm */,
+				650D6C061AE9818100F5EF87 /* icon@2x.png */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		EB6A8E4EEC370D0FA8E3E039 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				963D0813A4ED1E68A7EBD3B6 /* Pods-SwiftStatusBarApplication.debug.xcconfig */,
-				2EBE5503C379D3D40AB16F71 /* Pods-SwiftStatusBarApplication.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		65DED95B1943997E0059A266 /* idrop.link */ = {
+		650D6BD81AE9813800F5EF87 /* idrop.link */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65DED9781943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.link" */;
+			buildConfigurationList = 650D6BF31AE9813900F5EF87 /* Build configuration list for PBXNativeTarget "idrop.link" */;
 			buildPhases = (
-				A24C16E3CD3FE50BFABFE1AA /* Check Pods Manifest.lock */,
-				65DED9581943997E0059A266 /* Sources */,
-				65DED9591943997E0059A266 /* Frameworks */,
-				65DED95A1943997E0059A266 /* Resources */,
-				D511FC1B885E867AC79BEED8 /* Embed Pods Frameworks */,
-				5FA36CDE5D5962E9BC450D78 /* Copy Pods Resources */,
+				EC242B6D55B5F1C24F0F8A66 /* Check Pods Manifest.lock */,
+				650D6BD51AE9813800F5EF87 /* Sources */,
+				650D6BD61AE9813800F5EF87 /* Frameworks */,
+				650D6BD71AE9813800F5EF87 /* Resources */,
+				98EB54C50F63BD956D170C04 /* Embed Pods Frameworks */,
+				7599EBB00897BC1672F2DA57 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = idrop.link;
-			productName = SwiftStatusBarApplication;
-			productReference = 65DED95C1943997E0059A266 /* idrop.link.app */;
+			productName = idrop.link;
+			productReference = 650D6BD91AE9813800F5EF87 /* idrop.link.app */;
 			productType = "com.apple.product-type.application";
 		};
-		65DED96D1943997E0059A266 /* idrop.linkTests */ = {
+		650D6BE81AE9813900F5EF87 /* idrop.linkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65DED97B1943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.linkTests" */;
+			buildConfigurationList = 650D6BF61AE9813900F5EF87 /* Build configuration list for PBXNativeTarget "idrop.linkTests" */;
 			buildPhases = (
-				65DED96A1943997E0059A266 /* Sources */,
-				65DED96B1943997E0059A266 /* Frameworks */,
-				65DED96C1943997E0059A266 /* Resources */,
+				650D6BE51AE9813900F5EF87 /* Sources */,
+				650D6BE61AE9813900F5EF87 /* Frameworks */,
+				650D6BE71AE9813900F5EF87 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				65DED9701943997E0059A266 /* PBXTargetDependency */,
+				650D6BEB1AE9813900F5EF87 /* PBXTargetDependency */,
 			);
 			name = idrop.linkTests;
-			productName = SwiftStatusBarApplicationTests;
-			productReference = 65DED96E1943997E0059A266 /* idrop.linkTests.xctest */;
+			productName = idrop.linkTests;
+			productReference = 650D6BE91AE9813900F5EF87 /* idrop.linkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		65DED9541943997E0059A266 /* Project object */ = {
+		650D6BD11AE9813800F5EF87 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = idrop.link;
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = andinfinity;
 				TargetAttributes = {
-					65DED95B1943997E0059A266 = {
-						CreatedOnToolsVersion = 6.0;
+					650D6BD81AE9813800F5EF87 = {
+						CreatedOnToolsVersion = 6.3;
 					};
-					65DED96D1943997E0059A266 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 65DED95B1943997E0059A266;
+					650D6BE81AE9813900F5EF87 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 650D6BD81AE9813800F5EF87;
 					};
 				};
 			};
-			buildConfigurationList = 65DED9571943997E0059A266 /* Build configuration list for PBXProject "idrop.link" */;
+			buildConfigurationList = 650D6BD41AE9813800F5EF87 /* Build configuration list for PBXProject "idrop.link" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -236,31 +246,33 @@
 				en,
 				Base,
 			);
-			mainGroup = 65DED9531943997E0059A266;
-			productRefGroup = 65DED95D1943997E0059A266 /* Products */;
+			mainGroup = 650D6BD01AE9813800F5EF87;
+			productRefGroup = 650D6BDA1AE9813900F5EF87 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65DED95B1943997E0059A266 /* idrop.link */,
-				65DED96D1943997E0059A266 /* idrop.linkTests */,
+				650D6BD81AE9813800F5EF87 /* idrop.link */,
+				650D6BE81AE9813900F5EF87 /* idrop.linkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		65DED95A1943997E0059A266 /* Resources */ = {
+		650D6BD71AE9813800F5EF87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65DED98419439B020059A266 /* icon@2x.png in Resources */,
-				6507AEFA1AE25EA900CC3E32 /* LoginSignup.xib in Resources */,
-				65DED9661943997E0059A266 /* Images.xcassets in Resources */,
-				6548C81C1AE1923A0027021A /* Preferences.xib in Resources */,
-				65DED9691943997E0059A266 /* MainMenu.xib in Resources */,
+				650D6C121AE9818100F5EF87 /* icon@2x.png in Resources */,
+				650D6C111AE9818100F5EF87 /* icon.pxm in Resources */,
+				650D6C151AE981AE00F5EF87 /* Images.xcassets in Resources */,
+				650D6C0C1AE9818100F5EF87 /* LoginSignup.xib in Resources */,
+				650D6BE41AE9813900F5EF87 /* MainMenu.xib in Resources */,
+				650D6C0F1AE9818100F5EF87 /* Preferences.xib in Resources */,
+				650D6C081AE9818100F5EF87 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65DED96C1943997E0059A266 /* Resources */ = {
+		650D6BE71AE9813900F5EF87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,7 +282,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5FA36CDE5D5962E9BC450D78 /* Copy Pods Resources */ = {
+		7599EBB00897BC1672F2DA57 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,10 +294,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A24C16E3CD3FE50BFABFE1AA /* Check Pods Manifest.lock */ = {
+		98EB54C50F63BD956D170C04 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC242B6D55B5F1C24F0F8A66 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -300,61 +327,54 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D511FC1B885E867AC79BEED8 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftStatusBarApplication/Pods-SwiftStatusBarApplication-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		65DED9581943997E0059A266 /* Sources */ = {
+		650D6BD51AE9813800F5EF87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65DED9641943997E0059A266 /* AppDelegate.swift in Sources */,
-				65D81B1B1AD52B15002B60F1 /* Config.swift in Sources */,
-				656FD1211AE146AB00B3284E /* User.swift in Sources */,
-				65EE31461AD521F3001AEBD9 /* Networking.swift in Sources */,
-				6548C8201AE1946A0027021A /* PreferencesWindowController.swift in Sources */,
-				6507AEF81AE25EA100CC3E32 /* LoginSignupWindowController.swift in Sources */,
-				65DED97F194399AB0059A266 /* IconView.swift in Sources */,
+				650D6C101AE9818100F5EF87 /* PreferencesWindowController.swift in Sources */,
+				650D6BDF1AE9813900F5EF87 /* AppDelegate.swift in Sources */,
+				650D6C0E1AE9818100F5EF87 /* Networking.swift in Sources */,
+				650D6C0D1AE9818100F5EF87 /* LoginSignupWindowController.swift in Sources */,
+				650D6C0A1AE9818100F5EF87 /* IconView.swift in Sources */,
+				650D6C091AE9818100F5EF87 /* Config.swift in Sources */,
+				650D6C131AE9818100F5EF87 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65DED96A1943997E0059A266 /* Sources */ = {
+		650D6BE51AE9813900F5EF87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65DED9751943997E0059A266 /* SwiftStatusBarApplicationTests.swift in Sources */,
+				650D6BF01AE9813900F5EF87 /* idrop_linkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		65DED9701943997E0059A266 /* PBXTargetDependency */ = {
+		650D6BEB1AE9813900F5EF87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 65DED95B1943997E0059A266 /* idrop.link */;
-			targetProxy = 65DED96F1943997E0059A266 /* PBXContainerItemProxy */;
+			target = 650D6BD81AE9813800F5EF87 /* idrop.link */;
+			targetProxy = 650D6BEA1AE9813900F5EF87 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		65DED9671943997E0059A266 /* MainMenu.xib */ = {
+		650D6BE21AE9813900F5EF87 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				65DED9681943997E0059A266 /* Base */,
+				650D6BE31AE9813900F5EF87 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		650D6BFA1AE9818100F5EF87 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				650D6BFB1AE9818100F5EF87 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -362,7 +382,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		65DED9761943997E0059A266 /* Debug */ = {
+		650D6BF11AE9813900F5EF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -381,9 +401,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -397,14 +419,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		65DED9771943997E0059A266 /* Release */ = {
+		650D6BF21AE9813900F5EF87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -422,11 +444,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -434,41 +457,39 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				METAL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		65DED9791943997E0059A266 /* Debug */ = {
+		650D6BF41AE9813900F5EF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 963D0813A4ED1E68A7EBD3B6 /* Pods-SwiftStatusBarApplication.debug.xcconfig */;
+			baseConfigurationReference = AD8B9A7AF207F1BDF00D5E64 /* Pods-idrop.link.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwiftStatusBarApplication/Info.plist;
+				INFOPLIST_FILE = idrop.link/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = idrop.link;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		65DED97A1943997E0059A266 /* Release */ = {
+		650D6BF51AE9813900F5EF87 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EBE5503C379D3D40AB16F71 /* Pods-SwiftStatusBarApplication.release.xcconfig */;
+			baseConfigurationReference = 13C3BF687D8538907481C822 /* Pods-idrop.link.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SwiftStatusBarApplication/Info.plist;
+				INFOPLIST_FILE = idrop.link/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = idrop.link;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		65DED97C1943997E0059A266 /* Debug */ = {
+		650D6BF71AE9813900F5EF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwiftStatusBarApplication.app/Contents/MacOS/SwiftStatusBarApplication";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -478,62 +499,60 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SwiftStatusBarApplicationTests/Info.plist;
+				INFOPLIST_FILE = idrop.linkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = idrop.linkTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/idrop.link.app/Contents/MacOS/idrop.link";
 			};
 			name = Debug;
 		};
-		65DED97D1943997E0059A266 /* Release */ = {
+		650D6BF81AE9813900F5EF87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwiftStatusBarApplication.app/Contents/MacOS/SwiftStatusBarApplication";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SwiftStatusBarApplicationTests/Info.plist;
+				INFOPLIST_FILE = idrop.linkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = idrop.linkTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/idrop.link.app/Contents/MacOS/idrop.link";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		65DED9571943997E0059A266 /* Build configuration list for PBXProject "idrop.link" */ = {
+		650D6BD41AE9813800F5EF87 /* Build configuration list for PBXProject "idrop.link" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65DED9761943997E0059A266 /* Debug */,
-				65DED9771943997E0059A266 /* Release */,
+				650D6BF11AE9813900F5EF87 /* Debug */,
+				650D6BF21AE9813900F5EF87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65DED9781943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.link" */ = {
+		650D6BF31AE9813900F5EF87 /* Build configuration list for PBXNativeTarget "idrop.link" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65DED9791943997E0059A266 /* Debug */,
-				65DED97A1943997E0059A266 /* Release */,
+				650D6BF41AE9813900F5EF87 /* Debug */,
+				650D6BF51AE9813900F5EF87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65DED97B1943997E0059A266 /* Build configuration list for PBXNativeTarget "idrop.linkTests" */ = {
+		650D6BF61AE9813900F5EF87 /* Build configuration list for PBXNativeTarget "idrop.linkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65DED97C1943997E0059A266 /* Debug */,
-				65DED97D1943997E0059A266 /* Release */,
+				650D6BF71AE9813900F5EF87 /* Debug */,
+				650D6BF81AE9813900F5EF87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 65DED9541943997E0059A266 /* Project object */;
+	rootObject = 650D6BD11AE9813800F5EF87 /* Project object */;
 }

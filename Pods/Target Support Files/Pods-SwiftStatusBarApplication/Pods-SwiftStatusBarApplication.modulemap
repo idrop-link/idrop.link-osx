@@ -1,6 +1,0 @@
-framework module Pods_SwiftStatusBarApplication {
-  umbrella header "Pods-SwiftStatusBarApplication-umbrella.h"
-
-  export *
-  module * { export * }
-}
