@@ -2,7 +2,7 @@
 idrop.link - self hosted personal screenshot and file cloud to share with your friends, colleagues and family
 
 ## Development
-This project utilizes [CocoaPods](https://guides.cocoapods.org) for dependency management. It needs to be installed befire you can use `pod`.
+This project utilizes [CocoaPods](https://guides.cocoapods.org) for dependency management. It needs to be installed before you can use `pod`.
 
 For the dependencies to be included please be sure to open `idrop.link.xcworkspace` with xcode, and not the regular xcode project file.
 
