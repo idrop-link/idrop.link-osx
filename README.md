@@ -4,7 +4,7 @@ idrop.link - self hosted personal screenshot and file cloud to share with your f
 ## Development
 This project utilizes [CocoaPods](https://guides.cocoapods.org) for dependency management. It needs to be installed befire you can use `pod`.
 
-Before diving into the code install all dependencies by running `pod install` in the root directory of the project.
+For the dependencies to be included please be sure to open `idrop.link.xcworkspace` with xcode, and not the regular xcode project file.
 
 The project versioning tries to adhere to the standards of [semantic versioning](http://semver.org). The Git workflow usses a mixture of [this](http://nvie.com/posts/a-successful-git-branching-model/) and the [Git Branching Workflow](http://git-scm.com/book/en/v1/Git-Branching-Branching-Workflows).
 
