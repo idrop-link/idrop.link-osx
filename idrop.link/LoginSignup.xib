@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LoginSignupWindowController" customModule="idrop_link" customModuleProvider="target">
             <connections>
                 <outlet property="_window" destination="QvC-M9-y7g" id="ody-YM-Wbz"/>
+                <outlet property="loginEmail" destination="Piw-Q2-kvz" id="dv0-VT-h2b"/>
+                <outlet property="loginPassword" destination="JR2-Ki-bJO" id="eAz-9q-4fd"/>
                 <outlet property="loginSheet" destination="8Ep-nx-DEp" id="Fd2-r9-w5n"/>
                 <outlet property="showSignupSheet" destination="lOJ-2K-tfw" id="6fd-7d-HT1"/>
                 <outlet property="signupEmail" destination="z6N-Qw-yyT" id="cag-Be-nQW"/>
@@ -21,7 +23,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="398" height="250"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="398" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -54,7 +56,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="64" width="311" height="181"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="hK1-SU-3ov">
                 <rect key="frame" x="0.0" y="0.0" width="311" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -84,6 +86,9 @@
 DQ
 </string>
                         </buttonCell>
+                        <connections>
+                            <action selector="doLogin:" target="-2" id="YZ9-af-Dtz"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qI1-4S-EE0">
                         <rect key="frame" x="20" y="18" width="110" height="25"/>
@@ -106,7 +111,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="64" width="311" height="181"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="MgI-R8-aFM">
                 <rect key="frame" x="0.0" y="-1" width="311" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>

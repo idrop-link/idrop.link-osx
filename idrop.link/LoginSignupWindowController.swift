@@ -17,11 +17,26 @@ class LoginSignupWindowController: NSWindowController {
     @IBOutlet weak var signupEmail: NSTextField!
     @IBOutlet weak var signupPassword: NSTextField!
     
+    @IBOutlet weak var loginEmail: NSTextField!
+    @IBOutlet weak var loginPassword: NSTextField!
+    
     var user: User?
     
     // MARK: - Login
     @IBAction func showLoginSheet(sender: AnyObject) {
         _window.beginSheet(loginSheet, completionHandler: nil)
+    }
+    
+    @IBAction func doLogin(sender: AnyObject) {
+        print("do login\n")
+        if let usr = self.user {
+            usr.tryIdFetch({ (success, msg) -> Void in
+                if usr.hasCredentials() {
+                    usr.tryLogin()
+                    self.closeLoginSheet(sender)
+                }
+            })
+        }
     }
     
     @IBAction func closeLoginSheet(sender: AnyObject) {
@@ -39,10 +54,10 @@ class LoginSignupWindowController: NSWindowController {
         if let usr = self.user {
             usr.createUser(self.signupEmail.stringValue, password: self.signupPassword.stringValue, callback: { (success, msg) in
                 if (success) {
-                    print("id: \(msg)")
+                    usr.tryLogin()
                     self.closeSignupSheet(self)
                 } else {
-                    print("failed\n")
+                    // TODO: error handling in the UI
                     print("\(msg)\n")
                 }
             })

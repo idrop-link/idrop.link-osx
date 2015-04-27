@@ -32,7 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         item.view = icon;
         
         self.user = User()
-        self.user.tryKeychainDataFetch() // try to get data out of keychain if any
+        
+        // try to get data out of keychain if any
+        if self.user.tryKeychainDataFetch() {
+            self.user.tryLogin()
+        }
         
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()

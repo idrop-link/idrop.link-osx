@@ -13,6 +13,7 @@ public class User {
     var email: String?
     var password: String?
     var userId: String?
+    var token: String?
     
     var keychain: Keychain
     
@@ -38,15 +39,54 @@ public class User {
                         self.tryKeychainDataSet()
                         callback(true, id)
                     } else {
-                        if let json = returnedJson {
-                            callback(false, json["message"].string!)
-                        } else {
-                            callback(false, "no message or id returned")
-                        }
+                        callback(false, json["message"].string!)
                     }
+                } else {
+                    callback(false, "no message or id returned")
                 }
             }
         })
+    }
+    
+    public func login(callback: (Bool, String) -> ()) {
+        Networking.getToken(self.userId, email: self.email, password: self.password, callback: { (returnedJson, error) in
+            if (error != nil) {
+                if let json = returnedJson {
+                    callback(false, json["message"].string!)
+                } else {
+                    // the user does not exist anymore, so we can delete all
+                    // saved credentials
+                    if error!.code == 404 {
+                        self.keychain.removeAll()
+                    }
+                    
+                    callback(true, "no message returned")
+                }
+            } else {
+                if let json = returnedJson {
+                    if let token = json["token"].string {
+                        self.token = token
+                        callback(true, self.token!)
+                    } else {
+                        callback(false, "no token returned")
+                    }
+                } else {
+                    callback(false, "no message or id returned")
+                }
+            }
+        })
+    }
+    
+    public func tryLogin() {
+        if (self.hasCredentials()) {
+            self.login({ (success, msg) in
+                if (success) {
+                    print("success with token \(msg)\n")
+                } else {
+                    print("error: \(msg)")
+                }
+            })
+        }
     }
     
     /*
@@ -108,6 +148,33 @@ public class User {
         
         // TODO: error handling!
         return true
+    }
+    
+    public func tryIdFetch(callback: (Bool, String) -> ()) -> Void {
+        if self.hasCredentials() {
+            Networking.getIdForEmail(self.email, password: self.password, callback: { (returnedJson, error) -> Void in
+                if (error != nil) {
+                    if let json = returnedJson {
+                        callback(false, json["message"].string!)
+                    } else {
+                        callback(false, "no message returned")
+                    }
+                } else {
+                    if let json = returnedJson {
+                        var id = json["_id"].string!
+                        
+                        if let id = self.userId {
+                            self.tryKeychainDataSet()
+                            callback(true, id)
+                        } else {
+                            callback(false, json["message"].string!)
+                        }
+                    } else {
+                        callback(false, "no message or id returned")
+                    }
+                }
+            })
+        }
     }
     
     public init() {
