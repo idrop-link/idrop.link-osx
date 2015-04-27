@@ -40,6 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()
+        self.preferencesWindowController.user = self.user
         self.loginSignupWindowController = LoginSignupWindowController()
         self.loginSignupWindowController.user = self.user
         

@@ -10,7 +10,37 @@ import Foundation
 import Cocoa
 
 class PreferencesWindowController: NSWindowController {
-    override func windowDidLoad() {
-        super.windowDidLoad()
+    @IBOutlet var _window: NSWindow!
+    @IBOutlet weak var tabView: NSTabView!
+    
+    // Tabs
+    @IBOutlet weak var generalTab: NSTabViewItem!
+    @IBOutlet weak var userTab: NSTabViewItem!
+    
+    // General Tab
+    @IBOutlet weak var doOpenAtStartup: NSButton!
+    
+    // User Tab
+    @IBOutlet weak var email: NSTextField!
+    
+    var user: User?
+    
+    @IBAction func changeTab(sender: AnyObject) {
+        var sndr = sender as! NSToolbarItem
+        
+        switch sndr.tag {
+        case 1:
+            tabView.selectTabViewItem(generalTab)
+        case 2:
+            tabView.selectTabViewItem(userTab)
+        default:
+            break;
+        }
+    }
+    
+    override func awakeFromNib() {
+        if let usr = self.user {
+            self.email.stringValue = usr.email!
+        }
     }
 }
