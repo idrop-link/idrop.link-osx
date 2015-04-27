@@ -150,7 +150,7 @@ enum Router: URLRequestConvertible {
         case .GetAuthToken(_, let email, let password):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
         case .GetEmailForId(let email, let password):
-            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
         default:
             return mutableURLRequest
         }
