@@ -22,6 +22,10 @@
 		650D6C121AE9818100F5EF87 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 650D6C061AE9818100F5EF87 /* icon@2x.png */; };
 		650D6C131AE9818100F5EF87 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6C071AE9818100F5EF87 /* User.swift */; };
 		650D6C151AE981AE00F5EF87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650D6C141AE981AE00F5EF87 /* Images.xcassets */; };
+		6569DDF11AEEBF0B0085C52F /* NetworkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569DDF01AEEBF0B0085C52F /* NetworkingTest.swift */; };
+		6569DDF21AEEC0160085C52F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6C011AE9818100F5EF87 /* Networking.swift */; };
+		6569DDF31AEEC7640085C52F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6BFC1AE9818100F5EF87 /* Config.swift */; };
+		8421E7C843CCDCC470386320 /* Pods_idrop_linkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12402F28F58DB5F47D8E8C2C /* Pods_idrop_linkTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9E62A87EBC7C66DB46EB117A /* Pods_idrop_link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12402F28F58DB5F47D8E8C2C /* Pods_idrop_linkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_idrop_linkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C3BF687D8538907481C822 /* Pods-idrop.link.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.link.release.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link.release.xcconfig"; sourceTree = "<group>"; };
 		3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_idrop_link.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		650D6BD91AE9813800F5EF87 /* idrop.link.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idrop.link.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +62,9 @@
 		650D6C061AE9818100F5EF87 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		650D6C071AE9818100F5EF87 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		650D6C141AE981AE00F5EF87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6569DDF01AEEBF0B0085C52F /* NetworkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTest.swift; sourceTree = "<group>"; };
+		7190E0C64D05D0A884E2AEB5 /* Pods-idrop.linkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.linkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F377CE9E0BB35F950140474 /* Pods-idrop.linkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.linkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD8B9A7AF207F1BDF00D5E64 /* Pods-idrop.link.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.link.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8421E7C843CCDCC470386320 /* Pods_idrop_linkTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */,
+				12402F28F58DB5F47D8E8C2C /* Pods_idrop_linkTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -92,6 +102,8 @@
 			children = (
 				AD8B9A7AF207F1BDF00D5E64 /* Pods-idrop.link.debug.xcconfig */,
 				13C3BF687D8538907481C822 /* Pods-idrop.link.release.xcconfig */,
+				7190E0C64D05D0A884E2AEB5 /* Pods-idrop.linkTests.debug.xcconfig */,
+				8F377CE9E0BB35F950140474 /* Pods-idrop.linkTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -149,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				650D6BEF1AE9813900F5EF87 /* idrop_linkTests.swift */,
+				6569DDF01AEEBF0B0085C52F /* NetworkingTest.swift */,
 				650D6BED1AE9813900F5EF87 /* Supporting Files */,
 			);
 			path = idrop.linkTests;
@@ -206,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 650D6BF61AE9813900F5EF87 /* Build configuration list for PBXNativeTarget "idrop.linkTests" */;
 			buildPhases = (
+				A1B6ADCB78B9B8341FC57A7E /* Check Pods Manifest.lock */,
 				650D6BE51AE9813900F5EF87 /* Sources */,
 				650D6BE61AE9813900F5EF87 /* Frameworks */,
 				650D6BE71AE9813900F5EF87 /* Resources */,
+				8A40402A2947EA1F86CE5798 /* Embed Pods Frameworks */,
+				E107B1C11CA2E8A263A949B8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +313,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8A40402A2947EA1F86CE5798 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		98EB54C50F63BD956D170C04 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +341,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1B6ADCB78B9B8341FC57A7E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E107B1C11CA2E8A263A949B8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC242B6D55B5F1C24F0F8A66 /* Check Pods Manifest.lock */ = {
@@ -348,7 +409,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6569DDF21AEEC0160085C52F /* Networking.swift in Sources */,
+				6569DDF31AEEC7640085C52F /* Config.swift in Sources */,
 				650D6BF01AE9813900F5EF87 /* idrop_linkTests.swift in Sources */,
+				6569DDF11AEEBF0B0085C52F /* NetworkingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +552,7 @@
 		};
 		650D6BF71AE9813900F5EF87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7190E0C64D05D0A884E2AEB5 /* Pods-idrop.linkTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -508,6 +573,7 @@
 		};
 		650D6BF81AE9813900F5EF87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F377CE9E0BB35F950140474 /* Pods-idrop.linkTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;

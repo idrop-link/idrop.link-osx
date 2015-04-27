@@ -1,0 +1,6 @@
+framework module SwiftyJSON {
+  umbrella header "Pods-idrop.linkTests-SwiftyJSON-umbrella.h"
+
+  export *
+  module * { export * }
+}
