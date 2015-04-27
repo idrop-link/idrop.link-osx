@@ -10,7 +10,6 @@
                 <outlet property="loginEmail" destination="Piw-Q2-kvz" id="dv0-VT-h2b"/>
                 <outlet property="loginPassword" destination="JR2-Ki-bJO" id="eAz-9q-4fd"/>
                 <outlet property="loginSheet" destination="8Ep-nx-DEp" id="Fd2-r9-w5n"/>
-                <outlet property="showSignupSheet" destination="lOJ-2K-tfw" id="6fd-7d-HT1"/>
                 <outlet property="signupEmail" destination="z6N-Qw-yyT" id="cag-Be-nQW"/>
                 <outlet property="signupPassword" destination="R3W-q2-Kv0" id="4Eb-w0-1bL"/>
                 <outlet property="signupSheet" destination="uzg-SC-vER" id="Ktl-Wf-AB6"/>
