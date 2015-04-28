@@ -1,3 +1,2 @@
 User.swift
 	public init()
-	public func tryKeychainDataSet() -> Bool
