@@ -192,7 +192,7 @@ public class User {
         return self.hasCredentials()
     }
     
-    /*
+    /**
     Try to save the credentials to the keychain
     
     :returns: whether or not the operation succeeded
