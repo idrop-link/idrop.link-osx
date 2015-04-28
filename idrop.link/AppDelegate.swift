@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var user: User
     
     var preferencesWindowController: PreferencesWindowController
-    var loginSignupWindowController: LoginSignupWindowController
+    var loginWindowController: LoginWindowController
     
     let icon: IconView
     let item: NSStatusItem
@@ -41,8 +41,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()
         self.preferencesWindowController.user = self.user
-        self.loginSignupWindowController = LoginSignupWindowController()
-        self.loginSignupWindowController.user = self.user
+        self.loginWindowController = LoginWindowController()
+        self.loginWindowController.user = self.user
         
         super.init();
     }
@@ -92,9 +92,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             owner: preferencesWindowController, topLevelObjects: nil)
     }
     
-    @IBAction func showLoginSignupWindow(sender: AnyObject) {
-        NSBundle.mainBundle().loadNibNamed("LoginSignup",
-            owner: loginSignupWindowController, topLevelObjects: nil)
+    @IBAction func showLoginWindow(sender: AnyObject) {
+        NSBundle.mainBundle().loadNibNamed("Login",
+            owner: loginWindowController, topLevelObjects: nil)
     }
 }
 
