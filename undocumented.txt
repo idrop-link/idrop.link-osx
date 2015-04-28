@@ -1,5 +1,4 @@
 User.swift
-	public class User
+	public init()
 	public func setCredentials(email: String?, password: String?, id: String?)
 	public func tryKeychainDataSet() -> Bool
-	public init()
