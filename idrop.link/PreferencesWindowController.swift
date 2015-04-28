@@ -9,6 +9,9 @@
 import Foundation
 import Cocoa
 
+/**
+WindowController for the Preferences window.
+*/
 class PreferencesWindowController: NSWindowController {
     @IBOutlet var _window: NSWindow!
     @IBOutlet weak var tabView: NSTabView!

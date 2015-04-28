@@ -9,6 +9,10 @@
 import Foundation
 import KeychainAccess
 
+/**
+Wrapper class for user specific API operations and data handling of an instance
+of a User.
+*/
 public class User {
     var email: String?
     var password: String?
@@ -17,8 +21,37 @@ public class User {
     
     var keychain: Keychain
     
+    // MARK: - Initializers
+    public init() {
+        self.email = nil
+        self.password = nil
+        self.userId = nil
+        self.keychain = Keychain(service: Config.keychainServiceEntity)
+    }
+    
+    /**
+    Initialize user with credentials (from keychain or similar)
+    
+    :param: email       the users email
+    :param: password    the users password
+    :param: userId      the users id as returned by the api
+    
+    :return: new user object
+    */
+    public init(email: String, password: String, userId: String) {
+        self.email = email
+        self.password = password
+        self.userId = userId
+        self.keychain = Keychain(service: Config.keychainServiceEntity)
+    }
+    
+    // MARK: - User specific api calls
     /**
     Create new user
+    
+    :param: email the users email
+    :param: password the users password
+    :param: callback closure `(Bool, String)` to be executed after finished
     
     :returns: user  id as returned by the api
     */
@@ -48,6 +81,13 @@ public class User {
         })
     }
     
+    /**
+    Get access token to send authenticated subsequent requests to the api.
+    
+    :param: callback closure `(Bool, String)` to be executed after finished
+
+    :see: tryLogin
+    */
     public func login(callback: (Bool, String) -> ()) {
         Networking.getToken(self.userId, email: self.email, password: self.password, callback: { (returnedJson, error) in
             if (error != nil) {
@@ -77,6 +117,11 @@ public class User {
         })
     }
     
+    /**
+    Try to get access token if we have the credentials
+
+    :see: login
+    */
     public func tryLogin() {
         if (self.hasCredentials()) {
             self.login({ (success, msg) in
@@ -89,6 +134,7 @@ public class User {
         }
     }
     
+    // MARK: - Credentials
     /*
     Set credentials for the user
 
@@ -103,7 +149,7 @@ public class User {
         self.password = password
         self.userId = id
     }
-    
+
     /**
     Checks if credentials are set
 
@@ -113,6 +159,7 @@ public class User {
         return (self.email != nil) && (self.password != nil) && (self.userId != nil)
     }
     
+    // MARK: - Keychain specific functions
     /**
     Try to get saved credentials from the keychain if any
     
@@ -150,6 +197,11 @@ public class User {
         return true
     }
     
+    /**
+    Try to get the user id by email.
+
+    :param: callback closure (Bool, String)
+    */
     public func tryIdFetch(callback: (Bool, String) -> ()) -> Void {
         if self.hasCredentials() {
             Networking.getIdForEmail(self.email, password: self.password, callback: { (returnedJson, error) -> Void in
@@ -175,28 +227,5 @@ public class User {
                 }
             })
         }
-    }
-    
-    public init() {
-        self.email = nil
-        self.password = nil
-        self.userId = nil
-        self.keychain = Keychain(service: Config.keychainServiceEntity)
-    }
-    
-    /**
-    Initialize user with credentials (from keychain or similar)
-    
-    :param: email       the users email
-    :param: password    the users password
-    :param: userId      the users id as returned by the api
-    
-    :return: new user object
-    */
-    public init(email: String, password: String, userId: String) {
-        self.email = email
-        self.password = password
-        self.userId = userId
-        self.keychain = Keychain(service: Config.keychainServiceEntity)
     }
 }

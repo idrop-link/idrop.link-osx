@@ -8,7 +8,10 @@
 
 import Cocoa
 
-class Login: NSWindowController {
+/**
+WindowController for the Login window.
+*/
+class LoginWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
