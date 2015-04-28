@@ -229,10 +229,8 @@ final class Networking {
             .request(Router.GetAuthToken(userId, email, password))
             .responseJSON { (request, response, jsonData, error) -> Void in
                 if (response?.statusCode == 404) {
-                    callback(nil, NSError(domain: "Networking", code: 404, userInfo: ["message": "no such user"]))
-                }
-
-                if let data: AnyObject = jsonData {
+                    callback(nil, NSError(domain: "Networking", code: 404, userInfo: ["message": "There is no user with this email address."]))
+                } else if let data: AnyObject = jsonData {
                     let json = JSON(data)
                     callback(json, error)
                 } else {
@@ -252,7 +250,11 @@ final class Networking {
         Alamofire
             .request(Router.GetEmailForId(email, password))
             .responseJSON { (request, response, jsonData, error) -> Void in
-                if let data: AnyObject = jsonData {
+                if (response?.statusCode == 404) {
+                    callback(nil, NSError(domain: "Networking", code: 404, userInfo: ["message": "There is no user with this email address.\n"]))
+                } else if response?.statusCode == 401 {
+                    callback(nil, NSError(domain: "Networking", code: 401, userInfo: ["message": "Wrong email/password.\n"]))
+                } else if let data: AnyObject = jsonData {
                     let json = JSON(data)
                     callback(json, error)
                 } else {

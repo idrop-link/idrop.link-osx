@@ -98,20 +98,29 @@ public class User {
                     // saved credentials
                     if error!.code == 404 {
                         self.keychain.removeAll()
+                        callback(false, "A user for this email does not exist.")
+
+                    } else if error!.code == 400 || error!.code == 401 {
+                        self.keychain.removeAll()
+                        callback(false, "Please check your credentials and try again.")
+
+                    } else {
+                        // TODO: improve
+                        callback(false, "Unknown error.")
                     }
-                    
-                    callback(true, "no message returned")
                 }
             } else {
                 if let json = returnedJson {
                     if let token = json["token"].string {
                         self.token = token
                         callback(true, self.token!)
+
                     } else {
-                        callback(false, "no token returned")
+                        callback(false, "An error occuroed.")
                     }
+
                 } else {
-                    callback(false, "no message or id returned")
+                    callback(false, "An error occured.")
                 }
             }
         })
@@ -203,29 +212,39 @@ public class User {
     :param: callback closure (Bool, String)
     */
     public func tryIdFetch(callback: (Bool, String) -> ()) -> Void {
-        if self.hasCredentials() {
-            Networking.getIdForEmail(self.email, password: self.password, callback: { (returnedJson, error) -> Void in
+        if let mail = self.email, let password = self.password {
+            Networking.getIdForEmail(mail, password: password, callback: { (returnedJson, error) -> Void in
                 if (error != nil) {
-                    if let json = returnedJson {
+                    if error!.code == 404 || error!.code == 401 {
+                        callback(false, error!.userInfo!["message"] as! String)
+
+                    } else if let json = returnedJson {
                         callback(false, json["message"].string!)
+
                     } else {
-                        callback(false, "no message returned")
+                        callback(false, "An unknown error occured. Code: 1\n")
                     }
+
                 } else {
                     if let json = returnedJson {
-                        var id = json["_id"].string!
+                        self.userId = json["_id"].string!
                         
                         if let id = self.userId {
                             self.tryKeychainDataSet()
                             callback(true, id)
+
                         } else {
                             callback(false, json["message"].string!)
                         }
+
                     } else {
-                        callback(false, "no message or id returned")
+                        callback(false, "An unknown error occured. Code: 2\n")
                     }
                 }
             })
+
+        } else {
+            callback(false, "No credentials given.\n")
         }
     }
 }
