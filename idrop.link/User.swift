@@ -144,7 +144,7 @@ public class User {
     }
     
     // MARK: - Credentials
-    /*
+    /**
     Set credentials for the user
 
     :param: email the users email
