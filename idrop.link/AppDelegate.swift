@@ -79,6 +79,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 item.popUpStatusItemMenu(_menu)
             }
         }
+        
+        icon.onDrop = { (file: String) -> () in
+            self.user.uploadDrop(file, callback: { (success, msg) -> Void in
+                // TODO: notification w\ success
+                println(success)
+                println(msg)
+            })
+        }
     }
     
     // MARK: - Menu Handlers

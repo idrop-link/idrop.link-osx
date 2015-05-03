@@ -37,7 +37,7 @@ enum Router: URLRequestConvertible {
     Creates request for deleting a user
     
     :param: userId  The ID as returned by createUser or signIn
-    :param: token   the authentification token
+    :param: token   The authentification token
     
     :returns: URLRequestConvertible
     */
@@ -47,7 +47,7 @@ enum Router: URLRequestConvertible {
     Creates request for getting a users info
     
     :param: userId  The ID as returned by createUser or signIn
-    :param: token   the authentification token
+    :param: token   The authentification token
     
     :returns: URLRequestConvertible
     */
@@ -57,8 +57,8 @@ enum Router: URLRequestConvertible {
     Creates request for updatig a users info
     
     :param: userId  The ID as returned by createUser or signIn
-    :param: token   the authentification token
-    :param: fields  the fields to be updated
+    :param: token   The authentification token
+    :param: fields  The fields to be updated
     
     :returns: URLRequestConvertible
     */
@@ -68,8 +68,8 @@ enum Router: URLRequestConvertible {
     Creates request for retrieving a authentification token
     
     :param: userId  The ID as returned by createUser or signIn
-    :param: email the users email
-    :param: password the users password
+    :param: email   The users email
+    :param: password The users password
     
     :returns: URLRequestConvertible
     */
@@ -78,10 +78,27 @@ enum Router: URLRequestConvertible {
     /**
     Get user id for the email. (Needed for communicating with the api.
 
-    :param: email the users email
-    :param: password the users password
+    :param: email   The users email
+    :param: password The users password
     */
     case GetEmailForId(String, String)
+    
+    /**
+    Register drop
+
+    :param: userId  The ID as returned by createUser or signIn
+    :param: token   The authentification token
+    */
+    case InitializeDrop(String, String)
+    
+    /**
+    Upload file to registered drop
+
+    :param: userId  The ID as returned by createUser or signIn
+    :param: token   The authentification token
+    :param: dropId  The ID as returned by InitializeDrop
+    */
+    case UploadFileToDrop(String, String, String)
 
     // MARK: Methods
     /**
@@ -89,7 +106,7 @@ enum Router: URLRequestConvertible {
     */
     var method: Alamofire.Method {
         switch self {
-        case .CreateUser, .GetAuthToken:
+        case .CreateUser, .GetAuthToken, InitializeDrop, UploadFileToDrop:
             return .POST
         case .DeleteUser:
             return .DELETE
@@ -118,6 +135,10 @@ enum Router: URLRequestConvertible {
             return "/users/\(userId)/authenticate"
         case .GetEmailForId(let email, _):
             return "/users/\(email)/idformail"
+        case .InitializeDrop(let userId, _):
+            return "/users/\(userId)/drops"
+        case .UploadFileToDrop(let userId, _, let dropId):
+            return "/users/\(userId)/drops/\(dropId)"
         }
     }
     
@@ -136,7 +157,11 @@ enum Router: URLRequestConvertible {
             mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
         case .DeleteUser(_, let token):
             mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
-            
+        case .InitializeDrop(_, let token):
+            println(token)
+            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        case .UploadFileToDrop(_, let token, _):
+            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
         default:
             break;
         }
@@ -145,7 +170,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .CreateUser(let email, let password):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
-        case .UpdateUser(_, let token, let parameters):
+        case .UpdateUser(_, _, let parameters):
             return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
         case .GetAuthToken(_, let email, let password):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
@@ -261,5 +286,73 @@ final class Networking {
                     callback(nil, error)
                 }
         }
+    }
+    
+    /**
+    Initialize the drop by registering a drop
+    
+    :param: userId  The ID as returned by createUser or signIn
+    :param: token   A valid access token
+    :param: callback Function to call with result or error when finished
+    */
+    class func initializeDrop(userId: String!, token: String!, callback: APICallback) {
+        Alamofire
+            .request(Router.InitializeDrop(userId, token))
+            .responseJSON { (request, response, jsonData, error) -> Void in
+                if let data: AnyObject = jsonData {
+                    let json = JSON(data)
+                    callback(json, error)
+                } else {
+                    callback(nil, error)
+                }
+        }
+    }
+    
+    /**
+    Upload file to registered drop
+
+    :param: userId  The ID as returned by createUser or signIn
+    :param: token   A valid access token
+    :param: dropId  The ID as returned by initializeDrop
+    :param: callback Function to call with result or error when finished
+    */
+    class func uploadToDrop(userId: String!, token: String!, dropId: String!, filepath: String!, callback: APICallback) {
+        let url:NSURL = NSURL(string: filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
+        let filename = url.path!.lastPathComponent
+        let fileData = NSData(contentsOfFile: filepath)!
+
+        var route = Router.UploadFileToDrop(userId, token, dropId)
+        var request = route.URLRequest.mutableCopy() as! NSMutableURLRequest
+        
+        let boundary = "NET-POST-boundary-\(arc4random())-\(arc4random())"
+        request.setValue("multipart/form-data;boundary="+boundary,
+            forHTTPHeaderField: "Content-Type")
+
+        let parameters = NSMutableData()
+        
+        // append content disposition
+        parameters.appendData("\r\n--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        parameters.appendData("Content-Disposition: form-data; name=\"data\"; filename=\"\(filename)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        // append content type
+        parameters.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        parameters.appendData(fileData)
+        parameters.appendData("\r\n--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        Alamofire
+            .upload(request, parameters)
+            .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
+                // TODO
+                println("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+            }
+            .responseJSON { (request, response, jsonData, error) -> Void in
+                if let data: AnyObject = jsonData {
+                    let json = JSON(data)
+                    callback(json, error)
+                } else {
+                    callback(nil, error)
+                }
+            }
     }
 }

@@ -17,6 +17,7 @@ class IconView : NSView, NSDraggingDestination {
     
     var onMouseDown: () -> ()
     var onRightMouseDown: () -> ()
+    var onDrop: (String) -> ()
     
     var isSelected: Bool {
         didSet {
@@ -34,6 +35,8 @@ class IconView : NSView, NSDraggingDestination {
         self.isSelected = false
         self.onMouseDown = {}
         self.onRightMouseDown = {}
+        self.onDrop = { (str) -> Void in
+        }
         
         let thickness = NSStatusBar.systemStatusBar().thickness
         let rect = CGRectMake(0, 0, thickness, thickness)
@@ -80,9 +83,10 @@ class IconView : NSView, NSDraggingDestination {
         var pboard = sender.draggingPasteboard()
         
         if pboard != nil {
-            if contains(pboard.types as! [NSString],NSFilenamesPboardType) {
+            if contains(pboard.types as! [NSString], NSFilenamesPboardType) {
                 var files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
-                println(files)
+                // TODO: for file ... onDrop
+                self.onDrop(files[0])
             }
             return true
         }
