@@ -92,17 +92,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     // MARK: - Menu Handlers
-    
     @IBAction func quitApplication(sender: AnyObject) {
         NSApplication.sharedApplication().terminate(self)
     }
     
     @IBAction func showPreferencesWindow(sender: AnyObject) {
+        // focus on our app
+        NSApplication.sharedApplication().activateIgnoringOtherApps(true)
+        
+        // show window
         NSBundle.mainBundle().loadNibNamed("Preferences",
             owner: preferencesWindowController, topLevelObjects: nil)
     }
     
     @IBAction func showLoginWindow(sender: AnyObject) {
+        // focus on our app
+        NSApplication.sharedApplication().activateIgnoringOtherApps(true)
+        
+        // show window
         NSBundle.mainBundle().loadNibNamed("Login",
             owner: loginWindowController, topLevelObjects: nil)
     }
