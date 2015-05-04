@@ -23,10 +23,10 @@ class LoginWindowController: NSWindowController {
     @IBOutlet weak var errorSheetText: NSTextField!
     
     var user: User?
-
+    
     override func windowDidLoad() {
         super.windowDidLoad()
-
+        
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
     
@@ -42,15 +42,15 @@ class LoginWindowController: NSWindowController {
     }
     
     @IBAction func doLogin(sender: AnyObject) {
-        print("do login!\n")
         var finishLogin = { () -> Void in
-            print("finish login!\n")
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
+            self._window.orderOut(sender)
+            Notification.showNotification("idrop.link", subtitle: "You are logged in.")
+            return
         }
         
         var finishLoginWithError = { (msg: String) -> Void in
-            print("finish login with error!\n")
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
             self.showErrorSheetWithMessage(msg)
@@ -63,7 +63,7 @@ class LoginWindowController: NSWindowController {
         if let usr = self.user {
             usr.email = loginEmail.stringValue
             usr.password = loginPassword.stringValue
-
+            
             usr.tryIdFetch({ (success, msg) -> Void in
                 if usr.hasCredentials() {
                     usr.login({ (success, msg) -> Void in

@@ -82,9 +82,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         icon.onDrop = { (file: String) -> () in
             self.user.uploadDrop(file, callback: { (success, msg) -> Void in
-                // TODO: notification w\ success
-                println(success)
-                println(msg)
+                if (success) {
+                    Notification.showNotification("idrop.link", subtitle: "Drop successful!")
+                } else {
+                    Notification.showNotification("idrop.link", subtitle: "Drop failed.")
+                }
             })
         }
     }

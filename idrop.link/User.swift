@@ -20,7 +20,7 @@ public class User {
     var token: String?
     
     var keychain: Keychain
-    
+
     // MARK: - Initializers
     public init() {
         self.email = nil
