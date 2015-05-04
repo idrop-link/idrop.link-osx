@@ -14,7 +14,7 @@ import SwiftyJSON
 /**
 Router for authentification based paths.
 
-The need for a routers is caused by our custom header `Authorization` 
+We need a router because of the custom header `Authorization`
 that contains the token (if needed) which we want so send along with.
 That very method for custom http headers is advised by Alamofire.
 
@@ -22,7 +22,7 @@ That very method for custom http headers is advised by Alamofire.
 */
 enum Router: URLRequestConvertible {
     static let baseUrlString = Config.baseUrl
-
+    
     /**
     Creates request for creating a user
     
@@ -32,7 +32,7 @@ enum Router: URLRequestConvertible {
     :returns: URLRequestConvertible
     */
     case CreateUser(String, String)
-
+    
     /**
     Creates request for deleting a user
     
@@ -42,7 +42,7 @@ enum Router: URLRequestConvertible {
     :returns: URLRequestConvertible
     */
     case DeleteUser(String, String)
-
+    
     /**
     Creates request for getting a users info
     
@@ -52,7 +52,7 @@ enum Router: URLRequestConvertible {
     :returns: URLRequestConvertible
     */
     case GetUser(String, String)
-
+    
     /**
     Creates request for updatig a users info
     
@@ -63,7 +63,7 @@ enum Router: URLRequestConvertible {
     :returns: URLRequestConvertible
     */
     case UpdateUser(String, String, [String: AnyObject])
-
+    
     /**
     Creates request for retrieving a authentification token
     
@@ -77,7 +77,7 @@ enum Router: URLRequestConvertible {
     
     /**
     Get user id for the email. (Needed for communicating with the api.
-
+    
     :param: email   The users email
     :param: password The users password
     */
@@ -85,7 +85,7 @@ enum Router: URLRequestConvertible {
     
     /**
     Register drop
-
+    
     :param: userId  The ID as returned by createUser or signIn
     :param: token   The authentification token
     */
@@ -93,13 +93,23 @@ enum Router: URLRequestConvertible {
     
     /**
     Upload file to registered drop
-
+    
     :param: userId  The ID as returned by createUser or signIn
     :param: token   The authentification token
     :param: dropId  The ID as returned by InitializeDrop
     */
     case UploadFileToDrop(String, String, String)
-
+    
+    /**
+    Get list of all drops
+    
+    :param: userId  The ID as returned by createUser or signIn
+    :param: token   The authentification token
+    
+    :returns: URLRequestConvertible
+    */
+    case GetDrops(String, String)
+    
     // MARK: Methods
     /**
     HTTP method for different kind of requests
@@ -110,7 +120,7 @@ enum Router: URLRequestConvertible {
             return .POST
         case .DeleteUser:
             return .DELETE
-        case .GetUser, .GetEmailForId:
+        case .GetUser, .GetEmailForId, .GetDrops:
             return .GET
         case .UpdateUser:
             return .PUT
@@ -139,6 +149,8 @@ enum Router: URLRequestConvertible {
             return "/users/\(userId)/drops"
         case .UploadFileToDrop(let userId, _, let dropId):
             return "/users/\(userId)/drops/\(dropId)"
+        case .GetDrops(let userId, _):
+            return "/users/\(userId)/drops/"
         }
     }
     
@@ -161,6 +173,8 @@ enum Router: URLRequestConvertible {
             println(token)
             mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
         case .UploadFileToDrop(_, let token, _):
+            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+        case .GetDrops(_, let token):
             mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
         default:
             break;
@@ -311,7 +325,7 @@ final class Networking {
     
     /**
     Upload file to registered drop
-
+    
     :param: userId  The ID as returned by createUser or signIn
     :param: token   A valid access token
     :param: dropId  The ID as returned by initializeDrop
@@ -321,14 +335,14 @@ final class Networking {
         let url:NSURL = NSURL(string: filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
         let filename = url.path!.lastPathComponent
         let fileData = NSData(contentsOfFile: filepath)!
-
+        
         var route = Router.UploadFileToDrop(userId, token, dropId)
         var request = route.URLRequest.mutableCopy() as! NSMutableURLRequest
         
         let boundary = "NET-POST-boundary-\(arc4random())-\(arc4random())"
         request.setValue("multipart/form-data;boundary="+boundary,
             forHTTPHeaderField: "Content-Type")
-
+        
         let parameters = NSMutableData()
         
         // append content disposition
@@ -354,6 +368,28 @@ final class Networking {
                 } else {
                     callback(nil, error)
                 }
-            }
+        }
+    }
+    
+    /**
+    Get all drops of a user
+    
+    :param: userId  The ID as returned by createUser or signIn
+    :param: token   A valid access token
+    :param: callback Function to call with result or error when finished
+    
+    :see: getToken
+    */
+    class func getDrops(userId: String!, token: String!, callback: APICallback) {
+        Alamofire
+            .request(Router.GetDrops(userId, token))
+            .responseJSON{ (request, response, jsonData, error ) -> Void in
+                if let data: AnyObject = jsonData {
+                    let json = JSON(data)
+                    callback(json, error)
+                } else {
+                    callback(nil, error)
+                }
+        }
     }
 }
