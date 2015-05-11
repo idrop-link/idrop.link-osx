@@ -13,7 +13,7 @@ public class Notification: NSObject {
         var notification:NSUserNotification = NSUserNotification()
         notification.title = title
         notification.subtitle = subtitle
-        
+        notification.informativeText = "test"
         notification.soundName = NSUserNotificationDefaultSoundName
 
         NSUserNotificationCenter.defaultUserNotificationCenter().scheduleNotification(notification)

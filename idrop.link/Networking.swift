@@ -170,7 +170,6 @@ enum Router: URLRequestConvertible {
         case .DeleteUser(_, let token):
             mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
         case .InitializeDrop(_, let token):
-            println(token)
             mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
         case .UploadFileToDrop(_, let token, _):
             mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")

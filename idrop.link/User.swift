@@ -141,9 +141,9 @@ public class User {
         if (self.hasCredentials()) {
             self.login({ (success, msg) in
                 if (success) {
-                    print("success with token \(msg)\n")
+                    println("success with token \(msg)\n")
                 } else {
-                    print("error: \(msg)")
+                    println("error: \(msg)")
                 }
             })
         }
@@ -264,7 +264,6 @@ public class User {
         if let tok = self.token, let id = self.userId {
             Networking.initializeDrop(userId, token: token, callback: { (returnedJson, error) -> Void in
                 if let json = returnedJson {
-                    println(returnedJson)
                     
                     if let url = json["url"].string {
                         // copy url to pasteboard

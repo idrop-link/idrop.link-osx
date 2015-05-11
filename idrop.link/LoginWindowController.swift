@@ -36,7 +36,7 @@ class LoginWindowController: NSWindowController {
     :param: message description of the error
     */
     func showErrorSheetWithMessage(message: String) {
-        print(message)
+        println("message: \(message)")
         errorSheetText.stringValue = message
         _window.beginSheet(errorSheet, completionHandler: nil)
     }
@@ -67,8 +67,7 @@ class LoginWindowController: NSWindowController {
             usr.tryIdFetch({ (success, msg) -> Void in
                 if usr.hasCredentials() {
                     usr.login({ (success, msg) -> Void in
-                        print(success)
-                        print(msg)
+                        println("msg: \(msg)")
                         
                         if !success {
                             finishLoginWithError(msg)
