@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
     @IBOutlet var window: NSWindow?
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
@@ -49,6 +49,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
+        // set up notification center delegate
+        NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -89,6 +91,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             })
         }
+    }
+    
+    // MARK: - Notification Center Delegation
+    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+        return true
     }
     
     // MARK: - Menu Handlers
