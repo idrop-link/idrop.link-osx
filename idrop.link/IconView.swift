@@ -14,11 +14,19 @@ class IconView : NSView, NSDraggingDestination {
     
     private(set) var lightImage: NSImage
     private(set) var image: NSImage
+    private(set) var image0: NSImage
+    private(set) var image25: NSImage
+    private(set) var image50: NSImage
+    private(set) var image75: NSImage
     private let item: NSStatusItem
     
     var onMouseDown: () -> ()
     var onRightMouseDown: () -> ()
     var onDrop: (String) -> ()
+    
+    var progress:Float {
+        didSet { self.needsDisplay = true }
+    }
     
     var isSelected: Bool {
         didSet {
@@ -33,6 +41,12 @@ class IconView : NSView, NSDraggingDestination {
     init(item: NSStatusItem) {
         self.image = NSImage(named: "icon")!
         self.lightImage = NSImage(named: "iconlight")!
+        self.image0 = NSImage(named: "icon_0")!
+        self.image25 = NSImage(named: "icon_25")!
+        self.image50 = NSImage(named: "icon_50")!
+        self.image75 = NSImage(named: "icon_75")!
+        
+        self.progress = 1.0
         
         self.item = item
         self.isSelected = false
@@ -65,7 +79,17 @@ class IconView : NSView, NSDraggingDestination {
         if self.isSelected || isDarkmode {
             self.lightImage.drawInRect(rect)
         } else {
-            self.image.drawInRect(rect)
+            if self.progress < 0.25 {
+                self.image0.drawInRect(rect)
+            } else if self.progress < 0.5 {
+                self.image25.drawInRect(rect)
+            } else if self.progress < 0.75 {
+                self.image50.drawInRect(rect)
+            } else if self.progress < 1.0 {
+                self.image75.drawInRect(rect)
+            } else {
+                self.image.drawInRect(rect)
+            }
         }
     }
     
@@ -81,6 +105,9 @@ class IconView : NSView, NSDraggingDestination {
     override func rightMouseDown(theEvent: NSEvent) {
         self.isSelected = !self.isSelected
         self.onRightMouseDown()
+    }
+    
+    override func rightMouseUp(theEvent: NSEvent) {
     }
     
     // MARK: - drag and drop

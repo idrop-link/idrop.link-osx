@@ -330,8 +330,9 @@ final class Networking {
     :param: token   A valid access token
     :param: dropId  The ID as returned by initializeDrop
     :param: callback Function to call with result or error when finished
+    :param: onProgress  Optional function that gets called while uploading 
     */
-    class func uploadToDrop(userId: String!, token: String!, dropId: String!, filepath: String!, callback: APICallback) {
+    class func uploadToDrop(userId: String!, token: String!, dropId: String!, filepath: String!, callback: APICallback, onProgress: ((Float) -> Void)?) {
         let url:NSURL = NSURL(string: filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
         let filename = url.path!.lastPathComponent
         let fileData = NSData(contentsOfFile: filepath)!
@@ -358,8 +359,9 @@ final class Networking {
         Alamofire
             .upload(request, parameters)
             .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
-                // TODO
-                println("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+                if let fn = onProgress {
+                    fn(Float(totalBytesWritten) / Float(totalBytesExpectedToWrite))
+                }
             }
             .responseJSON { (request, response, jsonData, error) -> Void in
                 if let data: AnyObject = jsonData {

@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     override init() {
         let bar = NSStatusBar.systemStatusBar();
         
-        let length: CGFloat = -1 //NSVariableStatusItemLength
+        let length: CGFloat = -1 // NSVariableStatusItemLength
         self.item = bar.statusItemWithLength(length);
         
         self.icon = IconView(item: item);
@@ -51,6 +51,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         // Insert code here to initialize your application
         // set up notification center delegate
         NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
+        
+        self.user.onProgress = { (prog: Float) -> Void in
+            self.icon.progress = prog
+        }
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
