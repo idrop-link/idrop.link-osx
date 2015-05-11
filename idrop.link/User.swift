@@ -20,9 +20,13 @@ public class User {
     var token: String?
     
     var keychain: Keychain
+    
+    var onProgress:(Float) -> Void
 
     // MARK: - Initializers
     public init() {
+        self.onProgress = { (prog) -> Void in
+        }
         self.email = nil
         self.password = nil
         self.userId = nil
@@ -39,6 +43,8 @@ public class User {
     :return: new user object
     */
     public init(email: String, password: String, userId: String) {
+        self.onProgress = { (prog) -> Void in
+        }
         self.email = email
         self.password = password
         self.userId = userId
@@ -279,8 +285,13 @@ public class User {
                             } else {
                                 callback(false, "An unknown error occured.\n")
                             }
+                            }, onProgress: {(progress) -> Void in
+                                self.onProgress(progress)
                         })
                     } else {
+                        // enforce normal icon
+                        self.onProgress(100.0)
+                        
                         if let msg = json["message"].string {
                             callback(false, msg)
                         } else {
@@ -289,6 +300,9 @@ public class User {
                     }
                    
                 } else {
+                    // enforce normal icon
+                    self.onProgress(100.0)
+
                     callback(false, "No data returned")
                 }
             })
