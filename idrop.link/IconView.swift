@@ -12,6 +12,7 @@ import Cocoa
 class IconView : NSView, NSDraggingDestination {
     @IBOutlet var mainMenu: NSMenu?
     
+    private(set) var lightImage: NSImage
     private(set) var image: NSImage
     private let item: NSStatusItem
     
@@ -29,8 +30,10 @@ class IconView : NSView, NSDraggingDestination {
     }
     
     // MARK: - init
-    init(imageName: String, item: NSStatusItem) {
-        self.image = NSImage(named: imageName)!
+    init(item: NSStatusItem) {
+        self.image = NSImage(named: "icon")!
+        self.lightImage = NSImage(named: "iconlight")!
+        
         self.item = item
         self.isSelected = false
         self.onMouseDown = {}
@@ -57,7 +60,13 @@ class IconView : NSView, NSDraggingDestination {
         let size = self.image.size
         let rect = CGRectMake(2, 2, size.width, size.height)
         
-        self.image.drawInRect(rect)
+        let isDarkmode = (NSAppearance.currentAppearance().name.rangeOfString(NSAppearanceNameVibrantDark) != nil)
+        
+        if self.isSelected || isDarkmode {
+            self.lightImage.drawInRect(rect)
+        } else {
+            self.image.drawInRect(rect)
+        }
     }
     
     // MARK: - click handler

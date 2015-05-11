@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let length: CGFloat = -1 //NSVariableStatusItemLength
         self.item = bar.statusItemWithLength(length);
         
-        self.icon = IconView(imageName: "icon", item: item);
+        self.icon = IconView(item: item);
         item.view = icon;
         
         self.user = User()
