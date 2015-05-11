@@ -12,12 +12,18 @@ import Cocoa
 class IconView : NSView, NSDraggingDestination {
     @IBOutlet var mainMenu: NSMenu?
     
-    private(set) var lightImage: NSImage
     private(set) var image: NSImage
     private(set) var image0: NSImage
     private(set) var image25: NSImage
     private(set) var image50: NSImage
     private(set) var image75: NSImage
+
+    private(set) var lightImage: NSImage
+    private(set) var lightImage0: NSImage
+    private(set) var lightImage25: NSImage
+    private(set) var lightImage50: NSImage
+    private(set) var lightImage75: NSImage
+
     private let item: NSStatusItem
     
     var onMouseDown: () -> ()
@@ -40,11 +46,16 @@ class IconView : NSView, NSDraggingDestination {
     // MARK: - init
     init(item: NSStatusItem) {
         self.image = NSImage(named: "icon")!
-        self.lightImage = NSImage(named: "iconlight")!
         self.image0 = NSImage(named: "icon_0")!
         self.image25 = NSImage(named: "icon_25")!
         self.image50 = NSImage(named: "icon_50")!
         self.image75 = NSImage(named: "icon_75")!
+        
+        self.lightImage = NSImage(named: "iconlight")!
+        self.lightImage0 = NSImage(named: "iconlight_0")!
+        self.lightImage25 = NSImage(named: "iconlight_25")!
+        self.lightImage50 = NSImage(named: "iconlight_50")!
+        self.lightImage75 = NSImage(named: "iconlight_75")!
         
         self.progress = 1.0
         
@@ -77,7 +88,17 @@ class IconView : NSView, NSDraggingDestination {
         let isDarkmode = (NSAppearance.currentAppearance().name.rangeOfString(NSAppearanceNameVibrantDark) != nil)
         
         if self.isSelected || isDarkmode {
-            self.lightImage.drawInRect(rect)
+            if self.progress < 0.25 {
+                self.lightImage0.drawInRect(rect)
+            } else if self.progress < 0.5 {
+                self.lightImage25.drawInRect(rect)
+            } else if self.progress < 0.75 {
+                self.lightImage50.drawInRect(rect)
+            } else if self.progress < 1.0 {
+                self.lightImage75.drawInRect(rect)
+            } else {
+                self.lightImage.drawInRect(rect)
+            }
         } else {
             if self.progress < 0.25 {
                 self.image0.drawInRect(rect)

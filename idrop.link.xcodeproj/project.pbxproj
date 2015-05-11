@@ -31,6 +31,10 @@
 		6569DDF31AEEC7640085C52F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6BFC1AE9818100F5EF87 /* Config.swift */; };
 		6569DDF61AEF6DCB0085C52F /* LoginWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569DDF41AEF6DCB0085C52F /* LoginWindowController.swift */; };
 		6569DDF71AEF6DCB0085C52F /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6569DDF51AEF6DCB0085C52F /* Login.xib */; };
+		6585C5A61B0143E000B6E3DF /* iconlight_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6585C5A21B0143E000B6E3DF /* iconlight_0@2x.png */; };
+		6585C5A71B0143E000B6E3DF /* iconlight_25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6585C5A31B0143E000B6E3DF /* iconlight_25@2x.png */; };
+		6585C5A81B0143E000B6E3DF /* iconlight_50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6585C5A41B0143E000B6E3DF /* iconlight_50@2x.png */; };
+		6585C5A91B0143E000B6E3DF /* iconlight_75@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6585C5A51B0143E000B6E3DF /* iconlight_75@2x.png */; };
 		8421E7C843CCDCC470386320 /* Pods_idrop_linkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12402F28F58DB5F47D8E8C2C /* Pods_idrop_linkTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9E62A87EBC7C66DB46EB117A /* Pods_idrop_link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -75,6 +79,10 @@
 		6569DDF01AEEBF0B0085C52F /* NetworkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTest.swift; sourceTree = "<group>"; };
 		6569DDF41AEF6DCB0085C52F /* LoginWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWindowController.swift; sourceTree = "<group>"; };
 		6569DDF51AEF6DCB0085C52F /* Login.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Login.xib; sourceTree = "<group>"; };
+		6585C5A21B0143E000B6E3DF /* iconlight_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconlight_0@2x.png"; sourceTree = "<group>"; };
+		6585C5A31B0143E000B6E3DF /* iconlight_25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconlight_25@2x.png"; sourceTree = "<group>"; };
+		6585C5A41B0143E000B6E3DF /* iconlight_50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconlight_50@2x.png"; sourceTree = "<group>"; };
+		6585C5A51B0143E000B6E3DF /* iconlight_75@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconlight_75@2x.png"; sourceTree = "<group>"; };
 		7190E0C64D05D0A884E2AEB5 /* Pods-idrop.linkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.linkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F377CE9E0BB35F950140474 /* Pods-idrop.linkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.linkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD8B9A7AF207F1BDF00D5E64 /* Pods-idrop.link.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.link.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,11 +204,15 @@
 			children = (
 				650D6C051AE9818100F5EF87 /* icon.pxm */,
 				650D6C061AE9818100F5EF87 /* icon@2x.png */,
-				6536B53F1B00D1E100751C4D /* iconlight@2x.png */,
 				6536B5451B01057500751C4D /* icon_0@2x.png */,
 				6536B5461B01057500751C4D /* icon_25@2x.png */,
 				6536B5471B01057500751C4D /* icon_50@2x.png */,
 				6536B5481B01057500751C4D /* icon_75@2x.png */,
+				6536B53F1B00D1E100751C4D /* iconlight@2x.png */,
+				6585C5A21B0143E000B6E3DF /* iconlight_0@2x.png */,
+				6585C5A31B0143E000B6E3DF /* iconlight_25@2x.png */,
+				6585C5A41B0143E000B6E3DF /* iconlight_50@2x.png */,
+				6585C5A51B0143E000B6E3DF /* iconlight_75@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -341,10 +353,14 @@
 				650D6C111AE9818100F5EF87 /* icon.pxm in Resources */,
 				650D6C151AE981AE00F5EF87 /* Images.xcassets in Resources */,
 				6569DDF71AEF6DCB0085C52F /* Login.xib in Resources */,
+				6585C5A71B0143E000B6E3DF /* iconlight_25@2x.png in Resources */,
+				6585C5A61B0143E000B6E3DF /* iconlight_0@2x.png in Resources */,
 				6536B54B1B01057500751C4D /* icon_50@2x.png in Resources */,
 				650D6BE41AE9813900F5EF87 /* MainMenu.xib in Resources */,
 				6536B54A1B01057500751C4D /* icon_25@2x.png in Resources */,
+				6585C5A81B0143E000B6E3DF /* iconlight_50@2x.png in Resources */,
 				650D6C0F1AE9818100F5EF87 /* Preferences.xib in Resources */,
+				6585C5A91B0143E000B6E3DF /* iconlight_75@2x.png in Resources */,
 				6536B5401B00D1E100751C4D /* iconlight@2x.png in Resources */,
 				650D6C081AE9818100F5EF87 /* MainMenu.xib in Resources */,
 				6536B54C1B01057500751C4D /* icon_75@2x.png in Resources */,
