@@ -14,6 +14,8 @@ public class Notification: NSObject {
         notification.title = title
         notification.subtitle = subtitle
         
+        notification.soundName = NSUserNotificationDefaultSoundName
+
         NSUserNotificationCenter.defaultUserNotificationCenter().scheduleNotification(notification)
     }
 }
