@@ -334,7 +334,12 @@ final class Networking {
     class func uploadToDrop(userId: String!, token: String!, dropId: String!, filepath: String!, callback: APICallback, onProgress: ((Float) -> Void)?) {
         let url:NSURL = NSURL(string: filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
         let filename = url.path!.lastPathComponent
-        let fileData = NSData(contentsOfFile: filepath)!
+        let fileData = NSData(contentsOfFile: filepath)
+
+        if !(fileData != nil) {
+            callback(nil, nil)
+            return
+        }
         
         var route = Router.UploadFileToDrop(userId, token, dropId)
         var request = route.URLRequest.mutableCopy() as! NSMutableURLRequest
@@ -352,7 +357,7 @@ final class Networking {
         // append content type
         parameters.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         
-        parameters.appendData(fileData)
+        parameters.appendData(fileData!)
         parameters.appendData("\r\n--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         
         Alamofire
