@@ -21,7 +21,7 @@ That very method for custom http headers is advised by Alamofire.
 :see: https://github.com/Alamofire/Alamofire#crud--authorization
 */
 enum Router: URLRequestConvertible {
-    static let baseUrlString = Config.baseUrl
+    static let baseUrlString = Config.apiUrl
     
     /**
     Creates request for creating a user
