@@ -9,11 +9,15 @@
 import Cocoa
 
 public class Notification: NSObject {
-    public class func showNotification(title: String, subtitle: String) {
+    public class func showNotification(title: String, subtitle: String, informativeText: String? = nil) {
         var notification:NSUserNotification = NSUserNotification()
         notification.title = title
         notification.subtitle = subtitle
-        notification.informativeText = "test"
+
+        if let iText = informativeText {
+            notification.informativeText = iText
+        }
+
         notification.soundName = NSUserNotificationDefaultSoundName
 
         NSUserNotificationCenter.defaultUserNotificationCenter().scheduleNotification(notification)
