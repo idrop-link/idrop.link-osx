@@ -133,17 +133,32 @@ public class User {
     }
     
     /**
+    Unsets the user credentials (which represent the "not logged in" state).
+    
+    :return: success indicator
+    */
+    public func logout() -> Bool {
+        self.email = nil
+        self.password = nil
+        self.userId = nil
+        
+        return !self.hasCredentials()
+    }
+    
+    /**
     Try to get access token if we have the credentials
     
     :see: login
     */
-    public func tryLogin() {
+    public func tryLogin(callback: (Bool) -> ()) {
         if (self.hasCredentials()) {
             self.login({ (success, msg) in
                 if (success) {
-                    println("success with token \(msg)\n")
+                    println("ok")
+                    callback(true)
                 } else {
-                    println("error: \(msg)")
+                    self.logout()
+                    callback(false)
                 }
             })
         }

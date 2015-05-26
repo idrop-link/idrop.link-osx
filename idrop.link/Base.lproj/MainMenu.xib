@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="idrop_link">
             <connections>
+                <outlet property="loggedInMenu" destination="Ppi-Dm-b3o" id="V9C-QJ-Eqy"/>
                 <outlet property="menu" destination="QKl-2u-n0Q" id="TPs-Nl-xfS"/>
                 <outlet property="popover" destination="79J-8G-uar" id="csQ-r6-VX8"/>
             </connections>
@@ -680,7 +681,7 @@
         <customView id="OBP-pT-3rU">
             <rect key="frame" x="0.0" y="0.0" width="306" height="176"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <point key="canvasLocation" x="262" y="316"/>
+            <point key="canvasLocation" x="276" y="319"/>
         </customView>
         <menu autoenablesItems="NO" id="QKl-2u-n0Q">
             <items>
@@ -695,7 +696,7 @@
                 <menuItem title="Login" id="xoV-OR-5mB">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="showLoginWindow:" target="Voe-Tx-rLC" id="5vo-nn-caK"/>
+                        <action selector="login:" target="Voe-Tx-rLC" id="h9p-jM-MH6"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="aeh-kO-q8n"/>
@@ -706,6 +707,28 @@
                 </menuItem>
             </items>
             <point key="canvasLocation" x="566.5" y="294.5"/>
+        </menu>
+        <menu id="Ppi-Dm-b3o">
+            <items>
+                <menuItem title="Preferences" keyEquivalent="," id="qMa-Pn-gwN">
+                    <connections>
+                        <action selector="showPreferencesWindow:" target="Voe-Tx-rLC" id="EwN-d5-6vR"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Logout" id="KPx-hi-gRN">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="logout:" target="Voe-Tx-rLC" id="nyg-69-K7j"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="FoY-xu-oRg"/>
+                <menuItem title="Quit" keyEquivalent="q" id="DH9-a7-232">
+                    <connections>
+                        <action selector="quitApplication:" target="Voe-Tx-rLC" id="W9x-NB-OgY"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="735.5" y="294.5"/>
         </menu>
     </objects>
 </document>

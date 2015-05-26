@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBOutlet var window: NSWindow?
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
+    @IBOutlet weak var loggedInMenu: NSMenu!
     
     var user: User
     
@@ -35,7 +36,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         // try to get data out of keychain if any
         if self.user.tryKeychainDataFetch() {
-            self.user.tryLogin()
+            self.user.tryLogin({ (success) -> Void in
+                    // Does nothing atm
+                })
         }
         
         // initialize window controller
@@ -75,14 +78,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             self.popover?.close()
         }
         
-        // temp variables for closure
-        var item = self.item
-        var _menu = self.menu
-        
         icon.onRightMouseDown = {
             if (icon.isSelected) {
                 self.popover?.close()
-                item.popUpStatusItemMenu(_menu)
+                
+                if (self.user.hasCredentials()) {
+                    self.item.popUpStatusItemMenu(self.loggedInMenu)
+                } else {
+                    self.item.popUpStatusItemMenu(self.menu)
+                }
             }
         }
         
@@ -116,13 +120,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             owner: preferencesWindowController, topLevelObjects: nil)
     }
     
-    @IBAction func showLoginWindow(sender: AnyObject) {
+    @IBAction func login(sender: AnyObject) {
         // focus on our app
         NSApplication.sharedApplication().activateIgnoringOtherApps(true)
         
         // show window
         NSBundle.mainBundle().loadNibNamed("Login",
-            owner: loginWindowController, topLevelObjects: nil)
+            owner: self.loginWindowController, topLevelObjects: nil)
+    }
+
+    @IBAction func logout(sender: AnyObject) {
+        self.user.logout()
     }
 }
 
