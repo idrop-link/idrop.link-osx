@@ -182,7 +182,7 @@ public class User {
     */
     public func tryKeychainDataFetch() -> Bool {
         var mail = self.keychain.get(Config.keychainUserEmailKey)
-        var pass = self.keychain.get(Config.keychainUserEmailKey)
+        var pass = self.keychain.get(Config.keychainUserPasswordKey)
         var id = self.keychain.get(Config.keychainUserIdKey)
         
         if (mail != nil && pass != nil && id != nil) {
