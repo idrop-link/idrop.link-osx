@@ -100,6 +100,8 @@ public class User {
                 if let json = returnedJson {
                     callback(false, json["message"].string!)
                 } else {
+                    self.logout()
+
                     // the user does not exist anymore, so we can delete all
                     // saved credentials
                     if error!.code == 404 {
@@ -122,10 +124,12 @@ public class User {
                         callback(true, self.token!)
                         
                     } else {
+                        self.logout()
                         callback(false, "An error occuroed.")
                     }
                     
                 } else {
+                    self.logout()
                     callback(false, "An error occured.")
                 }
             }
@@ -208,6 +212,7 @@ public class User {
             self.keychain.remove(Config.keychainUserEmailKey)
             self.keychain.remove(Config.keychainUserIdKey)
             self.keychain.remove(Config.keychainUserPasswordKey)
+            self.logout()
         }
         
         return self.hasCredentials()
