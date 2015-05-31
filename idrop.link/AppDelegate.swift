@@ -9,17 +9,21 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate,
+    NSTableViewDataSource, NSTableViewDelegate {
+
     @IBOutlet var window: NSWindow?
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
     @IBOutlet weak var loggedInMenu: NSMenu!
-    @IBOutlet weak var popoverTableView: NSScrollView!
+    @IBOutlet weak var popoverTableView: PopoverTableView!
     
     var user: User
     
     var preferencesWindowController: PreferencesWindowController
     var loginWindowController: LoginWindowController
+    
+    var popoverTableViewDelegate: PopoverTableViewDelegate
     
     let icon: IconView
     let item: NSStatusItem
@@ -35,19 +39,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         self.user = User()
         
-        // try to get data out of keychain if any
-        if self.user.tryKeychainDataFetch() {
-            self.user.tryLogin({ (success) -> Void in
-                    // Does nothing atm
-                })
-        }
-        
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()
         self.preferencesWindowController.user = self.user
         self.loginWindowController = LoginWindowController()
         self.loginWindowController.user = self.user
         
+        self.popoverTableViewDelegate =  PopoverTableViewDelegate()
+        self.popoverTableViewDelegate.user = self.user
+    
         super.init();
     }
     
@@ -58,6 +58,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         self.user.onProgress = { (prog: Float) -> Void in
             self.icon.progress = prog
+        }
+        
+        self.popoverTableView.setDelegate(self.popoverTableViewDelegate)
+        self.popoverTableView.setDataSource(self.popoverTableViewDelegate)
+
+        // try to get data out of keychain if any
+        if self.user.tryKeychainDataFetch() {
+            self.user.tryLogin({ (success) -> Void in
+                self.user.onDropSync = { () -> Void in
+                    if let ptv = self.popoverTableView {
+                        ptv.reloadData()
+                    }
+                }
+                
+                if (success) {
+                    self.user.syncDrops()
+                }
+            })
         }
     }
     

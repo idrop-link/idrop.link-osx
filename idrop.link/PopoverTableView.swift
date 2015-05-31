@@ -9,7 +9,6 @@
 import Cocoa
 
 class PopoverTableView: NSTableView {
-
     override func awakeFromNib() {
         self.enclosingScrollView?.drawsBackground = false
         self.enclosingScrollView?.borderType = NSBorderType.NoBorder

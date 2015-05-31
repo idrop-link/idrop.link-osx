@@ -19,18 +19,27 @@ public class User {
     var userId: String?
     var token: String?
     
+    var onDropSync: () -> Void
+    
+    var drops:Array<Drop> {
+        didSet {
+            self.onDropSync()
+        }
+    }
+    
     var keychain: Keychain
     
     var onProgress:(Float) -> Void
 
     // MARK: - Initializers
     public init() {
-        self.onProgress = { (prog) -> Void in
-        }
+        self.onProgress = { (prog) -> Void in }
+        self.onDropSync = { () -> Void in println("def call")}
         self.email = nil
         self.password = nil
         self.userId = nil
         self.keychain = Keychain(service: Config.keychainServiceEntity)
+        self.drops = [Drop]()
     }
     
     /**
@@ -43,12 +52,13 @@ public class User {
     :return: new user object
     */
     public init(email: String, password: String, userId: String) {
-        self.onProgress = { (prog) -> Void in
-        }
+        self.onProgress = { (prog) -> Void in }
+        self.onDropSync = { () -> Void in }
         self.email = email
         self.password = password
         self.userId = userId
         self.keychain = Keychain(service: Config.keychainServiceEntity)
+        self.drops = [Drop]()
     }
     
     // MARK: - User specific api calls
@@ -121,6 +131,7 @@ public class User {
                 if let json = returnedJson {
                     if let token = json["token"].string {
                         self.token = token
+                        self.syncDrops()
                         callback(true, self.token!)
                         
                     } else {
@@ -248,7 +259,8 @@ public class User {
                         callback(false, json["message"].string!)
                         
                     } else {
-                        callback(false, "An unknown error occured. Code: 1\n")
+                        // we are probably offline!
+                        callback(false, "Code1")
                     }
                     
                 } else {
@@ -323,6 +335,64 @@ public class User {
                     self.onProgress(100.0)
 
                     callback(false, "No data returned")
+                }
+            })
+        }
+    }
+    
+    public func syncDrops() {
+        if let tok = self.token, let id = self.userId {
+            Networking.getDrops(userId, token: token, callback: { (returnedJson, error) -> Void in
+                if let json = returnedJson {
+                    if let drops = json["drops"].array {
+                        var inDateFormatter = NSDateFormatter()
+                        
+                        // inDateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+
+                        // string to match: 2015-05-28T19:23:52.911Z
+                        inDateFormatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                        // inDateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+                        
+                        var outDateFormatter = NSDateFormatter()
+                        outDateFormatter.setLocalizedDateFormatFromTemplate("HH:mm dd-MM-yy")
+
+                        for d in drops {
+                            // we need to check for failed drops
+                            // they have no name (but an id, but we want to be 
+                            // really sure, same with url, that they exist)
+                            var name = d["name"].string
+                            var url = d["url"].string
+                            var _id = d["_id"].string
+                            
+                            if let _name = name, _url = url, __id = _id {
+                                var formattedDate: String? = nil
+
+                                if let date = d["upload_date"].string {
+                                    println(date)
+                                    var theDate = inDateFormatter.dateFromString(date)
+
+                                    if let theD = theDate {
+                                        println(theD)
+                                        formattedDate = outDateFormatter.stringFromDate(theDate!)
+                                        println("formattedDate \(formattedDate)")
+                                    }
+                                }
+                                
+                                formattedDate = formattedDate != nil ? formattedDate : d["upload_date"].string
+
+                                var drop = Drop(dropDate: formattedDate,
+                                    name: _name,
+                                    _id: _id,
+                                    url: _url,
+                                    shortId: d["shortId"].string,
+                                    type: d["type"].string,
+                                    path: d["path"].string)
+                                self.drops.append(drop)
+                            } else {
+                                println("found failed drop")
+                            }
+                        }
+                    }
                 }
             })
         }
