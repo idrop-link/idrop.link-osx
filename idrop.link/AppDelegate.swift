@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
     @IBOutlet weak var loggedInMenu: NSMenu!
+    @IBOutlet weak var popoverTableView: NSScrollView!
     
     var user: User
     
