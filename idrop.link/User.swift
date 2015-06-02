@@ -416,7 +416,8 @@ public class User {
                                         url: _url,
                                         shortId: d["shortId"].string,
                                         type: d["type"].string,
-                                        path: d["path"].string)
+                                        path: d["path"].string,
+                                        views: d["views"].string)
                                     
                                     // we want the drops to be ordered by the newest,
                                     // thus the last in list. we don't want to sort

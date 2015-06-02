@@ -16,6 +16,7 @@ class Drop: NSObject {
     var shortId: String?
     var type: String?
     var path: String?
+    var views: Int?
     
     override init() {
         self.dropDate = nil
@@ -25,16 +26,20 @@ class Drop: NSObject {
         self.shortId = nil
         self.type = nil
         self.path = nil
+        self.views = nil
     }
     
     init(dropDate: String?, name: String?, _id: String?, url: String?,
-        shortId: String?, type: String?, path: String?) {
-        self.dropDate = dropDate
-        self.name = name
-        self._id = _id
-        self.url = url
-        self.shortId = shortId
-        self.type = type
-        self.path = path
+        shortId: String?, type: String?, path: String?, views: String?) {
+            self.dropDate = dropDate
+            self.name = name
+            self._id = _id
+            self.url = url
+            self.shortId = shortId
+            self.type = type
+            self.path = path
+            if let _views = views {
+                self.views = _views.toInt()
+            }
     }
 }
