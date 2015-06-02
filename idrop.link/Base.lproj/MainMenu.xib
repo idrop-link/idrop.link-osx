@@ -681,24 +681,24 @@
             </connections>
         </popover>
         <customView id="OBP-pT-3rU">
-            <rect key="frame" x="0.0" y="0.0" width="306" height="176"/>
+            <rect key="frame" x="0.0" y="0.0" width="333" height="187"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiZ-uy-hdW">
-                    <rect key="frame" x="12" y="13" width="283" height="151"/>
+                <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="62" horizontalPageScroll="10" verticalLineScroll="62" verticalPageScroll="10" usesPredominantAxisScrolling="NO" verticalScrollElasticity="allowed" translatesAutoresizingMaskIntoConstraints="NO" id="OiZ-uy-hdW">
+                    <rect key="frame" x="0.0" y="3" width="333" height="183"/>
                     <clipView key="contentView" misplaced="YES" drawsBackground="NO" copiesOnScroll="NO" id="54v-dp-2CI">
                         <rect key="frame" x="1" y="17" width="238" height="117"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="Gih-3w-qLQ" customClass="PopoverTableView" customModule="idrop_link" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="278" height="0.0"/>
+                            <tableView appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="60" rowSizeStyle="automatic" viewBased="YES" id="Gih-3w-qLQ" customClass="PopoverTableView" customModule="idrop_link" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
-                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" white="0.76000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <tableColumns>
-                                    <tableColumn identifier="MainCell" editable="NO" width="278" minWidth="40" maxWidth="1000" id="lXh-fd-56A">
+                                    <tableColumn identifier="MainCell" editable="NO" width="330" minWidth="40" maxWidth="1000" id="lXh-fd-56A">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -712,29 +712,29 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView identifier="MainCell" id="yGM-tM-5mu" customClass="PopoverTableCellView" customModule="idrop_link" customModuleProvider="target">
-                                                <rect key="frame" x="1" y="1" width="278" height="50"/>
+                                                <rect key="frame" x="1" y="1" width="330" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
+                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DB-dC-btv">
+                                                        <rect key="frame" x="3" y="11" width="48" height="48"/>
+                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="oAM-Hp-WEk"/>
+                                                    </imageView>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeT-m6-2fL">
-                                                        <rect key="frame" x="57" y="30" width="152" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="fJw-aK-hBr">
-                                                            <font key="font" metaFont="system"/>
+                                                        <rect key="frame" x="59" y="31" width="241" height="24"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="fJw-aK-hBr">
+                                                            <font key="font" size="13" name=".HelveticaNeueDeskInterface-Regular"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6e-91-5mv">
-                                                        <rect key="frame" x="57" y="5" width="152" height="17"/>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Label" id="5qY-0C-Xea">
-                                                            <font key="font" metaFont="system"/>
+                                                        <rect key="frame" x="57" y="6" width="245" height="23"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="5qY-0C-Xea">
+                                                            <font key="font" size="12" name=".HelveticaNeueDeskInterface-Regular"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DB-dC-btv">
-                                                        <rect key="frame" x="3" y="1" width="48" height="48"/>
-                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="oAM-Hp-WEk"/>
-                                                    </imageView>
                                                 </subviews>
                                                 <connections>
                                                     <outlet property="dateTextField" destination="O6e-91-5mv" id="FF2-XL-76K"/>
@@ -742,12 +742,16 @@
                                                     <outlet property="titleTextField" destination="aeT-m6-2fL" id="ISl-JX-II0"/>
                                                 </connections>
                                             </tableCellView>
+                                            <customView identifier="NSTableViewRowViewKey" id="pzJ-Cs-dHz" customClass="PopoverTableRowView" customModule="idrop_link" customModuleProvider="target">
+                                                <rect key="frame" x="1" y="63" width="330" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            </customView>
                                         </prototypeCellViews>
                                     </tableColumn>
                                 </tableColumns>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <nil key="backgroundColor"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="0L9-fY-BQE">
                         <rect key="frame" x="1" y="116.47991275787354" width="235" height="16"/>
@@ -759,7 +763,7 @@
                     </scroller>
                 </scrollView>
             </subviews>
-            <point key="canvasLocation" x="276" y="319"/>
+            <point key="canvasLocation" x="289.5" y="317.5"/>
         </customView>
         <menu autoenablesItems="NO" id="QKl-2u-n0Q">
             <items>

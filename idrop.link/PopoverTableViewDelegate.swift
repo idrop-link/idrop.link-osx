@@ -9,6 +9,7 @@
 import Cocoa
 
 class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+    var popoverTableView: PopoverTableView?
     var user:User? {
         didSet {
             println("has user")
@@ -49,5 +50,33 @@ class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDele
             println("no usr @ PTVD.tv")
             return nil
         }
+    }
+    
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        // sets selected items in bold font
+        self.popoverTableView?.enumerateAvailableRowViewsUsingBlock({ (rowView, row) -> Void in
+            for (var col = 0; col < rowView.numberOfColumns; col++) {
+                println(rowView)
+                println(row)
+                var cellView: AnyObject? = rowView.viewAtColumn(row)
+                
+                if let cV: AnyObject = cellView {
+                    if (cV.isKindOfClass(PopoverTableCellView)) {
+                        var tabelCellView = cV as! PopoverTableCellView
+                        var dateLabel = tabelCellView.dateTextField
+                        var titleLabel = tabelCellView.titleTextField
+                        
+                        if (rowView.selected) {
+                            dateLabel?.font = NSFont.boldSystemFontOfSize(dateLabel!.font!.pointSize)
+                            titleLabel?.font = NSFont.boldSystemFontOfSize(titleLabel!.font!.pointSize)
+                            
+                        } else {
+                            dateLabel?.font = NSFont.systemFontOfSize(dateLabel!.font!.pointSize)
+                            titleLabel?.font = NSFont.systemFontOfSize(titleLabel!.font!.pointSize)
+                        }
+                    }
+                }
+            }
+        })
     }
 }

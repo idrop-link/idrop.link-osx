@@ -9,8 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate,
-    NSTableViewDataSource, NSTableViewDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
 
     @IBOutlet var window: NSWindow?
     @IBOutlet var popover : NSPopover?
@@ -62,6 +61,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         self.popoverTableView.setDelegate(self.popoverTableViewDelegate)
         self.popoverTableView.setDataSource(self.popoverTableViewDelegate)
+        self.popoverTableView.user = self.user
+        self.popoverTableViewDelegate.popoverTableView = self.popoverTableView
 
         // try to get data out of keychain if any
         if self.user.tryKeychainDataFetch() {

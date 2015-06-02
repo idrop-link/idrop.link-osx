@@ -30,6 +30,7 @@
 		6536B54A1B01057500751C4D /* icon_25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6536B5461B01057500751C4D /* icon_25@2x.png */; };
 		6536B54B1B01057500751C4D /* icon_50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6536B5471B01057500751C4D /* icon_50@2x.png */; };
 		6536B54C1B01057500751C4D /* icon_75@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6536B5481B01057500751C4D /* icon_75@2x.png */; };
+		6539197A1B1C6DAD007B0507 /* PopoverTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653919791B1C6DAD007B0507 /* PopoverTableRowView.swift */; };
 		6569DDF11AEEBF0B0085C52F /* NetworkingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569DDF01AEEBF0B0085C52F /* NetworkingTest.swift */; };
 		6569DDF21AEEC0160085C52F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6C011AE9818100F5EF87 /* Networking.swift */; };
 		6569DDF31AEEC7640085C52F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D6BFC1AE9818100F5EF87 /* Config.swift */; };
@@ -84,6 +85,7 @@
 		6536B5461B01057500751C4D /* icon_25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_25@2x.png"; sourceTree = "<group>"; };
 		6536B5471B01057500751C4D /* icon_50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_50@2x.png"; sourceTree = "<group>"; };
 		6536B5481B01057500751C4D /* icon_75@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_75@2x.png"; sourceTree = "<group>"; };
+		653919791B1C6DAD007B0507 /* PopoverTableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTableRowView.swift; sourceTree = "<group>"; };
 		6569DDF01AEEBF0B0085C52F /* NetworkingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTest.swift; sourceTree = "<group>"; };
 		6569DDF41AEF6DCB0085C52F /* LoginWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWindowController.swift; sourceTree = "<group>"; };
 		6569DDF51AEF6DCB0085C52F /* Login.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Login.xib; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				650D6BFD1AE9818100F5EF87 /* IconView.swift */,
 				652BE2791B1AF96700128B8B /* PopoverTableView.swift */,
 				652BE27B1B1B092400128B8B /* PopoverTableCellView.swift */,
+				653919791B1C6DAD007B0507 /* PopoverTableRowView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				650D6C0E1AE9818100F5EF87 /* Networking.swift in Sources */,
 				650D6C0A1AE9818100F5EF87 /* IconView.swift in Sources */,
 				6513E43E1AF76635001B8A82 /* Notification.swift in Sources */,
+				6539197A1B1C6DAD007B0507 /* PopoverTableRowView.swift in Sources */,
 				650D6C091AE9818100F5EF87 /* Config.swift in Sources */,
 				650D6C131AE9818100F5EF87 /* User.swift in Sources */,
 				652BE27E1B1B130C00128B8B /* PopoverTableViewDelegate.swift in Sources */,

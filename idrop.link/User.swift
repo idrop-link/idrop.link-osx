@@ -387,7 +387,10 @@ public class User {
                                     shortId: d["shortId"].string,
                                     type: d["type"].string,
                                     path: d["path"].string)
-                                self.drops.append(drop)
+                                
+                                // note that insert(x,y) and append(x)
+                                // have the same complexicity
+                                self.drops.insert(drop, atIndex: 0)
                             } else {
                                 println("found failed drop")
                             }
