@@ -30,11 +30,11 @@ public class User {
     var keychain: Keychain
     
     var onProgress:(Float) -> Void
-
+    
     // MARK: - Initializers
     public init() {
         self.onProgress = { (prog) -> Void in }
-        self.onDropSync = { () -> Void in println("def call")}
+        self.onDropSync = { () -> Void in }
         self.email = nil
         self.password = nil
         self.userId = nil
@@ -105,45 +105,51 @@ public class User {
     :see: tryLogin
     */
     public func login(callback: (Bool, String) -> ()) {
-        Networking.getToken(self.userId, email: self.email, password: self.password, callback: { (returnedJson, error) in
-            if (error != nil) {
-                if let json = returnedJson {
-                    callback(false, json["message"].string!)
-                } else {
-                    self.logout()
-
-                    // the user does not exist anymore, so we can delete all
-                    // saved credentials
-                    if error!.code == 404 {
-                        self.keychain.removeAll()
-                        callback(false, "A user for this email does not exist.")
-                        
-                    } else if error!.code == 400 || error!.code == 401 {
-                        self.keychain.removeAll()
-                        callback(false, "Please check your credentials and try again.")
-                        
-                    } else {
-                        // TODO: improve
-                        callback(false, "Unknown error.")
-                    }
-                }
-            } else {
-                if let json = returnedJson {
-                    if let token = json["token"].string {
-                        self.token = token
-                        self.syncDrops()
-                        callback(true, self.token!)
+        Networking.getToken(self.userId,
+            email: self.email,
+            password: self.password,
+            callback: { (returnedJson, error) in
+                
+                if (error != nil) {
+                    if let json = returnedJson {
+                        callback(false, json["message"].string!)
                         
                     } else {
                         self.logout()
-                        callback(false, "An error occuroed.")
+                        
+                        // the user does not exist anymore, so we can delete all
+                        // saved credentials
+                        if error!.code == 404 {
+                            self.keychain.removeAll()
+                            callback(false, "A user for this email does not exist.")
+                            
+                        } else if error!.code == 400 || error!.code == 401 {
+                            self.keychain.removeAll()
+                            callback(false, "Please check your credentials and try again.")
+                            
+                        } else {
+                            // TODO: improve
+                            callback(false, "Unknown error.")
+                        }
                     }
                     
                 } else {
-                    self.logout()
-                    callback(false, "An error occured.")
+                    if let json = returnedJson {
+                        if let token = json["token"].string {
+                            self.token = token
+                            self.syncDrops()
+                            callback(true, self.token!)
+                            
+                        } else {
+                            self.logout()
+                            callback(false, "An error occuroed.")
+                        }
+                        
+                    } else {
+                        self.logout()
+                        callback(false, "An error occured.")
+                    }
                 }
-            }
         })
     }
     
@@ -169,7 +175,6 @@ public class User {
         if (self.hasCredentials()) {
             self.login({ (success, msg) in
                 if (success) {
-                    println("ok")
                     callback(true)
                 } else {
                     self.logout()
@@ -250,40 +255,45 @@ public class User {
     */
     public func tryIdFetch(callback: (Bool, String) -> ()) -> Void {
         if let mail = self.email, let password = self.password {
-            Networking.getIdForEmail(mail, password: password, callback: { (returnedJson, error) -> Void in
-                if (error != nil) {
-                    if error!.code == 404 || error!.code == 401 {
-                        callback(false, error!.userInfo!["message"] as! String)
-                        
-                    } else if let json = returnedJson {
-                        callback(false, json["message"].string!)
-                        
-                    } else {
-                        // we are probably offline!
-                        callback(false, "Code1")
-                    }
+            
+            Networking.getIdForEmail(mail,
+                password: password,
+                callback: { (returnedJson, error) -> Void in
                     
-                } else {
-                    if let json = returnedJson {
-                        self.userId = json["_id"].string!
-                        
-                        if let id = self.userId {
-                            self.tryKeychainDataSet()
-                            callback(true, id)
+                    if (error != nil) {
+                        if error!.code == 404 || error!.code == 401 {
+                            callback(false, error!.userInfo!["message"] as! String)
+                            
+                        } else if let json = returnedJson {
+                            callback(false, json["message"].string!)
                             
                         } else {
-                            callback(false, json["message"].string!)
+                            // we are probably offline!
+                            callback(false, "Code1")
                         }
                         
                     } else {
-                        callback(false, "An unknown error occured. Code: 2\n")
+                        if let json = returnedJson {
+                            self.userId = json["_id"].string!
+                            
+                            if let id = self.userId {
+                                self.tryKeychainDataSet()
+                                callback(true, id)
+                                
+                            } else {
+                                callback(false, json["message"].string!)
+                            }
+                            
+                        } else {
+                            callback(false, "An unknown error occured. Code: 2\n")
+                        }
                     }
-                }
             })
             
         } else {
             callback(false, "No credentials given.\n")
         }
+        
     }
     
     /**
@@ -294,50 +304,57 @@ public class User {
     */
     public func uploadDrop(file: String!, callback: (Bool, String) -> ()) -> Void {
         if let tok = self.token, let id = self.userId {
-            Networking.initializeDrop(userId, token: token, callback: { (returnedJson, error) -> Void in
-                if let json = returnedJson {
+            
+            Networking.initializeDrop(userId,
+                token: token,
+                callback: { (returnedJson, error) -> Void in
                     
-                    if let url = json["url"].string {
-                        // copy url to pasteboard
-                        var pasteBoard = NSPasteboard.generalPasteboard()
-                        pasteBoard.clearContents()
-                        pasteBoard.writeObjects([url])
-                        
-                        Networking.uploadToDrop(id, token: tok, dropId: json["_id"].string!, filepath: file, callback: {    (returnedJson, error) -> Void in
-                            if let json = returnedJson {
-                                
-                                if let id = self.userId {
-                                    callback(true, "?")
-                                    
-                                } else {
-                                    callback(false, json["message"].string!)
-                                }
-                                
+                    if let json = returnedJson {
+                        if let url = json["url"].string {
+                            // copy url to pasteboard
+                            var pasteBoard = NSPasteboard.generalPasteboard()
+                            pasteBoard.clearContents()
+                            pasteBoard.writeObjects([url])
+                            
+                            Networking.uploadToDrop(id, token: tok,
+                                dropId: json["_id"].string!,
+                                filepath: file,
+                                callback: { (returnedJson, error) -> Void in
+                                    if let json = returnedJson {
+                                        
+                                        if let id = self.userId {
+                                            callback(true, "?")
+                                            
+                                        } else {
+                                            callback(false, json["message"].string!)
+                                        }
+                                        
+                                    } else {
+                                        callback(false, "An unknown error occured.\n")
+                                    }
+                                }, onProgress: {(progress) -> Void in
+                                    self.onProgress(progress)
+                            })
+                            
+                        } else {
+                            // enforce normal icon
+                            self.onProgress(100.0)
+                            
+                            if let msg = json["message"].string {
+                                callback(false, msg)
                             } else {
                                 callback(false, "An unknown error occured.\n")
                             }
-                            }, onProgress: {(progress) -> Void in
-                                self.onProgress(progress)
-                        })
+                        }
+                        
                     } else {
                         // enforce normal icon
                         self.onProgress(100.0)
-                        
-                        if let msg = json["message"].string {
-                            callback(false, msg)
-                        } else {
-                            callback(false, "An unknown error occured.\n")
-                        }
+                        callback(false, "No data returned")
                     }
-                   
-                } else {
-                    // enforce normal icon
-                    self.onProgress(100.0)
-
-                    callback(false, "No data returned")
-                }
             })
         }
+        
     }
     
     public func syncDrops() {
@@ -400,4 +417,5 @@ public class User {
             })
         }
     }
+    
 }

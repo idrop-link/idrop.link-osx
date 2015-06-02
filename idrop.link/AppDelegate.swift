@@ -10,7 +10,7 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
-
+    
     @IBOutlet var window: NSWindow?
     @IBOutlet var popover : NSPopover?
     @IBOutlet weak var menu: NSMenu!
@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         self.popoverTableViewDelegate =  PopoverTableViewDelegate()
         self.popoverTableViewDelegate.user = self.user
-    
+        
         super.init();
     }
     
@@ -59,12 +59,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             self.icon.progress = prog
         }
         
+        // set up the popover drop listing (PopoverTableView)
         self.popoverTableView.setDelegate(self.popoverTableViewDelegate)
         self.popoverTableView.setDataSource(self.popoverTableViewDelegate)
         self.popoverTableView.user = self.user
         self.popoverTableViewDelegate.popoverTableView = self.popoverTableView
-
-        // try to get data out of keychain if any
+        
+        // try to get data out of keychain if there is any. then try to login.
+        // if both successfull, sync the drops and display them.
         if self.user.tryKeychainDataFetch() {
             self.user.tryLogin({ (success) -> Void in
                 self.user.onDropSync = { () -> Void in
@@ -91,7 +93,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         icon.onMouseDown = {
             if (icon.isSelected) {
-                self.popover?.showRelativeToRect(rect, ofView: icon, preferredEdge: edge);
+                self.popover?.showRelativeToRect(rect,
+                    ofView: icon,
+                    preferredEdge: edge);
                 return
             }
             
@@ -104,6 +108,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
                 
                 if (self.user.hasCredentials()) {
                     self.item.popUpStatusItemMenu(self.loggedInMenu)
+                    
                 } else {
                     self.item.popUpStatusItemMenu(self.menu)
                 }
@@ -113,17 +118,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         icon.onDrop = { (file: String) -> () in
             self.user.uploadDrop(file, callback: { (success, msg) -> Void in
                 if (success) {
-                    Notification.showNotification(file.lastPathComponent, subtitle: "Drop successful!")
+                    Notification.showNotification(file.lastPathComponent,
+                        subtitle: "Drop successful!")
                 } else {
-                    Notification.showNotification("idrop.link", subtitle: "Drop failed.")
+                    Notification.showNotification("idrop.link",
+                        subtitle: "Drop failed.")
                 }
             })
         }
     }
     
     // MARK: - Notification Center Delegation
-    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
-        return true
+    func userNotificationCenter(center: NSUserNotificationCenter,
+        shouldPresentNotification notification: NSUserNotification) -> Bool {
+            return true
     }
     
     // MARK: - Menu Handlers
@@ -148,7 +156,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         NSBundle.mainBundle().loadNibNamed("Login",
             owner: self.loginWindowController, topLevelObjects: nil)
     }
-
+    
     @IBAction func logout(sender: AnyObject) {
         self.user.logout()
     }
