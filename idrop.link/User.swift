@@ -357,63 +357,81 @@ public class User {
         
     }
     
+    /**
+    This function fetches all drops by the user and prepares them (date etc.).
+    */
     public func syncDrops() {
         if let tok = self.token, let id = self.userId {
-            Networking.getDrops(userId, token: token, callback: { (returnedJson, error) -> Void in
-                if let json = returnedJson {
-                    if let drops = json["drops"].array {
-                        var inDateFormatter = NSDateFormatter()
-                        
-                        // inDateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-
-                        // string to match: 2015-05-28T19:23:52.911Z
-                        inDateFormatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                        // inDateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-                        
-                        var outDateFormatter = NSDateFormatter()
-                        outDateFormatter.setLocalizedDateFormatFromTemplate("HH:mm dd-MM-yy")
-
-                        for d in drops {
-                            // we need to check for failed drops
-                            // they have no name (but an id, but we want to be 
-                            // really sure, same with url, that they exist)
-                            var name = d["name"].string
-                            var url = d["url"].string
-                            var _id = d["_id"].string
+            
+            Networking.getDrops(userId,
+                token: token,
+                callback: { (returnedJson, error) -> Void in
+                    
+                    if let json = returnedJson {
+                        if let drops = json["drops"].array {
                             
-                            if let _name = name, _url = url, __id = _id {
-                                var formattedDate: String? = nil
-
-                                if let date = d["upload_date"].string {
-                                    println(date)
-                                    var theDate = inDateFormatter.dateFromString(date)
-
-                                    if let theD = theDate {
-                                        println(theD)
-                                        formattedDate = outDateFormatter.stringFromDate(theDate!)
-                                        println("formattedDate \(formattedDate)")
+                            // this formatter is used to match the string
+                            // and create a NSDate
+                            var inDateFormatter = NSDateFormatter()
+                            inDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            inDateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+                            
+                            // this formatter is used to produce the displayed string
+                            // in the wanted format
+                            var outDateFormatter = NSDateFormatter()
+                            outDateFormatter.doesRelativeDateFormatting = true
+                            outDateFormatter.setLocalizedDateFormatFromTemplate("HH:mm dd/MM/yyyy")
+                            
+                            for d in drops {
+                                // we need to check for failed drops
+                                // they have no name (but an id, but we want to be
+                                // really sure, same with url, that they exist)
+                                var name = d["name"].string
+                                var url = d["url"].string
+                                var _id = d["_id"].string
+                                
+                                if let _name = name, _url = url, __id = _id {
+                                    var formattedDate: String? = nil
+                                    
+                                    // parse the incoming date to a string
+                                    // in a format we want it to display
+                                    if let date = d["upload_date"].string {
+                                        // get NSDate for string
+                                        var theDate = inDateFormatter.dateFromString(date)
+                                        
+                                        if let theD = theDate {
+                                            // get string for NSDate
+                                            formattedDate = outDateFormatter.stringFromDate(theD)
+                                        }
                                     }
+                                    
+                                    // if no date could be matched by the procedure above
+                                    // we fall back to the given date
+                                    formattedDate = formattedDate != nil ? formattedDate : d["upload_date"].string
+                                    
+                                    var drop = Drop(dropDate: formattedDate,
+                                        name: _name,
+                                        _id: _id,
+                                        url: _url,
+                                        shortId: d["shortId"].string,
+                                        type: d["type"].string,
+                                        path: d["path"].string)
+                                    
+                                    // we want the drops to be ordered by the newest,
+                                    // thus the last in list. we don't want to sort
+                                    // afterwards, thus we prepend the drop to the
+                                    // list.
+                                    
+                                    // note that insert(x,y) and append(x)
+                                    // have the same complexicity.
+                                    self.drops.insert(drop, atIndex: 0)
+                                    
+                                } else {
+                                    println("found failed drop")
                                 }
-                                
-                                formattedDate = formattedDate != nil ? formattedDate : d["upload_date"].string
-
-                                var drop = Drop(dropDate: formattedDate,
-                                    name: _name,
-                                    _id: _id,
-                                    url: _url,
-                                    shortId: d["shortId"].string,
-                                    type: d["type"].string,
-                                    path: d["path"].string)
-                                
-                                // note that insert(x,y) and append(x)
-                                // have the same complexicity
-                                self.drops.insert(drop, atIndex: 0)
-                            } else {
-                                println("found failed drop")
                             }
                         }
                     }
-                }
             })
         }
     }
