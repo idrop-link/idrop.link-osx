@@ -323,6 +323,7 @@ public class User {
                                     if let json = returnedJson {
                                         
                                         if let id = self.userId {
+                                            self.syncDrops()
                                             callback(true, "?")
                                             
                                         } else {
