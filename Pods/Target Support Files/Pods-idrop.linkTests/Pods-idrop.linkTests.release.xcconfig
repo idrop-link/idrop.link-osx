@@ -1,5 +1,5 @@
 CODE_SIGN_IDENTITY = 
-FRAMEWORK_SEARCH_PATHS = "$PODS_FRAMEWORK_BUILD_PATH"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_FRAMEWORK_BUILD_PATH"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/../Frameworks' '@loader_path/Frameworks'
 OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/Alamofire.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/CryptoSwift.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/JWT.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/KeychainAccess.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SwiftyJSON.framework/Headers"

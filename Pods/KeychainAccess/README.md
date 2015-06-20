@@ -1,6 +1,6 @@
 # KeychainAccess
 [![CI Status](http://img.shields.io/travis/kishikawakatsumi/KeychainAccess.svg?style=flat)](https://travis-ci.org/kishikawakatsumi/KeychainAccess)
-[![Carthage Compatibility](https://img.shields.io/badge/carthage-✓-f2a77e.svg?style=flat)](https://github.com/Carthage/Carthage/)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/KeychainAccess.svg?style=flat)](http://cocoadocs.org/docsets/KeychainAccess)
 [![License](https://img.shields.io/cocoapods/l/KeychainAccess.svg?style=flat)](http://cocoadocs.org/docsets/KeychainAccess)
 [![Platform](https://img.shields.io/cocoapods/p/KeychainAccess.svg?style=flat)](http://cocoadocs.org/docsets/KeychainAccess)
@@ -69,8 +69,20 @@ let keychain = Keychain(server: "https://github.com", protocolType: .HTTPS, auth
 
 #### subscripting
 
+##### for String
+
 ```swift
 keychain["kishikawakatsumi"] = "01234567-89ab-cdef-0123-456789abcdef"
+```
+
+```swift
+keychain[string: "kishikawakatsumi"] = "01234567-89ab-cdef-0123-456789abcdef"
+```
+
+##### for NSData
+
+```swift
+keychain[data: "secret"] = NSData(contentsOfFile: "secret.bin")
 ```
 
 #### set method
@@ -89,10 +101,22 @@ if let error = keychain.set("01234567-89ab-cdef-0123-456789abcdef", key: "kishik
 
 ### :key: Obtaining an item
 
-#### subscripting (automatically converts to string)
+#### subscripting
+
+##### for String (If the value is NSData, attempt to convert to String)
 
 ```swift
 let token = keychain["kishikawakatsumi"]
+```
+
+```swift
+let token = keychain[string: "kishikawakatsumi"]
+```
+
+##### for NSData
+
+```swift
+let secretData = keychain[data: "secret"]
 ```
 
 #### get methods
