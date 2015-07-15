@@ -140,7 +140,7 @@ class IconView : NSView, NSDraggingDestination {
         var pboard = sender.draggingPasteboard()
         
         if pboard != nil {
-            if contains(pboard.types as! [NSString], NSFilenamesPboardType) {
+            if (pboard.types as! [NSString]).contains(NSFilenamesPboardType.characters) {
                 var files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
                 // TODO: for file ... onDrop
                 self.onDrop(files[0])

@@ -45,9 +45,9 @@ public class User {
     /**
     Initialize user with credentials (from keychain or similar)
     
-    :param: email       the users email
-    :param: password    the users password
-    :param: userId      the users id as returned by the api
+    - parameter email:       the users email
+    - parameter password:    the users password
+    - parameter userId:      the users id as returned by the api
     
     :return: new user object
     */
@@ -65,11 +65,11 @@ public class User {
     /**
     Create new user
     
-    :param: email the users email
-    :param: password the users password
-    :param: callback closure `(Bool, String)` to be executed after finished
+    - parameter email: the users email
+    - parameter password: the users password
+    - parameter callback: closure `(Bool, String)` to be executed after finished
     
-    :returns: user  id as returned by the api
+    - returns: user  id as returned by the api
     */
     public func createUser(email: String, password: String, callback: (Bool, String) -> ()) {
         Networking.createUser(email, password: password, callback: { (returnedJson, error) in
@@ -100,7 +100,7 @@ public class User {
     /**
     Get access token to send authenticated subsequent requests to the api.
     
-    :param: callback closure `(Bool, String)` to be executed after finished
+    - parameter callback: closure `(Bool, String)` to be executed after finished
     
     :see: tryLogin
     */
@@ -108,7 +108,7 @@ public class User {
         Networking.getToken(self.userId,
             email: self.email,
             password: self.password,
-            callback: { (returnedJson, error) in
+            callback: { (returnedJson, error) -> Void in
                 
                 if (error != nil) {
                     if let json = returnedJson {
@@ -188,9 +188,9 @@ public class User {
     /**
     Set credentials for the user
     
-    :param: email the users email
-    :param: password the users password
-    :param: id the users id as returned by createUser
+    - parameter email: the users email
+    - parameter password: the users password
+    - parameter id: the users id as returned by createUser
     
     :see: createUser
     */
@@ -203,7 +203,7 @@ public class User {
     /**
     Checks if credentials are set
     
-    :returns: whether or not the credentials are set
+    - returns: whether or not the credentials are set
     */
     public func hasCredentials() -> Bool {
         return (self.email != nil) && (self.password != nil) && (self.userId != nil)
@@ -213,7 +213,7 @@ public class User {
     /**
     Try to get saved credentials from the keychain if any
     
-    :returns: whether or not the operation succeeded
+    - returns: whether or not the operation succeeded
     */
     public func tryKeychainDataFetch() -> Bool {
         var mail = self.keychain.get(Config.keychainUserEmailKey)
@@ -237,7 +237,7 @@ public class User {
     /**
     Try to save the credentials to the keychain
     
-    :returns: whether or not the operation succeeded
+    - returns: whether or not the operation succeeded
     */
     public func tryKeychainDataSet() -> Bool {
         self.keychain.set(self.password!, key: Config.keychainUserPasswordKey)
@@ -251,7 +251,7 @@ public class User {
     /**
     Try to get the user id by email.
     
-    :param: callback closure (Bool, String)
+    - parameter callback: closure (Bool, String)
     */
     public func tryIdFetch(callback: (Bool, String) -> ()) -> Void {
         if let mail = self.email, let password = self.password {
@@ -299,8 +299,8 @@ public class User {
     /**
     Upload file to idrop.link
     
-    :param: file absolute path to the file
-    :param: callback closure (Bool, String)
+    - parameter file: absolute path to the file
+    - parameter callback: closure (Bool, String)
     */
     public func uploadDrop(file: String!, callback: (Bool, String) -> ()) -> Void {
         if let tok = self.token, let id = self.userId {

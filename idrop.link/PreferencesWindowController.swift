@@ -29,7 +29,7 @@ class PreferencesWindowController: NSWindowController {
     var user: User?
     
     @IBAction func changeTab(sender: AnyObject) {
-        var sndr = sender as! NSToolbarItem
+        let sndr = sender as! NSToolbarItem
         
         switch sndr.tag {
         case 1:

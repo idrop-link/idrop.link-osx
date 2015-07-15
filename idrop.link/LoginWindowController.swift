@@ -33,7 +33,7 @@ class LoginWindowController: NSWindowController {
     /**
     Open a sheet displaying an error message
 
-    :param: message description of the error
+    - parameter message: description of the error
     */
     func showErrorSheetWithMessage(message: String) {
         errorSheetText.stringValue = message
@@ -41,7 +41,7 @@ class LoginWindowController: NSWindowController {
     }
 
     @IBAction func doLogin(sender: AnyObject) {
-        var finishLogin = { () -> Void in
+        let finishLogin = { () -> Void in
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
             self._window.orderOut(sender)
@@ -49,7 +49,7 @@ class LoginWindowController: NSWindowController {
             return
         }
 
-        var finishLoginWithError = { (msg: String) -> Void in
+        let finishLoginWithError = { (msg: String) -> Void in
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
             self.showErrorSheetWithMessage(msg)

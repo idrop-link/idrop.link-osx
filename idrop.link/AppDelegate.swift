@@ -87,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     override func awakeFromNib() {
-        let edge = NSMinYEdge
+        let edge = NSRectEdge.MinY
         let icon = self.icon
         let rect = icon.frame
         

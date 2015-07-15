@@ -26,87 +26,87 @@ enum Router: URLRequestConvertible {
     /**
     Creates request for creating a user
     
-    :param: email the users email
-    :param: password the users password
+    - parameter email: the users email
+    - parameter password: the users password
     
-    :returns: URLRequestConvertible
+    - returns: URLRequestConvertible
     */
     case CreateUser(String, String)
     
     /**
     Creates request for deleting a user
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   The authentification token
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   The authentification token
     
-    :returns: URLRequestConvertible
+    - returns: URLRequestConvertible
     */
     case DeleteUser(String, String)
     
     /**
     Creates request for getting a users info
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   The authentification token
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   The authentification token
     
-    :returns: URLRequestConvertible
+    - returns: URLRequestConvertible
     */
     case GetUser(String, String)
     
     /**
     Creates request for updatig a users info
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   The authentification token
-    :param: fields  The fields to be updated
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   The authentification token
+    - parameter fields:  The fields to be updated
     
-    :returns: URLRequestConvertible
+    - returns: URLRequestConvertible
     */
     case UpdateUser(String, String, [String: AnyObject])
     
     /**
     Creates request for retrieving a authentification token
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: email   The users email
-    :param: password The users password
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter email:   The users email
+    - parameter password: The users password
     
-    :returns: URLRequestConvertible
+    - returns: URLRequestConvertible
     */
     case GetAuthToken(String, String, String)
     
     /**
     Get user id for the email. (Needed for communicating with the api.
     
-    :param: email   The users email
-    :param: password The users password
+    - parameter email:   The users email
+    - parameter password: The users password
     */
     case GetEmailForId(String, String)
     
     /**
     Register drop
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   The authentification token
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   The authentification token
     */
     case InitializeDrop(String, String)
     
     /**
     Upload file to registered drop
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   The authentification token
-    :param: dropId  The ID as returned by InitializeDrop
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   The authentification token
+    - parameter dropId:  The ID as returned by InitializeDrop
     */
     case UploadFileToDrop(String, String, String)
     
     /**
     Get list of all drops
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   The authentification token
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   The authentification token
     
-    :returns: URLRequestConvertible
+    - returns: URLRequestConvertible
     */
     case GetDrops(String, String)
     
@@ -210,9 +210,9 @@ final class Networking {
     /**
     Creates a User with the given credentials
     
-    :param: email    The email address the user wants to use
-    :param: password The users password to identify
-    :param: callback Function to call with result or error when finished
+    - parameter email:    The email address the user wants to use
+    - parameter password: The users password to identify
+    - parameter callback: Function to call with result or error when finished
     
     :warning: The email can only be used once, hence it has to be
     unique.
@@ -233,9 +233,9 @@ final class Networking {
     /**
     Lookup a User by their ID
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   A valid access token
-    :param: callback Function to call with result or error when finished
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   A valid access token
+    - parameter callback: Function to call with result or error when finished
     
     :see: createUser
     :see: getToken
@@ -256,10 +256,10 @@ final class Networking {
     /**
     Get authentification token for a user
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: email       The users email address
-    :param: password    The users password
-    :param: callback Function to call with result or error when finished
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter email:       The users email address
+    - parameter password:    The users password
+    - parameter callback: Function to call with result or error when finished
     
     :see: createUser
     */
@@ -281,9 +281,9 @@ final class Networking {
     /**
     Get users id for email to communicate with the api.
     
-    :param: email       The users email address
-    :param: password    The users password
-    :param: callback Function to call with result or error when finished
+    - parameter email:       The users email address
+    - parameter password:    The users password
+    - parameter callback: Function to call with result or error when finished
     */
     class func getIdForEmail(email: String!, password: String!, callback: APICallback) {
         Alamofire
@@ -305,9 +305,9 @@ final class Networking {
     /**
     Initialize the drop by registering a drop
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   A valid access token
-    :param: callback Function to call with result or error when finished
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   A valid access token
+    - parameter callback: Function to call with result or error when finished
     */
     class func initializeDrop(userId: String!, token: String!, callback: APICallback) {
         Alamofire
@@ -325,11 +325,11 @@ final class Networking {
     /**
     Upload file to registered drop
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   A valid access token
-    :param: dropId  The ID as returned by initializeDrop
-    :param: callback Function to call with result or error when finished
-    :param: onProgress  Optional function that gets called while uploading 
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   A valid access token
+    - parameter dropId:  The ID as returned by initializeDrop
+    - parameter callback: Function to call with result or error when finished
+    - parameter onProgress:  Optional function that gets called while uploading 
     */
     class func uploadToDrop(userId: String!, token: String!, dropId: String!, filepath: String!, callback: APICallback, onProgress: ((Float) -> Void)?) {
         let url:NSURL = NSURL(string: filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
@@ -380,9 +380,9 @@ final class Networking {
     /**
     Get all drops of a user
     
-    :param: userId  The ID as returned by createUser or signIn
-    :param: token   A valid access token
-    :param: callback Function to call with result or error when finished
+    - parameter userId:  The ID as returned by createUser or signIn
+    - parameter token:   A valid access token
+    - parameter callback: Function to call with result or error when finished
     
     :see: getToken
     */
