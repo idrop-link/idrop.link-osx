@@ -1,6 +1,0 @@
-framework module CryptoSwift {
-  umbrella header "Pods-idrop.linkTests-CryptoSwift-umbrella.h"
-
-  export *
-  module * { export * }
-}
