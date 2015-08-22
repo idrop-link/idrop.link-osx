@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (1.3.0)
+  - Alamofire (2.0.0-beta.1)
   - CryptoSwift (0.0.10)
   - JSONWebToken (1.3.0):
     - CryptoSwift (= 0.0.10)
@@ -26,17 +26,17 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Alamofire:
-    :commit: 88ca2a248ee0142064e2c760ea9f15279c7489df
+    :commit: f8f881c03f4d9515f09b8bb50fcc932df8c1960d
     :git: https://github.com/Alamofire/Alamofire.git
   KeychainAccess:
     :commit: 7879a49b81c553ad9b40cbafda34a881648e2ff3
     :git: https://github.com/kishikawakatsumi/KeychainAccess.git
   SwiftyJSON:
-    :commit: 838cba3f321f8075931e7eb40eae69e247cdbf12
+    :commit: f269523ac572979245baa99c8475eab73caf1e9b
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: e57db85401895fda01783b3b9bda5b32d9f347ff
+  Alamofire: 96feccc1e48a735edb92395cf023ba4ed52bdb45
   CryptoSwift: 3b886d001f50deb65623a8967d68f6b8bf8d9ba1
   JSONWebToken: 14e526aba3efc39c9c23be51eab8caf65e7ee933
   KeychainAccess: 2ffa8b1b7130263bb7fe90b359d778696fc2d8ce
