@@ -116,11 +116,11 @@ enum Router: URLRequestConvertible {
     */
     var method: Alamofire.Method {
         switch self {
-        case .CreateUser, .GetAuthToken, InitializeDrop, UploadFileToDrop:
+        case .CreateUser, .GetAuthToken, .GetEmailForId, InitializeDrop, UploadFileToDrop:
             return .POST
         case .DeleteUser:
             return .DELETE
-        case .GetUser, .GetEmailForId, .GetDrops:
+        case .GetUser, .GetDrops:
             return .GET
         case .UpdateUser:
             return .PUT
