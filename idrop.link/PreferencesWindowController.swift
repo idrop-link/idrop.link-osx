@@ -27,6 +27,8 @@ class PreferencesWindowController: NSWindowController {
     @IBOutlet weak var email: NSTextField!
     
     var user: User?
+
+    var appUrl: NSURL?
     
     @IBAction func changeTab(sender: AnyObject) {
         var sndr = sender as! NSToolbarItem
@@ -40,10 +42,37 @@ class PreferencesWindowController: NSWindowController {
             break;
         }
     }
+
+    @IBAction func persistToLoginItems(sender: AnyObject) {
+        if doOpenAtStartup.state == NSOnState {
+            LoginItemController.setLaunchAtLogin(self.appUrl!, enabled: true)
+        } else if doOpenAtStartup.state == NSOffState {
+            LoginItemController.setLaunchAtLogin(self.appUrl!, enabled: false)
+        } else {
+            // well, this is the "NSMixedState". though it should not apply
+            // here we log this just in case
+            println("Detected invalid button state `NSMixedState` @ Preferences->Global->Start at Login")
+        }
+    }
+    
     
     override func awakeFromNib() {
+        self.appUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath)
+
         if let usr = self.user {
             self.email.stringValue = usr.email!
         }
+
+        if let url = self.appUrl {
+            if LoginItemController.willLaunchAtLogin(self.appUrl!) {
+                doOpenAtStartup.state = NSOnState
+            } else {
+                doOpenAtStartup.state = NSOffState
+            }
+        } else {
+            // we can't save it anyway
+            doOpenAtStartup.enabled = false
+        }
+
     }
 }

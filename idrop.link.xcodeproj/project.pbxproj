@@ -42,6 +42,7 @@
 		6585C5A91B0143E000B6E3DF /* iconlight_75@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6585C5A51B0143E000B6E3DF /* iconlight_75@2x.png */; };
 		8421E7C843CCDCC470386320 /* Pods_idrop_linkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12402F28F58DB5F47D8E8C2C /* Pods_idrop_linkTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9E62A87EBC7C66DB46EB117A /* Pods_idrop_link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FAE9D6411B91D1F400ACCE52 /* LoginItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE9D63F1B91D1F400ACCE52 /* LoginItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		7190E0C64D05D0A884E2AEB5 /* Pods-idrop.linkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.linkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F377CE9E0BB35F950140474 /* Pods-idrop.linkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.linkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.linkTests/Pods-idrop.linkTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD8B9A7AF207F1BDF00D5E64 /* Pods-idrop.link.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrop.link.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idrop.link/Pods-idrop.link.debug.xcconfig"; sourceTree = "<group>"; };
+		FAE9D63F1B91D1F400ACCE52 /* LoginItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 		6569DDFB1AEF9FEC0085C52F /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				FAE9D63F1B91D1F400ACCE52 /* LoginItemController.swift */,
 				652BE27F1B1B19E600128B8B /* Drop.swift */,
 				650D6C011AE9818100F5EF87 /* Networking.swift */,
 				6513E43D1AF76635001B8A82 /* Notification.swift */,
@@ -493,6 +496,7 @@
 				652BE27A1B1AF96700128B8B /* PopoverTableView.swift in Sources */,
 				652BE2801B1B19E600128B8B /* Drop.swift in Sources */,
 				650D6BDF1AE9813900F5EF87 /* AppDelegate.swift in Sources */,
+				FAE9D6411B91D1F400ACCE52 /* LoginItemController.swift in Sources */,
 				652BE27C1B1B092400128B8B /* PopoverTableCellView.swift in Sources */,
 				650D6C0E1AE9818100F5EF87 /* Networking.swift in Sources */,
 				650D6C0A1AE9818100F5EF87 /* IconView.swift in Sources */,
