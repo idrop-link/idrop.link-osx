@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Quartz
 
 /**
 WindowController for the Login window.
@@ -40,6 +41,38 @@ class LoginWindowController: NSWindowController {
         _window.beginSheet(errorSheet, completionHandler: nil)
     }
 
+    func shakeWindow() {
+        // config
+        let numberOfShakes = 3
+        let vigourOfShake: CGFloat = 0.05
+        let durationOfShake: CFTimeInterval = 0.5
+
+        let frame = self.window?.frame as NSRect!
+        var shakePath: CGMutablePath = CGPathCreateMutable()
+
+        CGPathMoveToPoint(shakePath, nil, NSMinX(frame), NSMinY(frame))
+
+        for (var i = 0; i < numberOfShakes; i++) {
+            CGPathAddLineToPoint(shakePath, nil,
+                NSMinX(frame) - frame.size.width * vigourOfShake,
+                NSMinY(frame))
+            CGPathAddLineToPoint(shakePath, nil,
+                NSMinX(frame) + frame.size.width * vigourOfShake,
+                NSMinY(frame))
+        }
+
+        CGPathCloseSubpath(shakePath)
+        var animation = CAKeyframeAnimation()
+        animation.path = shakePath
+        animation.duration = durationOfShake
+
+        var dict = ["frameOrigin": animation]
+
+        self.window?.setAnimations(NSDictionary(dictionary: dict) as [NSObject : AnyObject])
+        var animator = self.window?.animator()
+        animator?.setFrameOrigin(frame.origin)
+    }
+
     @IBAction func doLogin(sender: AnyObject) {
         var finishLogin = { () -> Void in
             self.spinner.stopAnimation(sender)
@@ -52,7 +85,8 @@ class LoginWindowController: NSWindowController {
         var finishLoginWithError = { (msg: String) -> Void in
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
-            self.showErrorSheetWithMessage(msg)
+            self.shakeWindow()
+            // self.showErrorSheetWithMessage(msg)
             return
         }
 
