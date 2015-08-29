@@ -80,6 +80,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
                 }
             })
         }
+
+        // login was not successful anyways
+        if self.user.userId == nil {
+            self.login(self)
+        }
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -90,7 +95,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         let edge = NSMinYEdge
         let icon = self.icon
         let rect = icon.frame
-        
+
+        // set up interaction with the iconView in the menu bar
         icon.onMouseDown = {
             if (icon.isSelected) {
                 self.popover?.showRelativeToRect(rect,
