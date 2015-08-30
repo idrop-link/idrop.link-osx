@@ -23,19 +23,19 @@ class PopoverTableView: NSTableView {
         self.enclosingScrollView?.borderType = NSBorderType.NoBorder
         self.headerView = nil
         self.backgroundColor = NSColor.clearColor()
-        
+
         // wire up action executed on double click
         // note that we have to use a selector
         // due to the underlying cocoa logic which is
         // written in Objective-C
         self.doubleAction = "onDoubleAction:" as Selector
-        
+
         // the message which is being sent to the selector
         // declared above should be delivered to this very
         // object (well, actually its instance(s))
         self.target = self
     }
-    
+
     /**
     Gets executed on double click. Every cell represents a drop
     which has a URL. This URL gets openend in the default browser.
@@ -53,4 +53,5 @@ class PopoverTableView: NSTableView {
             }
         }
     }
+
 }

@@ -16,8 +16,10 @@ class PopoverTableRowView: NSTableRowView {
 
             NSColor(calibratedWhite: 0.72, alpha: 1.0).setStroke()
             NSColor(calibratedWhite: 0.82, alpha: 1.0).setFill()
-            
-            var selectionPath = NSBezierPath(roundedRect: selectionRect, xRadius: 4, yRadius: 4)
+
+            var selectionPath = NSBezierPath(roundedRect: selectionRect,
+                xRadius: 4,
+                yRadius: 4)
 
             selectionPath.fill()
             selectionPath.stroke()
@@ -32,12 +34,17 @@ class PopoverTableRowView: NSTableRowView {
 
         var locations: [CGFloat] = [ 0.0, 0.35, 0.65, 1.0 ]
 
-        return NSGradient(colors: colors, atLocations: locations, colorSpace: NSColorSpace.sRGBColorSpace())
+        return NSGradient(colors: colors,
+            atLocations: locations,
+            colorSpace: NSColorSpace.sRGBColorSpace())
     }
 
     override func drawSeparatorInRect(dirtyRect: NSRect) {
-        var gradient = gradientWithTargetColor(NSColor(SRGBRed: 0.80, green: 0.80, blue: 0.80, alpha: 1.0))
-        
+        var gradient = gradientWithTargetColor(NSColor(SRGBRed: 0.80,
+            green: 0.80,
+            blue: 0.80,
+            alpha: 1.0))
+
         var sepRect = self.bounds
         sepRect.origin.y = NSMaxY(sepRect) - 1
         sepRect.size.height = 1

@@ -28,13 +28,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     let item: NSStatusItem
     
     override init() {
-        let bar = NSStatusBar.systemStatusBar();
+        let bar = NSStatusBar.systemStatusBar()
         
         let length: CGFloat = -1 // NSVariableStatusItemLength
-        self.item = bar.statusItemWithLength(length);
+        self.item = bar.statusItemWithLength(length)
         
-        self.icon = IconView(item: item);
-        item.view = icon;
+        self.icon = IconView(item: item)
+        item.view = icon
         
         self.user = User()
         
@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         self.popoverTableViewDelegate =  PopoverTableViewDelegate()
         self.popoverTableViewDelegate.user = self.user
         
-        super.init();
+        super.init()
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -101,7 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             if (icon.isSelected) {
                 self.popover?.showRelativeToRect(rect,
                     ofView: icon,
-                    preferredEdge: edge);
+                    preferredEdge: edge)
                 return
             }
             

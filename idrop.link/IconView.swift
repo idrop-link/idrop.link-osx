@@ -11,7 +11,7 @@ import Cocoa
 
 class IconView : NSView, NSDraggingDestination {
     @IBOutlet var mainMenu: NSMenu?
-    
+
     private(set) var image: NSImage
     private(set) var image0: NSImage
     private(set) var image25: NSImage
@@ -25,15 +25,15 @@ class IconView : NSView, NSDraggingDestination {
     private(set) var lightImage75: NSImage
 
     private let item: NSStatusItem
-    
+
     var onMouseDown: () -> ()
     var onRightMouseDown: () -> ()
     var onDrop: (String) -> ()
-    
+
     var progress:Float {
         didSet { self.needsDisplay = true }
     }
-    
+
     var isSelected: Bool {
         didSet {
             // redraw if isSelected changes for bg highlight
@@ -42,7 +42,7 @@ class IconView : NSView, NSDraggingDestination {
             }
         }
     }
-    
+
     // MARK: - init
     init(item: NSStatusItem) {
         self.image = NSImage(named: "icon")!
@@ -50,27 +50,27 @@ class IconView : NSView, NSDraggingDestination {
         self.image25 = NSImage(named: "icon_25")!
         self.image50 = NSImage(named: "icon_50")!
         self.image75 = NSImage(named: "icon_75")!
-        
+
         self.lightImage = NSImage(named: "iconlight")!
         self.lightImage0 = NSImage(named: "iconlight_0")!
         self.lightImage25 = NSImage(named: "iconlight_25")!
         self.lightImage50 = NSImage(named: "iconlight_50")!
         self.lightImage75 = NSImage(named: "iconlight_75")!
-        
+
         self.progress = 1.0
-        
+
         self.item = item
         self.isSelected = false
         self.onMouseDown = {}
         self.onRightMouseDown = {}
         self.onDrop = { (str) -> Void in
         }
-        
+
         let thickness = NSStatusBar.systemStatusBar().thickness
         let rect = CGRectMake(0, 0, thickness, thickness)
-        
+
         super.init(frame: rect)
-        
+
         // register for drag n drop
         registerForDraggedTypes([NSURLPboardType])
     }
@@ -78,15 +78,15 @@ class IconView : NSView, NSDraggingDestination {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func drawRect(dirtyRect: NSRect) {
         self.item.drawStatusBarBackgroundInRect(dirtyRect, withHighlight: self.isSelected)
-        
+
         let size = self.image.size
         let rect = CGRectMake(2, 2, size.width, size.height)
-        
+
         let isDarkmode = (NSAppearance.currentAppearance().name.rangeOfString(NSAppearanceNameVibrantDark) != nil)
-        
+
         if self.isSelected || isDarkmode {
             if self.progress < 0.25 {
                 self.lightImage0.drawInRect(rect)
@@ -113,32 +113,32 @@ class IconView : NSView, NSDraggingDestination {
             }
         }
     }
-    
+
     // MARK: - click handler
     override func mouseDown(theEvent: NSEvent) {
         self.isSelected = !self.isSelected
         self.onMouseDown()
     }
-    
+
     override func mouseUp(theEvent: NSEvent) {
     }
-    
+
     override func rightMouseDown(theEvent: NSEvent) {
         self.isSelected = !self.isSelected
         self.onRightMouseDown()
     }
-    
+
     override func rightMouseUp(theEvent: NSEvent) {
     }
-    
+
     // MARK: - drag and drop
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         return NSDragOperation.Copy
     }
-    
+
     override func performDragOperation(sender: NSDraggingInfo) -> Bool {
         var pboard = sender.draggingPasteboard()
-        
+
         if pboard != nil {
             if contains(pboard.types as! [NSString], NSFilenamesPboardType) {
                 var files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
@@ -147,7 +147,7 @@ class IconView : NSView, NSDraggingDestination {
             }
             return true
         }
-        
+
         return false
     }
 }

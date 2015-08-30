@@ -17,7 +17,7 @@ class Drop: NSObject {
     var type: String?
     var path: String?
     var views: Int?
-    
+
     override init() {
         self.dropDate = nil
         self.name = nil
@@ -28,7 +28,7 @@ class Drop: NSObject {
         self.path = nil
         self.views = nil
     }
-    
+
     init(dropDate: String?, name: String?, _id: String?, url: String?,
         shortId: String?, type: String?, path: String?, views: String?) {
             self.dropDate = dropDate

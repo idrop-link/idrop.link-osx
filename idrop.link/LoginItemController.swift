@@ -59,7 +59,8 @@ class LoginItemController: NSObject {
 
         for item in currentItems {
             let resolutionFlags : UInt32 = UInt32(kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes)
-            var url = LSSharedFileListItemCopyResolvedURL(item as! LSSharedFileListItem, resolutionFlags, nil).takeRetainedValue() as NSURL
+            var url = LSSharedFileListItemCopyResolvedURL(item as! LSSharedFileListItem,
+                resolutionFlags, nil).takeRetainedValue() as NSURL
             if url.isEqual(itemURL) {
                 let result = item as! LSSharedFileListItem
                 return result
@@ -84,9 +85,11 @@ class LoginItemController: NSObject {
             LSSharedFileListItemRemove(loginItems, item)
             return true
         }
-        
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst.takeUnretainedValue(), nil, nil, itemURL as CFURL, nil, nil)
+
+        LSSharedFileListInsertItemURL(loginItems,
+            kLSSharedFileListItemBeforeFirst.takeUnretainedValue(),
+            nil, nil, itemURL as CFURL, nil, nil)
         return true
     }
-
+    
 }

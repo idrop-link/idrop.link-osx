@@ -27,8 +27,9 @@ class LoginWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+
+        // Implement this method to handle any initialization after your window
+        // controller's window has been loaded from its nib file.
     }
 
     /**
@@ -96,7 +97,7 @@ class LoginWindowController: NSWindowController {
         if let usr = self.user {
             usr.email = loginEmail.stringValue
             usr.password = loginPassword.stringValue
-            
+
             usr.tryIdFetch({ (success, msg) -> Void in
                 if usr.hasCredentials() {
                     usr.login({ (success, msg) -> Void in
@@ -123,5 +124,5 @@ class LoginWindowController: NSWindowController {
         _window.endSheet(_window)
         errorSheet.orderOut(sender)
     }
-
+    
 }

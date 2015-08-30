@@ -33,7 +33,7 @@ class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDele
             var cell = tableView.makeViewWithIdentifier("MainCell", owner: self) as! PopoverTableCellView
             cell.imgView = nil
             cell.titleTextField?.stringValue = usr.drops[row].name!
-            
+
             if let date = usr.drops[row].dropDate {
                 cell.dateTextField?.stringValue = date
             } else {
@@ -71,5 +71,5 @@ class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDele
             }
         })
     }
-
+    
 }
