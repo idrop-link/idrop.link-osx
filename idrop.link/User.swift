@@ -162,7 +162,9 @@ public class User {
         self.email = nil
         self.password = nil
         self.userId = nil
-        
+
+        self.drops = []
+
         return !self.hasCredentials()
     }
     
