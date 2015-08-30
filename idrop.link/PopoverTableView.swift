@@ -47,9 +47,11 @@ class PopoverTableView: NSTableView {
     */
     func onDoubleAction(sender: AnyObject) {
         if let usr = self.user {
-            if let url = usr.drops[self.selectedRow].url {
-                var _url = NSURL(string: url) as! CFURLRef
-                LSOpenCFURLRef(_url, nil)
+            if usr.drops.count >= self.selectedRow {
+                if let url = usr.drops[self.selectedRow].url {
+                    var _url = NSURL(string: url) as! CFURLRef
+                    LSOpenCFURLRef(_url, nil)
+                }
             }
         }
     }
