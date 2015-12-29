@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-// MARK: - AuthRouter enum
+// MARK: - Router enum
 /**
 Router for authentification based paths.
 
