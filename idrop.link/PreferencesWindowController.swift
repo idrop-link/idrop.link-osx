@@ -57,10 +57,18 @@ class PreferencesWindowController: NSWindowController {
     
     
     override func awakeFromNib() {
+        var deactivate:Bool = true
         self.appUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath)
 
         if let usr = self.user {
-            self.email.stringValue = usr.email!
+            if let mail = usr.email {
+                self.email.stringValue = mail
+                deactivate = false
+            }
+        }
+
+        if deactivate {
+            self.email.enabled = false
         }
 
         if let _ = self.appUrl {
