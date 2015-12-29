@@ -39,7 +39,7 @@ class Drop: NSObject {
             self.type = type
             self.path = path
             if let _views = views {
-                self.views = _views.toInt()
+                self.views = Int(_views)
             }
     }
 }

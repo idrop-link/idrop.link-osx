@@ -30,7 +30,7 @@ class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDele
 
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if let usr = self.user {
-            var cell = tableView.makeViewWithIdentifier("MainCell", owner: self) as! PopoverTableCellView
+            let cell = tableView.makeViewWithIdentifier("MainCell", owner: self) as! PopoverTableCellView
             cell.imgView = nil
             cell.titleTextField?.stringValue = usr.drops[row].name!
 
@@ -50,13 +50,13 @@ class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDele
         // sets selected items in bold font
         self.popoverTableView?.enumerateAvailableRowViewsUsingBlock({ (rowView, row) -> Void in
             for (var col = 0; col < rowView.numberOfColumns; col++) {
-                var cellView: AnyObject? = rowView.viewAtColumn(row)
+                let cellView: AnyObject? = rowView.viewAtColumn(row)
 
                 if let cV: AnyObject = cellView {
                     if (cV.isKindOfClass(PopoverTableCellView)) {
-                        var tabelCellView = cV as! PopoverTableCellView
-                        var dateLabel = tabelCellView.dateTextField
-                        var titleLabel = tabelCellView.titleTextField
+                        let tabelCellView = cV as! PopoverTableCellView
+                        let dateLabel = tabelCellView.dateTextField
+                        let titleLabel = tabelCellView.titleTextField
 
                         if (rowView.selected) {
                             dateLabel?.font = NSFont.boldSystemFontOfSize(dateLabel!.font!.pointSize)

@@ -11,7 +11,7 @@ import Cocoa
 public class Notification: NSObject {
     public class func showNotification(title: String, subtitle: String,
         informativeText: String? = nil) {
-            var notification:NSUserNotification = NSUserNotification()
+            let notification:NSUserNotification = NSUserNotification()
             notification.title = title
             notification.subtitle = subtitle
 

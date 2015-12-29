@@ -35,7 +35,7 @@ class LoginWindowController: NSWindowController {
     /**
     Open a sheet displaying an error message
 
-    :param: message description of the error
+    - parameter message: description of the error
     */
     func showErrorSheetWithMessage(message: String) {
         errorSheetText.stringValue = message
@@ -63,19 +63,19 @@ class LoginWindowController: NSWindowController {
         }
 
         CGPathCloseSubpath(shakePath)
-        var animation = CAKeyframeAnimation()
+        let animation = CAKeyframeAnimation()
         animation.path = shakePath
         animation.duration = durationOfShake
 
-        var dict = ["frameOrigin": animation]
+        let dict = ["frameOrigin": animation]
 
-        self.window?.setAnimations(NSDictionary(dictionary: dict) as [NSObject : AnyObject])
-        var animator = self.window?.animator()
+        self.window?.animations = NSDictionary(dictionary: dict) as! [String : AnyObject]
+        let animator = self.window?.animator()
         animator?.setFrameOrigin(frame.origin)
     }
 
     @IBAction func doLogin(sender: AnyObject) {
-        var finishLogin = { () -> Void in
+        let finishLogin = { () -> Void in
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
             self._window.orderOut(sender)
@@ -83,7 +83,7 @@ class LoginWindowController: NSWindowController {
             return
         }
 
-        var finishLoginWithError = { (msg: String) -> Void in
+        let finishLoginWithError = { (msg: String) -> Void in
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
             self.shakeWindow()

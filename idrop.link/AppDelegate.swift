@@ -92,7 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     override func awakeFromNib() {
-        let edge = NSMinYEdge
+        let edge = NSRectEdge.MinY
         let icon = self.icon
         let rect = icon.frame
 
@@ -124,7 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         icon.onDrop = { (file: String) -> () in
             self.user.uploadDrop(file, callback: { (success, msg) -> Void in
                 if (success) {
-                    Notification.showNotification(file.lastPathComponent,
+                    Notification.showNotification(NSURL(fileReferenceLiteral: file).lastPathComponent!,
                         subtitle: "Drop successful!")
                 } else {
                     Notification.showNotification("idrop.link",

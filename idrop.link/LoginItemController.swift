@@ -43,7 +43,7 @@ class LoginItemController: NSObject {
     static func getLoginItems() -> LSSharedFileList? {
         let allocator : CFAllocator! = CFAllocatorGetDefault().takeUnretainedValue()
         let kLoginItems : CFString! = kLSSharedFileListSessionLoginItems.takeUnretainedValue()
-        var loginItems_ = LSSharedFileListCreate(allocator, kLoginItems, nil)
+        let loginItems_ = LSSharedFileListCreate(allocator, kLoginItems, nil)
         if loginItems_ == nil {return nil}
         let loginItems : LSSharedFileList! = loginItems_.takeRetainedValue()
         return loginItems
@@ -59,7 +59,7 @@ class LoginItemController: NSObject {
 
         for item in currentItems {
             let resolutionFlags : UInt32 = UInt32(kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes)
-            var url = LSSharedFileListItemCopyResolvedURL(item as! LSSharedFileListItem,
+            let url = LSSharedFileListItemCopyResolvedURL(item as! LSSharedFileListItem,
                 resolutionFlags, nil).takeRetainedValue() as NSURL
             if url.isEqual(itemURL) {
                 let result = item as! LSSharedFileListItem
@@ -79,7 +79,7 @@ class LoginItemController: NSObject {
         if loginItems_ == nil {return false}
         let loginItems = loginItems_!
 
-        var item = existingItem(itemURL)
+        let item = existingItem(itemURL)
         if item != nil && enabled {return true}
         if item != nil && !enabled {
             LSSharedFileListItemRemove(loginItems, item)

@@ -40,7 +40,7 @@ class PopoverTableView: NSTableView {
     Gets executed on double click. Every cell represents a drop
     which has a URL. This URL gets openend in the default browser.
 
-    :param: sender The sender
+    - parameter sender: The sender
 
     :see: doubleAction (attribute)
     :see: target (attribute)
@@ -49,7 +49,7 @@ class PopoverTableView: NSTableView {
         if let usr = self.user {
             if usr.drops.count >= self.selectedRow {
                 if let url = usr.drops[self.selectedRow].url {
-                    var _url = NSURL(string: url) as! CFURLRef
+                    let _url = NSURL(string: url) as! CFURLRef
                     LSOpenCFURLRef(_url, nil)
                 }
             }

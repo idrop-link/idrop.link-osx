@@ -31,7 +31,7 @@ class PreferencesWindowController: NSWindowController {
     var appUrl: NSURL?
     
     @IBAction func changeTab(sender: AnyObject) {
-        var sndr = sender as! NSToolbarItem
+        let sndr = sender as! NSToolbarItem
         
         switch sndr.tag {
         case 1:
@@ -51,7 +51,7 @@ class PreferencesWindowController: NSWindowController {
         } else {
             // well, this is the "NSMixedState". though it should not apply
             // here we log this just in case
-            println("Detected invalid button state `NSMixedState` @ Preferences->Global->Start at Login")
+            print("Detected invalid button state `NSMixedState` @ Preferences->Global->Start at Login")
         }
     }
     
@@ -63,7 +63,7 @@ class PreferencesWindowController: NSWindowController {
             self.email.stringValue = usr.email!
         }
 
-        if let url = self.appUrl {
+        if let _ = self.appUrl {
             if LoginItemController.willLaunchAtLogin(self.appUrl!) {
                 doOpenAtStartup.state = NSOnState
             } else {

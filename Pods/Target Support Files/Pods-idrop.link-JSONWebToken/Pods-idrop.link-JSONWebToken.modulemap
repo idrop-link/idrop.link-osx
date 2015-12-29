@@ -1,6 +1,0 @@
-framework module JWT {
-  umbrella header "Pods-idrop.link-JSONWebToken-umbrella.h"
-
-  export *
-  module * { export * }
-}
