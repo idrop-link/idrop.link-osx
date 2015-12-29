@@ -21,7 +21,7 @@ import JWT
 ### Encoding a claim
 
 ```swift
-JWT.encode(["my": "payload"], .HS256("secret"))
+JWT.encode(["my": "payload"], algorithm: .HS256("secret"))
 ```
 
 #### Building a JWT with the builder pattern
@@ -39,13 +39,18 @@ JWT.encode(.HS256("secret")) { builder in
 When decoding a JWT, you must supply one or more algorithms and keys.
 
 ```swift
-JWT.decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.2_8pWJfyPup0YwOXK7g9Dn0cF1E3pdn299t4hSeJy5w", .HS256("secret"))
+do {
+  let payload = try JWT.decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.2_8pWJfyPup0YwOXK7g9Dn0cF1E3pdn299t4hSeJy5w", algorithm: .HS256("secret"))
+  print(payload)
+} catch {
+  print("Failed to decode JWT: \(error)")
+}
 ```
 
 When the JWT may be signed with one out of many algorithms or keys:
 
 ```swift
-JWT.decode("eyJh...5w", [.HS256("secret"), .HS256("secret2"), .HS512("secure")])
+try JWT.decode("eyJh...5w", algorithms: [.HS256("secret"), .HS256("secret2"), .HS512("secure")])
 ```
 
 #### Supported claims
@@ -65,7 +70,7 @@ This library supports the following algorithms:
 - None - Unsecured JWTs
 - HS256 - HMAC using SHA-256 hash algorithm (default)
 - HS384 - HMAC using SHA-384 hash algorithm
-- HS512 - HMAC using SHA-384 hash algorithm
+- HS512 - HMAC using SHA-512 hash algorithm
 
 ## License
 

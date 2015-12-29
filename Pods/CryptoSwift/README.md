@@ -32,6 +32,7 @@ Good mood
 - Electronic codebook ([ECB](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_.28ECB.29))
 - Cipher-block chaining ([CBC](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29))
 - Cipher feedback ([CFB](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_feedback_.28CFB.29))
+- Counter ([CTR](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_.28CTR.29))
 
 #####Data padding
 - [PKCS#7](http://tools.ietf.org/html/rfc5652#section-6.3)
@@ -51,8 +52,13 @@ To install CryptoSwift, add it as a submodule to your project (on the top level 
 
 Then, drag the CryptoSwift.xcodeproj file into your Xcode project, and add CryptoSwift.framework as a dependency to your target.
 
+Alternatively, you can build the Universal Framework and link it in your Xcode project. 
+Aggregate target `CryptoSwift-Universal` runs a script to build a universal framework. The script currently copies the framework to the `Framework` directory. (The path to CryptoSwift directory cannot contain any space)
+
+Looking for version for Swift 1.2? check branch **swift12**, it's there.
+
 #####iOS and OSX
-By default project is setup for iOS. You need to switch to OSX SDK manually [see #8](https://github.com/krzyzanowskim/CryptoSwift/issues/8)
+By default project is setup for iOS. You need to switch to OS X SDK manually [see #8](https://github.com/krzyzanowskim/CryptoSwift/issues/8)
 
 ####CocoaPods
 
@@ -67,6 +73,16 @@ or for newest version from specified branch of code:
 ```ruby
 pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "master"
 ```
+
+####Carthage 
+You can use [Carthage](https://github.com/Carthage/Carthage). 
+Specify in Cartfile:
+
+```ruby
+github "krzyzanowskim/CryptoSwift"
+```
+
+Then follow [build instructions](https://github.com/Carthage/Carthage#getting-started)
  
 ##Usage
 
@@ -79,9 +95,9 @@ Generally you should use `CryptoSwift.Hash`, `CryptoSwift.Cipher` enums or conve
 Hash enum usage
 ```swift
 /* Hash enum usage */
-var data:NSData = NSData(bytes: [49, 50, 51] as [Byte], length: 3)
+var data:NSData = NSData(bytes: [49, 50, 51] as [UInt8], length: 3)
 if let data = CryptoSwift.Hash.md5(data).calculate() {
-    println(data.hexString)
+    println(data.toHexString())
 }
 ```
     
@@ -97,7 +113,7 @@ let hash = data.sha512()
 	
 let crc = data.crc32()
 
-println(hash.hexString)
+println(hash.toHexString())
 ```
 	
 Hashing a String and printing result
@@ -173,7 +189,7 @@ let bytes:[UInt8] = data.arrayOfBytes()
 ##Contact
 Marcin Krzyżanowski [@krzyzanowskim](http://twitter.com/krzyzanowskim)
 
-##Licence
+##License
 
 Copyright (C) 2014 Marcin Krzyżanowski <marcin.krzyzanowski@gmail.com>
 This software is provided 'as-is', without any express or implied warranty. 
@@ -185,3 +201,15 @@ Permission is granted to anyone to use this software for any purpose, including 
 - The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation is required.
 - Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 - This notice may not be removed or altered from any source or binary distribution.
+
+##Changelog
+
+This is not full changelog
+
+0.0.14
+- hexString -> toHextString() #105
+- CTR (Counter mode)
+- Hex string is lowercase now
+- Carthage support
+- Tests update
+- Swift 2.0 support - overall update
