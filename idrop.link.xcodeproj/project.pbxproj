@@ -41,7 +41,7 @@
 		6585C5A81B0143E000B6E3DF /* iconlight_50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6585C5A41B0143E000B6E3DF /* iconlight_50@2x.png */; };
 		6585C5A91B0143E000B6E3DF /* iconlight_75@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6585C5A51B0143E000B6E3DF /* iconlight_75@2x.png */; };
 		8421E7C843CCDCC470386320 /* Pods_idrop_linkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12402F28F58DB5F47D8E8C2C /* Pods_idrop_linkTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		9E62A87EBC7C66DB46EB117A /* Pods_idrop_link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9E62A87EBC7C66DB46EB117A /* Pods_idrop_link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD70BA3E0DD9446E0D27B /* Pods_idrop_link.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

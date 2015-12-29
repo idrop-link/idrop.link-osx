@@ -155,26 +155,39 @@ enum Router: URLRequestConvertible {
     }
     
     // MARK: URLRequestConvertible
-    var URLRequest: NSURLRequest {
+    var URLRequest: NSMutableURLRequest {
         let URL:NSURL! = NSURL(string: Router.baseUrlString)
-        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        let mutableURLRequest = NSMutableURLRequest(URL:
+            URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
         
         // MARK: Custom headers
         // Tokenized requests need a custom `Authorization` header with the token
         switch self {
         case .UpdateUser(_, let token, _):
-            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            mutableURLRequest.setValue("\(token)",
+                forHTTPHeaderField: "Authorization")
+
         case .GetUser(_, let token):
-            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            mutableURLRequest.setValue("\(token)",
+                forHTTPHeaderField: "Authorization")
+
         case .DeleteUser(_, let token):
-            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            mutableURLRequest.setValue("\(token)",
+                forHTTPHeaderField: "Authorization")
+
         case .InitializeDrop(_, let token):
-            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            mutableURLRequest.setValue("\(token)",
+                forHTTPHeaderField: "Authorization")
+
         case .UploadFileToDrop(_, let token, _):
-            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            mutableURLRequest.setValue("\(token)",
+                forHTTPHeaderField: "Authorization")
+
         case .GetDrops(_, let token):
-            mutableURLRequest.setValue("\(token)", forHTTPHeaderField: "Authorization")
+            mutableURLRequest.setValue("\(token)",
+                forHTTPHeaderField: "Authorization")
+
         default:
             break;
         }
@@ -182,13 +195,21 @@ enum Router: URLRequestConvertible {
         // MARK: Parameters
         switch self {
         case .CreateUser(let email, let password):
-            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest,
+                parameters: ["email": email, "password": password]).0
+
         case .UpdateUser(_, _, let parameters):
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: parameters).0
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest,
+                parameters: parameters).0
+
         case .GetAuthToken(_, let email, let password):
-            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
+            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest,
+                parameters: ["email": email, "password": password]).0
+
         case .GetEmailForId(let email, let password):
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: ["email": email, "password": password]).0
+            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest,
+                parameters: ["email": email, "password": password]).0
+
         default:
             return mutableURLRequest
         }
@@ -220,12 +241,13 @@ final class Networking {
     class func createUser(email: String, password: String, callback: APICallback) {
         Alamofire
             .request(Router.CreateUser(email, password))
-            .responseJSON { (request, response, jsonData, error) -> Void in
-                if let data: AnyObject = jsonData {
-                    let json = JSON(data)
-                    callback(json, error)
-                } else {
+            .responseJSON { response in
+                if let error = response.result.error {
                     callback(nil, error)
+                } else if let json = response.result.value {
+                    callback(JSON(json), nil)
+                } else {
+                    callback(nil, nil)
                 }
         }
     }
@@ -243,12 +265,13 @@ final class Networking {
     class func getUser(userId: String!, token: String!, callback: APICallback) {
         Alamofire
             .request(Router.GetUser(userId, token))
-            .responseJSON{ (request, response, jsonData, error ) -> Void in
-                if let data: AnyObject = jsonData {
-                    let json = JSON(data)
-                    callback(json, error)
-                } else {
+            .responseJSON{ response in
+                if let error = response.result.error {
                     callback(nil, error)
+                } else if let json = response.result.value {
+                    callback(JSON(json), nil)
+                } else {
+                    callback(nil, nil)
                 }
         }
     }
@@ -263,19 +286,20 @@ final class Networking {
     
     :see: createUser
     */
-    class func getToken(userId: String!, email: String!, password: String!, callback: APICallback) {
-        Alamofire
-            .request(Router.GetAuthToken(userId, email, password))
-            .responseJSON { (request, response, jsonData, error) -> Void in
-                if (response?.statusCode == 404) {
-                    callback(nil, NSError(domain: "Networking", code: 404, userInfo: ["message": "There is no user with this email address."]))
-                } else if let data: AnyObject = jsonData {
-                    let json = JSON(data)
-                    callback(json, error)
-                } else {
-                    callback(nil, error)
-                }
-        }
+    class func getToken(userId: String!, email: String!, password: String!,
+        callback: APICallback) {
+            Alamofire
+                .request(Router.GetAuthToken(userId, email, password))
+                .responseJSON { response in
+                    // callback(nil, NSError(domain: "Networking", code: 404, userInfo: ["message": "There is no user with this email address."]))
+                    if let error = response.result.error {
+                        callback(nil, error)
+                    } else if let json = response.result.value {
+                        callback(JSON(json), nil)
+                    } else {
+                        callback(nil, nil)
+                    }
+            }
     }
     
     /**
@@ -288,16 +312,15 @@ final class Networking {
     class func getIdForEmail(email: String!, password: String!, callback: APICallback) {
         Alamofire
             .request(Router.GetEmailForId(email, password))
-            .responseJSON { (request, response, jsonData, error) -> Void in
-                if (response?.statusCode == 404) {
-                    callback(nil, NSError(domain: "Networking", code: 404, userInfo: ["message": "There is no user with this email address.\n"]))
-                } else if response?.statusCode == 401 {
-                    callback(nil, NSError(domain: "Networking", code: 401, userInfo: ["message": "Wrong email/password.\n"]))
-                } else if let data: AnyObject = jsonData {
-                    let json = JSON(data)
-                    callback(json, error)
-                } else {
+            .responseJSON { response in
+                // callback(nil, NSError(domain: "Networking", code: 404, userInfo: ["message": "There is no user with this email address.\n"]))
+                // callback(nil, NSError(domain: "Networking", code: 401, userInfo: ["message": "Wrong email/password.\n"]))
+                if let error = response.result.error {
                     callback(nil, error)
+                } else if let json = response.result.value {
+                    callback(JSON(json), nil)
+                } else {
+                    callback(nil, nil)
                 }
         }
     }
@@ -312,12 +335,13 @@ final class Networking {
     class func initializeDrop(userId: String!, token: String!, callback: APICallback) {
         Alamofire
             .request(Router.InitializeDrop(userId, token))
-            .responseJSON { (request, response, jsonData, error) -> Void in
-                if let data: AnyObject = jsonData {
-                    let json = JSON(data)
-                    callback(json, error)
-                } else {
+            .responseJSON { response in
+                if let error = response.result.error {
                     callback(nil, error)
+                } else if let json = response.result.value {
+                    callback(JSON(json), nil)
+                } else {
+                    callback(nil, nil)
                 }
         }
     }
@@ -331,50 +355,53 @@ final class Networking {
     - parameter callback: Function to call with result or error when finished
     - parameter onProgress:  Optional function that gets called while uploading 
     */
-    class func uploadToDrop(userId: String!, token: String!, dropId: String!, filepath: String!, callback: APICallback, onProgress: ((Float) -> Void)?) {
-        let url:NSURL = NSURL(string: filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
-        let filename = url.path!.lastPathComponent
-        let fileData = NSData(contentsOfFile: filepath)
+    class func uploadToDrop(userId: String!, token: String!, dropId: String!,
+        filepath: String!, callback: APICallback, onProgress: ((Float) -> Void)?) {
+            let url:NSURL = NSURL(string:
+                filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
+            let filename = url.lastPathComponent
+            let fileData = NSData(contentsOfFile: filepath)
 
-        if !(fileData != nil) {
-            callback(nil, nil)
-            return
-        }
-        
-        var route = Router.UploadFileToDrop(userId, token, dropId)
-        var request = route.URLRequest.mutableCopy() as! NSMutableURLRequest
-        
-        let boundary = "NET-POST-boundary-\(arc4random())-\(arc4random())"
-        request.setValue("multipart/form-data;boundary="+boundary,
-            forHTTPHeaderField: "Content-Type")
-        
-        let parameters = NSMutableData()
-        
-        // append content disposition
-        parameters.appendData("\r\n--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        parameters.appendData("Content-Disposition: form-data; name=\"data\"; filename=\"\(filename)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        // append content type
-        parameters.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        parameters.appendData(fileData!)
-        parameters.appendData("\r\n--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        Alamofire
-            .upload(request, parameters)
-            .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
-                if let fn = onProgress {
-                    fn(Float(totalBytesWritten) / Float(totalBytesExpectedToWrite))
-                }
+            if !(fileData != nil) {
+                callback(nil, nil)
+                return
             }
-            .responseJSON { (request, response, jsonData, error) -> Void in
-                if let data: AnyObject = jsonData {
-                    let json = JSON(data)
-                    callback(json, error)
-                } else {
-                    callback(nil, error)
+
+            let route = Router.UploadFileToDrop(userId, token, dropId)
+            let request = route.URLRequest.mutableCopy() as! NSMutableURLRequest
+
+            let boundary = "NET-POST-boundary-\(arc4random())-\(arc4random())"
+            request.setValue("multipart/form-data;boundary="+boundary,
+                forHTTPHeaderField: "Content-Type")
+
+            let parameters = NSMutableData()
+
+            // append content disposition
+            parameters.appendData("\r\n--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            parameters.appendData("Content-Disposition: form-data; name=\"data\"; filename=\"\(filename)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+
+            // append content type
+            parameters.appendData("Content-Type: application/octet-stream\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+
+            parameters.appendData(fileData!)
+            parameters.appendData("\r\n--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+
+            Alamofire
+                .upload(request, data: parameters)
+                .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
+                    if let fn = onProgress {
+                        fn(Float(totalBytesWritten) / Float(totalBytesExpectedToWrite))
+                    }
                 }
-        }
+                .responseJSON { response in
+                    if let error = response.result.error {
+                        callback(nil, error)
+                    } else if let json = response.result.value {
+                        callback(JSON(json), nil)
+                    } else {
+                        callback(nil, nil)
+                    }
+            }
     }
     
     /**
@@ -389,12 +416,13 @@ final class Networking {
     class func getDrops(userId: String!, token: String!, callback: APICallback) {
         Alamofire
             .request(Router.GetDrops(userId, token))
-            .responseJSON{ (request, response, jsonData, error ) -> Void in
-                if let data: AnyObject = jsonData {
-                    let json = JSON(data)
-                    callback(json, error)
-                } else {
+            .responseJSON{ response in
+                if let error = response.result.error {
                     callback(nil, error)
+                } else if let json = response.result.value {
+                    callback(JSON(json), nil)
+                } else {
+                    callback(nil, nil)
                 }
         }
     }

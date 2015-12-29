@@ -32,7 +32,7 @@ class PopoverTableRowView: NSTableRowView {
 
         let locations: [CGFloat] = [ 0.0, 0.35, 0.65, 1.0 ]
 
-        return NSGradient(colors: colors, atLocations: locations, colorSpace: NSColorSpace.sRGBColorSpace())
+        return NSGradient(colors: colors, atLocations: locations, colorSpace: NSColorSpace.sRGBColorSpace())!
     }
 
     override func drawSeparatorInRect(dirtyRect: NSRect) {

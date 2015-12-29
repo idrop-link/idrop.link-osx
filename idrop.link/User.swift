@@ -120,11 +120,15 @@ public class User {
                         // the user does not exist anymore, so we can delete all
                         // saved credentials
                         if error!.code == 404 {
-                            self.keychain.removeAll()
+                            do {
+                                try self.keychain.removeAll()
+                            } catch _ {}
                             callback(false, "A user for this email does not exist.")
                             
                         } else if error!.code == 400 || error!.code == 401 {
-                            self.keychain.removeAll()
+                            do {
+                                try self.keychain.removeAll()
+                            } catch {}
                             callback(false, "Please check your credentials and try again.")
                             
                         } else {
@@ -216,18 +220,29 @@ public class User {
     - returns: whether or not the operation succeeded
     */
     public func tryKeychainDataFetch() -> Bool {
-        var mail = self.keychain.get(Config.keychainUserEmailKey)
-        var pass = self.keychain.get(Config.keychainUserPasswordKey)
-        var id = self.keychain.get(Config.keychainUserIdKey)
+        var mail:String? = nil
+        var pass:String? = nil
+        var id:String? = nil
+
+        do {
+            mail = try self.keychain.get(Config.keychainUserEmailKey)
+            pass = try self.keychain.get(Config.keychainUserPasswordKey)
+            id = try self.keychain.get(Config.keychainUserIdKey)
+        } catch _ {
+            // most probably false
+            return self.hasCredentials()
+        }
         
         if (mail != nil && pass != nil && id != nil) {
             self.setCredentials(mail, password: pass, id: id)
         } else {
             // try to remove the keys if the credential set is incomplete
             // we can't use them anyway
-            self.keychain.remove(Config.keychainUserEmailKey)
-            self.keychain.remove(Config.keychainUserIdKey)
-            self.keychain.remove(Config.keychainUserPasswordKey)
+            do {
+                try self.keychain.remove(Config.keychainUserEmailKey)
+                try self.keychain.remove(Config.keychainUserIdKey)
+                try self.keychain.remove(Config.keychainUserPasswordKey)
+            } catch _ {}
             self.logout()
         }
         
@@ -240,9 +255,13 @@ public class User {
     - returns: whether or not the operation succeeded
     */
     public func tryKeychainDataSet() -> Bool {
-        self.keychain.set(self.password!, key: Config.keychainUserPasswordKey)
-        self.keychain.set(self.email!, key: Config.keychainUserEmailKey)
-        self.keychain.set(self.userId!, key: Config.keychainUserIdKey)
+        do {
+            try self.keychain.set(self.password!, key: Config.keychainUserPasswordKey)
+            try self.keychain.set(self.email!, key: Config.keychainUserEmailKey)
+            try self.keychain.set(self.userId!, key: Config.keychainUserIdKey)
+        } catch _ {
+            return false
+        }
         
         // TODO: error handling!
         return true
@@ -262,7 +281,7 @@ public class User {
                     
                     if (error != nil) {
                         if error!.code == 404 || error!.code == 401 {
-                            callback(false, error!.userInfo!["message"] as! String)
+                            callback(false, error!.userInfo["message"] as! String)
                             
                         } else if let json = returnedJson {
                             callback(false, json["message"].string!)
@@ -312,7 +331,7 @@ public class User {
                     if let json = returnedJson {
                         if let url = json["url"].string {
                             // copy url to pasteboard
-                            var pasteBoard = NSPasteboard.generalPasteboard()
+                            let pasteBoard = NSPasteboard.generalPasteboard()
                             pasteBoard.clearContents()
                             pasteBoard.writeObjects([url])
                             
@@ -322,7 +341,7 @@ public class User {
                                 callback: { (returnedJson, error) -> Void in
                                     if let json = returnedJson {
                                         
-                                        if let id = self.userId {
+                                        if let _ = self.userId {
                                             self.syncDrops()
                                             callback(true, "?")
                                             
@@ -362,8 +381,7 @@ public class User {
     This function fetches all drops by the user and prepares them (date etc.).
     */
     public func syncDrops() {
-        if let tok = self.token, let id = self.userId {
-            
+        if let _ = self.token, let _ = self.userId {
             Networking.getDrops(userId,
                 token: token,
                 callback: { (returnedJson, error) -> Void in
@@ -373,13 +391,13 @@ public class User {
                             
                             // this formatter is used to match the string
                             // and create a NSDate
-                            var inDateFormatter = NSDateFormatter()
+                            let inDateFormatter = NSDateFormatter()
                             inDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                             inDateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
                             
                             // this formatter is used to produce the displayed string
                             // in the wanted format
-                            var outDateFormatter = NSDateFormatter()
+                            let outDateFormatter = NSDateFormatter()
                             outDateFormatter.doesRelativeDateFormatting = true
                             outDateFormatter.setLocalizedDateFormatFromTemplate("HH:mm dd/MM/yyyy")
                             
@@ -387,18 +405,18 @@ public class User {
                                 // we need to check for failed drops
                                 // they have no name (but an id, but we want to be
                                 // really sure, same with url, that they exist)
-                                var name = d["name"].string
-                                var url = d["url"].string
-                                var _id = d["_id"].string
+                                let name = d["name"].string
+                                let url = d["url"].string
+                                let _id = d["_id"].string
                                 
-                                if let _name = name, _url = url, __id = _id {
+                                if let _name = name, _url = url, _ = _id {
                                     var formattedDate: String? = nil
                                     
                                     // parse the incoming date to a string
                                     // in a format we want it to display
                                     if let date = d["upload_date"].string {
                                         // get NSDate for string
-                                        var theDate = inDateFormatter.dateFromString(date)
+                                        let theDate = inDateFormatter.dateFromString(date)
                                         
                                         if let theD = theDate {
                                             // get string for NSDate
@@ -410,7 +428,7 @@ public class User {
                                     // we fall back to the given date
                                     formattedDate = formattedDate != nil ? formattedDate : d["upload_date"].string
                                     
-                                    var drop = Drop(dropDate: formattedDate,
+                                    let drop = Drop(dropDate: formattedDate,
                                         name: _name,
                                         _id: _id,
                                         url: _url,
@@ -429,7 +447,7 @@ public class User {
                                     self.drops.insert(drop, atIndex: 0)
                                     
                                 } else {
-                                    println("found failed drop")
+                                    print("found failed drop")
                                 }
                             }
                         }

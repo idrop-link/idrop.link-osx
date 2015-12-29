@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class IconView : NSView, NSDraggingDestination {
+class IconView : NSView {
     @IBOutlet var mainMenu: NSMenu?
     
     private(set) var image: NSImage
@@ -137,15 +137,12 @@ class IconView : NSView, NSDraggingDestination {
     }
     
     override func performDragOperation(sender: NSDraggingInfo) -> Bool {
-        var pboard = sender.draggingPasteboard()
+        let pboard = sender.draggingPasteboard()
         
-        if pboard != nil {
-            if (pboard.types as! [NSString]).contains(NSFilenamesPboardType.characters) {
-                var files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
-                // TODO: for file ... onDrop
-                self.onDrop(files[0])
-            }
-            return true
+        if (pboard.types as [String]!).contains(NSFilenamesPboardType) {
+            var files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
+            // TODO: for file ... onDrop
+            self.onDrop(files[0])
         }
         
         return false
