@@ -46,8 +46,13 @@ class PopoverTableView: NSTableView {
     :see: target (attribute)
     */
     func onDoubleAction(sender: AnyObject) {
+        // the case when no drops are displayed
+        if self.selectedRow < 0 {
+            return
+        }
+
         if let usr = self.user {
-            if usr.drops.count >= self.selectedRow {
+            if usr.drops.count > 0 && usr.drops.count >= self.selectedRow {
                 if let url = usr.drops[self.selectedRow].url {
                     let _url = NSURL(string: url) as! CFURLRef
                     LSOpenCFURLRef(_url, nil)
