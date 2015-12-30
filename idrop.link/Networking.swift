@@ -358,9 +358,9 @@ final class Networking {
     */
     class func uploadToDrop(userId: String!, token: String!, dropId: String!,
         filepath: String!, callback: APICallback, onProgress: ((Float) -> Void)?) {
-            let url:NSURL = NSURL(string:
-                filepath.stringByAddingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)!
-            let filename = url.lastPathComponent
+            // FIXME: handle optionals properly
+            let url:NSURL = NSURL(string: filepath.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!)!
+            let filename = url.lastPathComponent!
             let fileData = NSData(contentsOfFile: filepath)
 
             if !(fileData != nil) {

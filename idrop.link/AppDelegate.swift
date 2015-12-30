@@ -124,7 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         icon.onDrop = { (file: String) -> () in
             self.user.uploadDrop(file, callback: { (success, msg) -> Void in
                 if (success) {
-                    Notification.showNotification(NSURL(fileReferenceLiteral: file).lastPathComponent!,
+                    Notification.showNotification(NSURL(fileURLWithPath: file).lastPathComponent!,
                         subtitle: "Drop successful!")
                 } else {
                     Notification.showNotification("idrop.link",

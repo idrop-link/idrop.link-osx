@@ -138,12 +138,14 @@ class IconView : NSView {
 
     override func performDragOperation(sender: NSDraggingInfo) -> Bool {
         let pboard = sender.draggingPasteboard()
-
         
         if (pboard.types as [String]!).contains(NSFilenamesPboardType) {
-            var files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
-            // TODO: for file ... onDrop
-            self.onDrop(files[0])
+            let files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
+
+            // FIXME: upload multiple files
+            for file in files {
+                self.onDrop(file)
+            }
         }
 
         return false
