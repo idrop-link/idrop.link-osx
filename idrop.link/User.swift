@@ -58,6 +58,9 @@ public class User {
         self.password = password
         self.userId = userId
         self.keychain = Keychain(service: Config.keychainServiceEntity)
+            .label("idrop.link (OSX App)")
+            .synchronizable(true)
+            .accessibility(.WhenUnlocked)
         self.drops = [Drop]()
     }
 
@@ -109,7 +112,6 @@ public class User {
             email: self.email,
             password: self.password,
             callback: { (returnedJson, error) in
-
                 if (error != nil) {
                     if let json = returnedJson {
                         callback(false, json["message"].string!)
@@ -342,7 +344,6 @@ public class User {
                                 filepath: file,
                                 callback: { (returnedJson, error) -> Void in
                                     if let json = returnedJson {
-                                        
                                         if let _ = self.userId {
                                             self.syncDrops()
                                             callback(true, "?")
