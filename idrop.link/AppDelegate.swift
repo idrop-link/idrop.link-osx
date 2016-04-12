@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate, NSMetadataQueryDelegate {
     
     @IBOutlet var window: NSWindow?
     @IBOutlet var popover : NSPopover?
@@ -26,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     let icon: IconView
     let item: NSStatusItem
+    
+    let query = NSMetadataQuery()
     
     override init() {
         let bar = NSStatusBar.systemStatusBar()
@@ -85,10 +87,36 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if self.user.userId == nil {
             self.login(self)
         }
+        
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(queryUpdated), name: NSMetadataQueryDidStartGatheringNotification, object: query)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(queryUpdated), name: NSMetadataQueryDidUpdateNotification, object: query)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(queryUpdated), name: NSMetadataQueryDidFinishGatheringNotification, object: query)
+        query.delegate = self
+        query.predicate = NSPredicate(format: "kMDItemIsScreenCapture = 1")
+        query.startQuery()
+    }
+    
+    func queryUpdated(notification: NSNotification) {
+        let userInfo = notification.userInfo
+        if let items = userInfo?[kMDQueryUpdateAddedItems] {
+            let itemsAsArray = (items as! NSArray) as Array
+            let item = itemsAsArray.last as! NSMetadataItem
+            if let path = item.valueForAttribute(NSMetadataItemPathKey) {
+                user.uploadDrop(path as! String, callback: { (success, msg) -> Void in
+                    if (success) {
+                        Notification.showNotification(NSURL(fileURLWithPath: path as! String).lastPathComponent!,
+                            subtitle: "Drop successful!")
+                    } else {
+                        Notification.showNotification("idrop.link",
+                            subtitle: "Drop failed.")
+                    }
+                })
+            }
+        }
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+        query.stopQuery()
     }
     
     override func awakeFromNib() {
