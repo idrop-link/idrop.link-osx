@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     let icon: IconView
     let item: NSStatusItem
     
-    let query = NSMetadataQuery()
+    let screenshotDetector = ScreenshotDetector()
     
     override init() {
         let bar = NSStatusBar.systemStatusBar()
@@ -88,35 +88,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             self.login(self)
         }
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(queryUpdated), name: NSMetadataQueryDidStartGatheringNotification, object: query)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(queryUpdated), name: NSMetadataQueryDidUpdateNotification, object: query)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(queryUpdated), name: NSMetadataQueryDidFinishGatheringNotification, object: query)
-        query.delegate = self
-        query.predicate = NSPredicate(format: "kMDItemIsScreenCapture = 1")
-        query.startQuery()
-    }
-    
-    func queryUpdated(notification: NSNotification) {
-        let userInfo = notification.userInfo
-        if let items = userInfo?[kMDQueryUpdateAddedItems] {
-            let itemsAsArray = (items as! NSArray) as Array
-            let item = itemsAsArray.last as! NSMetadataItem
-            if let path = item.valueForAttribute(NSMetadataItemPathKey) {
-                user.uploadDrop(path as! String, callback: { (success, msg) -> Void in
-                    if (success) {
-                        Notification.showNotification(NSURL(fileURLWithPath: path as! String).lastPathComponent!,
-                            subtitle: "Drop successful!")
-                    } else {
-                        Notification.showNotification("idrop.link",
-                            subtitle: "Drop failed.")
-                    }
-                })
-            }
-        }
+        screenshotDetector.listener = uploadDrop;
+        screenshotDetector.start()
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
-        query.stopQuery()
+        screenshotDetector.stop()
     }
     
     override func awakeFromNib() {
@@ -149,23 +126,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             }
         }
         
-        icon.onDrop = { (file: String) -> () in
-            self.user.uploadDrop(file, callback: { (success, msg) -> Void in
-                if (success) {
-                    Notification.showNotification(NSURL(fileURLWithPath: file).lastPathComponent!,
-                        subtitle: "Drop successful!")
-                } else {
-                    Notification.showNotification("idrop.link",
-                        subtitle: "Drop failed.")
-                }
-            })
-        }
+        icon.onDrop = uploadDrop
     }
     
     // MARK: - Notification Center Delegation
     func userNotificationCenter(center: NSUserNotificationCenter,
         shouldPresentNotification notification: NSUserNotification) -> Bool {
             return true
+    }
+    
+    private func uploadDrop(path: String) {
+        user.uploadDrop(path, callback: { (success, msg) -> Void in
+            if (success) {
+                Notification.showNotification(
+                    NSURL(fileURLWithPath: path).lastPathComponent!,
+                    subtitle: "Drop successful!")
+            } else {
+                Notification.showNotification(
+                    "idrop.link",
+                    subtitle: "Drop failed.")
+            }
+        })
     }
     
     // MARK: - Menu Handlers
