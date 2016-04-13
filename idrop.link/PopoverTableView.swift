@@ -28,7 +28,7 @@ class PopoverTableView: NSTableView {
         // note that we have to use a selector
         // due to the underlying cocoa logic which is
         // written in Objective-C
-        self.doubleAction = "onDoubleAction:" as Selector
+        self.doubleAction = #selector(onDoubleAction)
 
         // the message which is being sent to the selector
         // declared above should be delivered to this very
@@ -54,8 +54,11 @@ class PopoverTableView: NSTableView {
         if let usr = self.user {
             if usr.drops.count > 0 && usr.drops.count >= self.selectedRow {
                 if let url = usr.drops[self.selectedRow].url {
-                    let _url = NSURL(string: url) as! CFURLRef
-                    LSOpenCFURLRef(_url, nil)
+                    if let _url = NSURL(string: url) {
+                            NSWorkspace.sharedWorkspace().openURL(_url)
+                    }
+                    //let _url = NSURL(string: url) as! CFURLRef
+                    //LSOpenCFURLRef(_url, nil)
                 }
             }
         }
