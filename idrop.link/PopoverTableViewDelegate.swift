@@ -50,7 +50,7 @@ class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDele
         // sets selected items in bold font
         self.popoverTableView?.enumerateAvailableRowViewsUsingBlock({ (rowView, row) -> Void in
             for (var col = 0; col < rowView.numberOfColumns; col++) {
-                let cellView: AnyObject? = rowView.viewAtColumn(row)
+                let cellView: AnyObject? = rowView.viewAtColumn(col)
 
                 if let cV: AnyObject = cellView {
                     if (cV.isKindOfClass(PopoverTableCellView)) {
