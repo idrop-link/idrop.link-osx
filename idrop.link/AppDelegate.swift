@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate, NSMetadataQueryDelegate {
     
     @IBOutlet var window: NSWindow?
     @IBOutlet var popover : NSPopover?
@@ -26,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     let icon: IconView
     let item: NSStatusItem
+    
+    let screenshotDetector = ScreenshotDetector()
     
     override init() {
         let bar = NSStatusBar.systemStatusBar()
@@ -85,10 +87,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if self.user.userId == nil {
             self.login(self)
         }
+        
+        screenshotDetector.listener = uploadDrop;
+        screenshotDetector.start()
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+        screenshotDetector.stop()
     }
     
     override func awakeFromNib() {
@@ -121,23 +126,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             }
         }
         
-        icon.onDrop = { (file: String) -> () in
-            self.user.uploadDrop(file, callback: { (success, msg) -> Void in
-                if (success) {
-                    Notification.showNotification(NSURL(fileURLWithPath: file).lastPathComponent!,
-                        subtitle: "Drop successful!")
-                } else {
-                    Notification.showNotification("idrop.link",
-                        subtitle: "Drop failed.")
-                }
-            })
-        }
+        icon.onDrop = uploadDrop
     }
     
     // MARK: - Notification Center Delegation
     func userNotificationCenter(center: NSUserNotificationCenter,
         shouldPresentNotification notification: NSUserNotification) -> Bool {
             return true
+    }
+    
+    private func uploadDrop(path: String) {
+        user.uploadDrop(path, callback: { (success, msg) -> Void in
+            if (success) {
+                Notification.showNotification(
+                    NSURL(fileURLWithPath: path).lastPathComponent!,
+                    subtitle: "Drop successful!")
+            } else {
+                Notification.showNotification(
+                    "idrop.link",
+                    subtitle: "Drop failed.")
+            }
+        })
     }
     
     // MARK: - Menu Handlers
