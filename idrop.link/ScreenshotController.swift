@@ -1,5 +1,5 @@
 //
-//  ScreenshotDetector.swift
+//  ScreenshotController.swift
 //  idrop.link
 //
 //  Created by Daniel Seemaier on 13/04/16.
@@ -12,7 +12,7 @@ import Cocoa
  This class detects newly created screnshots and signals a user provided 
  listener upon detection.
 */
-class ScreenshotDetector : NSObject, NSMetadataQueryDelegate {
+class ScreenshotController : NSObject, NSMetadataQueryDelegate {
     
     var listener: ((String) -> Void)?
     private let query = NSMetadataQuery()

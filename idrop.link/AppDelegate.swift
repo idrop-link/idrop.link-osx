@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     let icon: IconView
     let item: NSStatusItem
     
-    let screenshotDetector = ScreenshotDetector()
+    let screenshotCtrl = ScreenshotController()
     
     override init() {
         let bar = NSStatusBar.systemStatusBar()
@@ -88,12 +88,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             self.login(self)
         }
         
-        screenshotDetector.listener = uploadDrop;
-        screenshotDetector.start()
+        screenshotCtrl.listener = uploadDrop;
+        screenshotCtrl.start()
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
-        screenshotDetector.stop()
+        screenshotCtrl.stop()
     }
     
     override func awakeFromNib() {
