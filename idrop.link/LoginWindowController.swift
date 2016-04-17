@@ -49,7 +49,7 @@ class LoginWindowController: NSWindowController {
         let durationOfShake: CFTimeInterval = 0.5
 
         let frame = self.window?.frame as NSRect!
-        var shakePath: CGMutablePath = CGPathCreateMutable()
+        let shakePath: CGMutablePath = CGPathCreateMutable()
 
         CGPathMoveToPoint(shakePath, nil, NSMinX(frame), NSMinY(frame))
 
