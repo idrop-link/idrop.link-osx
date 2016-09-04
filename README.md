@@ -1,6 +1,8 @@
 # idrop.link OSX Client
 idrop.link - self hosted personal screenshot and file cloud to share with your friends, colleagues and family
 
+![out](https://cloud.githubusercontent.com/assets/6138133/18229877/824bdadc-7289-11e6-9883-a2b606646c86.gif)
+
 ## Development
 This project utilizes [CocoaPods](https://guides.cocoapods.org) for dependency management. It needs to be installed before you can use `pod`.
 
