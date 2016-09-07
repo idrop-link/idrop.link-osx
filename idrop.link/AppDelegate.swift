@@ -16,7 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBOutlet weak var menu: NSMenu!
     @IBOutlet weak var loggedInMenu: NSMenu!
     @IBOutlet weak var popoverTableView: PopoverTableView!
-    
+
+    var userDefaults: NSUserDefaults
     var user: User
     
     var preferencesWindowController: PreferencesWindowController
@@ -39,6 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         item.view = icon
         
         self.user = User()
+        self.userDefaults = NSUserDefaults.standardUserDefaults()
         
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()

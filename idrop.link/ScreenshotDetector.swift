@@ -15,9 +15,11 @@ import Cocoa
 class ScreenshotDetector : NSObject, NSMetadataQueryDelegate {
     
     var listener: ((String) -> Void)?
+    var userDefaults: NSUserDefaults
     private let query = NSMetadataQuery()
     
     override init() {
+        self.userDefaults = NSUserDefaults.standardUserDefaults()
         super.init()
         
         NSNotificationCenter.defaultCenter()
@@ -44,6 +46,12 @@ class ScreenshotDetector : NSObject, NSMetadataQueryDelegate {
         }
         
         if notification.userInfo != nil && notification.userInfo![kMDQueryUpdateAddedItems] != nil {
+            let autoUpload = self.userDefaults.boolForKey("auto-upload")
+            if !autoUpload {
+                // ignore because of user preferences set to "not auto upload"
+                return
+            }
+
             let items = (notification.userInfo![kMDQueryUpdateAddedItems] as! NSArray) as Array
             for item in items {
                 let path = item.valueForAttribute(NSMetadataItemPathKey) as! String

@@ -7,7 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="idrop_link" customModuleProvider="target">
             <connections>
                 <outlet property="_window" destination="QvC-M9-y7g" id="1Yo-mw-Fe4"/>
-                <outlet property="doAutoUploadScreens" destination="kny-dz-ryX" id="7Yl-lX-n94"/>
+                <outlet property="doAutoUploadScreens" destination="bqz-nK-AGr" id="t7B-Ei-32M"/>
                 <outlet property="doOpenAtStartup" destination="FIm-we-ZgA" id="B68-Y7-uQr"/>
                 <outlet property="email" destination="l3S-4Q-uPe" id="Bdp-wF-isd"/>
                 <outlet property="generalTab" destination="iAu-9s-HXz" id="i2j-6e-I5I"/>
@@ -32,11 +32,10 @@
                         <tabViewItems>
                             <tabViewItem label="General" identifier="1" id="iAu-9s-HXz">
                                 <view key="view" ambiguous="YES" id="l50-i8-NVt">
-                                    <rect key="frame" x="0.0" y="0.0" width="461" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIm-we-ZgA">
-                                            <rect key="frame" x="35" y="167" width="117" height="18"/>
+                                            <rect key="frame" x="35" y="-103" width="117" height="18"/>
                                             <buttonCell key="cell" type="check" title="Open at startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Vq-kY-Cmr">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -46,11 +45,14 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqz-nK-AGr">
-                                            <rect key="frame" x="35" y="139" width="230" height="18"/>
+                                            <rect key="frame" x="35" y="-131" width="230" height="18"/>
                                             <buttonCell key="cell" type="check" title="Automatically upload screen shots" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kny-dz-ryX">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="persistAutoUpload:" target="-2" id="vBo-3O-weS"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
