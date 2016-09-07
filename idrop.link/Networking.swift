@@ -251,6 +251,13 @@ final class Networking {
     typealias APICallback = ((JSON?, NSError?) -> ())
 
     /**
+    Returns the uri of the api instance currently used
+     */
+    class func getAPIURI() -> String {
+        return Router.baseUrlString
+    }
+
+    /**
     Check for API compliance for a given URL
     
     :param: url     The URL to check

@@ -91,6 +91,8 @@ class PreferencesWindowController: NSWindowController {
         var deactivate:Bool = true
         self.appUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath)
 
+        self.apiURL.stringValue = Networking.getAPIURI()
+
         if let usr = self.user {
             if let mail = usr.email {
                 self.email.stringValue = mail
