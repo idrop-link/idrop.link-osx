@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBOutlet weak var menu: NSMenu!
     @IBOutlet weak var loggedInMenu: NSMenu!
     @IBOutlet weak var popoverTableView: PopoverTableView!
+
+    var popoverTransiencyMonitor: AnyObject?
     
     var user: User
     
@@ -103,29 +105,35 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
         // set up interaction with the iconView in the menu bar
         icon.onMouseDown = {
-            if (icon.isSelected) {
+            if (!self.popover!.shown) {
+                self.popoverTransiencyMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.LeftMouseDownMask, handler: {(event: NSEvent!) in
+                    self.popover?.close()
+                    icon.isSelected = false
+                })!
                 self.popover?.showRelativeToRect(rect,
                     ofView: icon,
                     preferredEdge: edge)
-                return
+                icon.isSelected = true
+            } else {
+                self.popover?.close()
+                icon.isSelected = false
             }
-            
-            self.popover?.close()
         }
         
         icon.onRightMouseDown = {
-            if (icon.isSelected) {
+            if (self.popover!.shown) {
                 self.popover?.close()
-                
-                if (self.user.hasCredentials()) {
-                    self.item.popUpStatusItemMenu(self.loggedInMenu)
-                    
-                } else {
-                    self.item.popUpStatusItemMenu(self.menu)
-                }
+            }
+
+            if (self.user.hasCredentials()) {
+                self.item.popUpStatusItemMenu(self.loggedInMenu)
+                self.loggedInMenu.delegate = self
+            } else {
+                self.item.popUpStatusItemMenu(self.menu)
+                self.menu.delegate = self
             }
         }
-        
+
         icon.onDrop = uploadDrop
     }
     
@@ -174,6 +182,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     @IBAction func logout(sender: AnyObject) {
         self.user.logout()
+    }
+}
+
+extension AppDelegate: NSMenuDelegate {
+    func menuWillOpen(menu: NSMenu) {
+        icon.isSelected = true
+    }
+
+    func menuDidClose(menu: NSMenu) {
+        icon.isSelected = false
     }
 }
 
