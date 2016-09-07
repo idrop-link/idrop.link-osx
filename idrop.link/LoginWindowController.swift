@@ -98,6 +98,11 @@ class LoginWindowController: NSWindowController {
             usr.email = loginEmail.stringValue
             usr.password = loginPassword.stringValue
 
+            if (usr.email!.characters.count == 0
+                    || usr.password!.characters.count == 0) {
+                return
+            }
+
             usr.tryIdFetch({ (success, msg) -> Void in
                 if usr.hasCredentials() {
                     usr.login({ (success, msg) -> Void in
