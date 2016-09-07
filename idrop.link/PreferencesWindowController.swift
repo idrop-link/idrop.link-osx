@@ -22,6 +22,9 @@ class PreferencesWindowController: NSWindowController {
     
     // General Tab
     @IBOutlet weak var doOpenAtStartup: NSButton!
+
+    // General Tab
+    @IBOutlet weak var doAutoUploadScreens: NSButtonCell!
     
     // User Tab
     @IBOutlet weak var email: NSTextField!
