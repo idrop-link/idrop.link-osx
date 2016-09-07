@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBOutlet weak var popoverTableView: PopoverTableView!
 
     var popoverTransiencyMonitor: AnyObject?
+    var userDefaults: NSUserDefaults
     
     var user: User
     
@@ -41,6 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         item.view = icon
         
         self.user = User()
+        self.userDefaults = NSUserDefaults.standardUserDefaults()
         
         // initialize window controller
         self.preferencesWindowController = PreferencesWindowController()

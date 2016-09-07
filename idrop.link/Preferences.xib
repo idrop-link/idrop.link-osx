@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="idrop_link" customModuleProvider="target">
             <connections>
                 <outlet property="_window" destination="QvC-M9-y7g" id="1Yo-mw-Fe4"/>
+                <outlet property="doAutoUploadScreens" destination="bqz-nK-AGr" id="t7B-Ei-32M"/>
                 <outlet property="doOpenAtStartup" destination="FIm-we-ZgA" id="B68-Y7-uQr"/>
                 <outlet property="email" destination="l3S-4Q-uPe" id="Bdp-wF-isd"/>
                 <outlet property="generalTab" destination="iAu-9s-HXz" id="i2j-6e-I5I"/>
@@ -20,7 +21,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -41,6 +42,16 @@
                                             </buttonCell>
                                             <connections>
                                                 <action selector="persistToLoginItems:" target="-2" id="6U6-zy-VGb"/>
+                                            </connections>
+                                        </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqz-nK-AGr">
+                                            <rect key="frame" x="35" y="-131" width="230" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Automatically upload screen shots" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kny-dz-ryX">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="persistAutoUpload:" target="-2" id="vBo-3O-weS"/>
                                             </connections>
                                         </button>
                                     </subviews>

@@ -22,11 +22,15 @@ class PreferencesWindowController: NSWindowController {
     
     // General Tab
     @IBOutlet weak var doOpenAtStartup: NSButton!
+
+    // General Tab
+    @IBOutlet weak var doAutoUploadScreens: NSButton!
     
     // User Tab
     @IBOutlet weak var email: NSTextField!
     
     var user: User?
+    var userDefaults: NSUserDefaults
 
     var appUrl: NSURL?
     
@@ -54,10 +58,33 @@ class PreferencesWindowController: NSWindowController {
             print("Detected invalid button state `NSMixedState` @ Preferences->Global->Start at Login")
         }
     }
+
+    @IBAction func persistAutoUpload(sender: AnyObject) {
+        let enabled = self.doAutoUploadScreens.state == NSOnState
+        self.userDefaults.setBool(enabled,
+                                  forKey: "auto-upload")
+    }
+
+    override init(window: NSWindow?) {
+        self.userDefaults = NSUserDefaults.standardUserDefaults()
+        super.init(window: window)
+    }
     
-    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func awakeFromNib() {
         var deactivate:Bool = true
+
+        if (userDefaults.boolForKey("auto-upload")) {
+            Swift.print("enabled")
+            self.doAutoUploadScreens.state = NSOnState
+        } else {
+            Swift.print("disabled")
+            self.doAutoUploadScreens.state = NSOffState
+        }
+
         self.appUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath)
 
         if let usr = self.user {
