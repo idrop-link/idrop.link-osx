@@ -22,7 +22,10 @@ class PreferencesWindowController: NSWindowController {
     
     // General Tab
     @IBOutlet weak var doOpenAtStartup: NSButton!
-    
+    @IBOutlet weak var apiURL: NSTextField!
+    @IBOutlet weak var apiURLSpinner: NSProgressIndicator!
+    @IBOutlet weak var uploadScreenshots: NSButton!
+
     // User Tab
     @IBOutlet weak var email: NSTextField!
     
@@ -54,7 +57,35 @@ class PreferencesWindowController: NSWindowController {
             print("Detected invalid button state `NSMixedState` @ Preferences->Global->Start at Login")
         }
     }
-    
+
+    @IBAction func useApiUrl(sender: AnyObject) {
+        Swift.print("useApiUrl called")
+        let url = apiURL.stringValue
+
+        if url.characters.count == 0 {
+            return
+        }
+
+        apiURLSpinner.hidden = false
+        apiURLSpinner.startAnimation(self)
+
+        Networking.checkAPI(url, callback: { (returnedJson, error) -> Void in
+            self.apiURLSpinner.stopAnimation(self)
+            self.apiURLSpinner.hidden = true
+
+            // TODO: actually change the api instance
+            if let err = error {
+                Swift.print(err.userInfo["message"])
+            } else if let json = returnedJson {
+                if json["_links"]["self"]["href"] == "/api/v1" {
+                    Swift.print("success")
+                } else {
+                    Swift.print("failed")
+                }
+            }
+        })
+    }
+
     
     override func awakeFromNib() {
         var deactivate:Bool = true

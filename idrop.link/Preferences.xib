@@ -1,16 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="idrop_link" customModuleProvider="target">
             <connections>
                 <outlet property="_window" destination="QvC-M9-y7g" id="1Yo-mw-Fe4"/>
+                <outlet property="apiURL" destination="U6r-ea-ymS" id="jZ9-SY-gNA"/>
+                <outlet property="apiURLSpinner" destination="6Ow-R9-bhS" id="qDj-HG-jYS"/>
                 <outlet property="doOpenAtStartup" destination="FIm-we-ZgA" id="B68-Y7-uQr"/>
                 <outlet property="email" destination="l3S-4Q-uPe" id="Bdp-wF-isd"/>
                 <outlet property="generalTab" destination="iAu-9s-HXz" id="i2j-6e-I5I"/>
                 <outlet property="tabView" destination="UZq-QA-5T9" id="qXU-Kb-Nys"/>
+                <outlet property="uploadScreenshots" destination="X7P-0f-S4L" id="yzw-kx-lpw"/>
                 <outlet property="userTab" destination="hQ3-zu-icy" id="J8R-Mq-4wC"/>
             </connections>
         </customObject>
@@ -20,58 +24,117 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <tabView focusRingType="none" fixedFrame="YES" drawsBackground="NO" allowsTruncatedLabels="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="UZq-QA-5T9">
+                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kqp-2R-0HR">
                         <rect key="frame" x="10" y="0.0" width="461" height="270"/>
-                        <font key="font" metaFont="system"/>
-                        <tabViewItems>
-                            <tabViewItem label="General" identifier="1" id="iAu-9s-HXz">
-                                <view key="view" ambiguous="YES" id="l50-i8-NVt">
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIm-we-ZgA">
-                                            <rect key="frame" x="35" y="-103" width="117" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Open at startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Vq-kY-Cmr">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="persistToLoginItems:" target="-2" id="6U6-zy-VGb"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="User" identifier="2" id="hQ3-zu-icy">
-                                <view key="view" id="B9O-Px-fJ0">
-                                    <rect key="frame" x="0.0" y="0.0" width="461" height="270"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qUc-Bf-fPw">
-                                            <rect key="frame" x="29" y="212" width="38" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Email" id="6FO-AC-1IN">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3S-4Q-uPe">
-                                            <rect key="frame" x="31" y="182" width="170" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Kx8-PA-Kfq">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                        </tabViewItems>
-                    </tabView>
+                        <subviews>
+                            <tabView focusRingType="none" ambiguous="YES" drawsBackground="NO" allowsTruncatedLabels="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="UZq-QA-5T9">
+                                <rect key="frame" x="0.0" y="0.0" width="461" height="270"/>
+                                <font key="font" metaFont="system"/>
+                                <tabViewItems>
+                                    <tabViewItem label="General" identifier="1" id="iAu-9s-HXz">
+                                        <view key="view" ambiguous="YES" id="l50-i8-NVt">
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIm-we-ZgA">
+                                                    <rect key="frame" x="18" y="-160" width="117" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Open at startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3Vq-kY-Cmr">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="persistToLoginItems:" target="-2" id="6U6-zy-VGb"/>
+                                                    </connections>
+                                                </button>
+                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6r-ea-ymS">
+                                                    <rect key="frame" x="20" y="-67" width="188" height="22"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Zdh-EE-eKg">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnW-Le-sbH">
+                                                    <rect key="frame" x="18" y="-37" width="86" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Backend URL" id="aJi-sV-FrQ">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="6Ow-R9-bhS">
+                                                    <rect key="frame" x="222" y="-64" width="16" height="16"/>
+                                                </progressIndicator>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-EI-BdT">
+                                                    <rect key="frame" x="357" y="-71" width="82" height="32"/>
+                                                    <buttonCell key="cell" type="push" title="Use" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ta-kN-1ce">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="useApiUrl:" target="-2" id="vNN-b2-nfI"/>
+                                                    </connections>
+                                                </button>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-0f-S4L">
+                                                    <rect key="frame" x="18" y="-191" width="227" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Automatically upload screenshots" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HLP-9h-d2y">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="User" identifier="2" id="hQ3-zu-icy">
+                                        <view key="view" id="B9O-Px-fJ0">
+                                            <rect key="frame" x="0.0" y="0.0" width="461" height="270"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qUc-Bf-fPw">
+                                                    <rect key="frame" x="29" y="212" width="38" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="B2o-mw-C4w"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Email" id="6FO-AC-1IN">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l3S-4Q-uPe">
+                                                    <rect key="frame" x="31" y="182" width="170" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="USh-Qh-6uE"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Kx8-PA-Kfq">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="l3S-4Q-uPe" firstAttribute="top" secondItem="qUc-Bf-fPw" secondAttribute="bottom" constant="8" symbolic="YES" id="1vk-Dw-iL7"/>
+                                                <constraint firstItem="qUc-Bf-fPw" firstAttribute="top" secondItem="B9O-Px-fJ0" secondAttribute="top" constant="41" id="OEx-E1-QR7"/>
+                                                <constraint firstItem="qUc-Bf-fPw" firstAttribute="leading" secondItem="B9O-Px-fJ0" secondAttribute="leading" constant="31" id="aOh-kC-qgm"/>
+                                                <constraint firstItem="qUc-Bf-fPw" firstAttribute="leading" secondItem="l3S-4Q-uPe" secondAttribute="leading" id="zWh-Ly-vRB"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
+                                </tabViewItems>
+                            </tabView>
+                        </subviews>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
                 </subviews>
             </view>
             <toolbar key="toolbar" implicitIdentifier="53761B94-7C92-4449-85F9-3E030AE69825" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="small" id="DEt-XT-Der">
@@ -95,7 +158,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="IY6-rE-DEz"/>
             </connections>
-            <point key="canvasLocation" x="464" y="127"/>
+            <point key="canvasLocation" x="524" y="130"/>
         </window>
     </objects>
     <resources>
