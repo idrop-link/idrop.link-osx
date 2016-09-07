@@ -327,6 +327,7 @@ public class User {
     */
     public func uploadDrop(file: String!, callback: (Bool, String) -> ()) -> Void {
         if let tok = self.token, let id = self.userId {
+            self.onProgress(0)
 
             Networking.initializeDrop(userId,
                 token: token,
@@ -343,6 +344,8 @@ public class User {
                                 dropId: json["_id"].string!,
                                 filepath: file,
                                 callback: { (returnedJson, error) -> Void in
+                                    self.onProgress(1)
+
                                     if let json = returnedJson {
                                         if let _ = self.userId {
                                             self.syncDrops()
