@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// defines the backend api version this implementation is intended for
+let COMPATBILE_VERSION = "v1"
+
 // MARK: - Router enum
 /**
 Router for authentification based paths.
@@ -22,6 +25,15 @@ That very method for custom http headers is advised by Alamofire.
 */
 enum Router: URLRequestConvertible {
     static let baseUrlString = Config.apiUrl
+
+    /**
+    Checks API compliance for a given URL
+    
+     :param: url     The URL
+
+     :returns: URLRequestConvertible
+    */
+    case CheckAPI(String)
 
     /**
     Creates request for creating a user
@@ -121,7 +133,7 @@ enum Router: URLRequestConvertible {
             return .POST
         case .DeleteUser:
             return .DELETE
-        case .GetUser, .GetDrops:
+        case .GetUser, .GetDrops, .CheckAPI:
             return .GET
         case .UpdateUser:
             return .PUT
@@ -134,6 +146,8 @@ enum Router: URLRequestConvertible {
     */
     var path: String {
         switch self {
+        case .CheckAPI(let url):
+            return url
         case .CreateUser:
             return "/users"
         case .DeleteUser(let userId, _):
@@ -157,9 +171,17 @@ enum Router: URLRequestConvertible {
 
     // MARK: URLRequestConvertible
     var URLRequest: NSMutableURLRequest {
-        let URL:NSURL! = NSURL(string: Router.baseUrlString)
-        let mutableURLRequest = NSMutableURLRequest(URL:
-            URL.URLByAppendingPathComponent(path))
+        var mutableURLRequest: NSMutableURLRequest
+
+        switch self {
+        case .CheckAPI:
+            mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: path)!)
+        default:
+            let URL:NSURL! = NSURL(string: Router.baseUrlString)
+            mutableURLRequest = NSMutableURLRequest(URL:
+                URL.URLByAppendingPathComponent(path))
+        }
+
         mutableURLRequest.HTTPMethod = method.rawValue
 
         // MARK: Custom headers
@@ -223,11 +245,47 @@ This class provides an interface to the idrop.link backend API.
 */
 final class Networking {
 
-
     /**
     Custom callback type alias
     */
     typealias APICallback = ((JSON?, NSError?) -> ())
+
+    /**
+    Check for API compliance for a given URL
+    
+    :param: url     The URL to check
+    */
+    class func checkAPI(url: String, callback: APICallback) {
+        var _url: String
+
+        let range = url.rangeOfString("/api/v")
+
+        if range != nil {
+            _url = url
+        } else if url[url.endIndex] == "/" {
+            // url already has trailing slash
+            _url = url
+            _url += "api/"
+            _url += COMPATBILE_VERSION
+        } else {
+            _url = url
+            _url += "/api"
+            _url += COMPATBILE_VERSION
+        }
+
+        Alamofire
+            .request(Router.CheckAPI(url))
+            .responseJSON {
+                response in
+                if let error = response.result.error {
+                    callback(nil, error)
+                } else if let json = response.result.value {
+                    callback(JSON(json), nil)
+                } else {
+                    callback(nil, nil)
+                }
+        }
+    }
 
     /**
     Creates a User with the given credentials
