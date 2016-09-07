@@ -53,7 +53,7 @@ class LoginWindowController: NSWindowController {
 
         CGPathMoveToPoint(shakePath, nil, NSMinX(frame), NSMinY(frame))
 
-        for (var i = 0; i < numberOfShakes; i++) {
+        for (var i = 0; i < numberOfShakes; i += 1) {
             CGPathAddLineToPoint(shakePath, nil,
                 NSMinX(frame) - frame.size.width * vigourOfShake,
                 NSMinY(frame))
@@ -79,7 +79,8 @@ class LoginWindowController: NSWindowController {
             self.spinner.stopAnimation(sender)
             self.loginButton.enabled = true
             self._window.orderOut(sender)
-            Notification.showNotification("idrop.link", subtitle: "You are logged in.")
+            Notification.showNotification("idrop.link",
+                                          subtitle: "You are logged in.")
             return
         }
 

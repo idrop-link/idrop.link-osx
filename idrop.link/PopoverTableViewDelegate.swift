@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppKit
 
 class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     var popoverTableView: PopoverTableView?
@@ -49,7 +50,7 @@ class PopoverTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDele
     func tableViewSelectionDidChange(notification: NSNotification) {
         // sets selected items in bold font
         self.popoverTableView?.enumerateAvailableRowViewsUsingBlock({ (rowView, row) -> Void in
-            for (var col = 0; col < rowView.numberOfColumns; col++) {
+            for (var col = 0; col < rowView.numberOfColumns; col += 1) {
                 let cellView: AnyObject? = rowView.viewAtColumn(col)
 
                 if let cV: AnyObject = cellView {

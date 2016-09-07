@@ -142,7 +142,6 @@ class IconView : NSView {
         if (pboard.types as [String]!).contains(NSFilenamesPboardType) {
             let files:[String] = pboard.propertyListForType(NSFilenamesPboardType) as! [String]
 
-            // FIXME: upload multiple files
             for file in files {
                 self.onDrop(file)
             }

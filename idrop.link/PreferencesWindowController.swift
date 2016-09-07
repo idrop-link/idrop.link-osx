@@ -81,6 +81,5 @@ class PreferencesWindowController: NSWindowController {
             // we can't save it anyway
             doOpenAtStartup.enabled = false
         }
-
     }
 }
